@@ -1,0 +1,2 @@
+﻿sidebar_bg =>#0b0d1b;
+hover=>#6943ce;
