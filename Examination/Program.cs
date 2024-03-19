@@ -1,3 +1,5 @@
+using Examination.Repo;
+
 namespace Examination
 {
     public class Program
@@ -8,6 +10,7 @@ namespace Examination
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddScoped<AStudentRepo>();
 
             var app = builder.Build();
 
