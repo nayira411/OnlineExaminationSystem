@@ -1,0 +1,37 @@
+﻿@model Course
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div style="display:flex;flex-direction:row">
+    <h1>Course Details</h1>
+    <a class="btn btn-dark" asp-action="index" style="height:45px;margin-left:30px">Back</a>
+</div>
+
+<div class="alert alert-primary">
+    <dl>
+        <dt style="font-size:20px">Course Name:</dt>
+        <dd>@Model.Cname</dd>
+
+        <dt style="font-size:20px">Course ID:</dt>
+        <dd>@Model.CrId</dd>
+
+        <dt style="font-size:20px">Passing Degree:</dt>
+        <dd>@Model.Passgrade</dd>
+
+        <br />
+        <hr />
+        <h2 style="color:red">Course Topics:</h2>
+
+        <div class="topics-list">
+            @foreach (var item in ViewBag.topics)
+            {
+                <div class="topic-item">
+                    <h3>Topic ID: @item.TopicId</h3>
+                    <p><strong>Topic Name:</strong> @item.TopicName</p>
+                    <p><strong>Topic Description:</strong> @item.TopicDescription</p>
+                </div>
+            }
+        </div>
+    </dl>
+</div>

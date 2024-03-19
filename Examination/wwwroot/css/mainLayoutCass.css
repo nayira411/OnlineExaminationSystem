@@ -28,11 +28,13 @@
 
 
 .main {
+<<<<<<< HEAD
     margin-left: 300px;
+=======
+    margin-left: 280px;
+>>>>>>> master
     padding: 20px;
 }
-
-
 
 .logo {
     display: flex;
@@ -58,6 +60,7 @@
     #collapseExample a:hover,
     a.sharedColor:hover {
         background-color: #6943ce;
+        color:white;
     }
 
 .setting {

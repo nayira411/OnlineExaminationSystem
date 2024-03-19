@@ -1,8 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home";
 }
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,8 +36,15 @@
         <div class="collapse text-center" id="collapseExample">
             <div>
                 <a href="#">Teachers</a>
+<<<<<<< HEAD
                 <a asp-area="" asp-controller="AStudent" asp-action="Display">Student</a>
                 <a href="#">Courses</a>
+=======
+                <a href="#">Students</a>
+                 <a  asp-area="" asp-controller="courses" asp-action="index">Courses</a>
+              
+              
+>>>>>>> master
             </div>
         </div>
 
@@ -51,16 +56,11 @@
             <div>
                 <a href="#services"><i class="fa-solid fa-arrow-right-from-bracket"></i>&ensp;&ensp;&ensp;Log Out</a>
             </div>
-
-
-
         </div>
     </div>
-
     <div class="main">
         @RenderBody()
     </div>
-
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
@@ -68,5 +68,4 @@
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 </body>
-
 </html>

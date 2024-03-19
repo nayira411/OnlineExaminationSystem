@@ -1,0 +1,35 @@
+﻿@model Course
+@{
+	ViewData["Title"] = "UpdateCourse";
+}
+<html>
+<head>
+</head>
+<body>
+	<div style="display:flex">
+		<h2 style="margin-right:10px">Update Course</h2>
+		<a asp-controller="Courses" asp-action="index"
+		   onclick="index" class="btn btn-dark h-25">Back</a>
+	</div>
+	<form method="post" class="form-control" asp-action="UpdateCourse">
+		<div class="form-group">
+			<label asp-for="Cname">Course Name</label>
+			<input class="form-control" asp-for="Cname"  />
+			<span asp-validation-for="Cname" class="text-danger"></span>
+		</div><br />
+		<div class="form-group">
+			<label asp-for="Passgrade">pass</label>
+			<input class="form-control" asp-for="Passgrade" />
+			<span asp-validation-for="Passgrade" class="text-danger" ></span>
+		</div><br />
+		<br />
+		<button type="submit" class="btn btn-info">Save Changes</button>
+	</form>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+</body>
+
+
+</html>
