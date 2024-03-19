@@ -3,6 +3,8 @@
 	ViewData["Title"] = "AddCourse";
 	var topics = ViewBag.allTopics as List<Topic>;
 	SelectList topic = new SelectList(topics, "TopicId", "TopicName");
+	var tracks = ViewBag.Tracks as List<Track>;
+	SelectList track = new SelectList(tracks, "Tid", "Tname");
 
 }
 <html>
@@ -20,7 +22,8 @@
 		   onclick="index" class="btn btn-dark h-25">Back</a>
 	</div>
 	<form method="post" class="form-control form-floating" asp-action="AddCourse"
-		  style="background-color:whitesmoke;width:700px;margin:25px;color:#0b0d1b;">
+		  style="background-color:whitesmoke;width:700px;margin:25px;color:#0b0d1b;" onsubmit="return validateSelection()">
+		
 		<div class="form-group">
 			<label asp-for="Cname">Course Name</label>
 			<input class="form-control" asp-for="Cname" />
@@ -32,20 +35,49 @@
 			<span asp-validation-for="Passgrade"></span>
 		</div>
 		<br />
-		<select class="form-control"  name="topics" multiple>
-			@foreach (var topi in topics)
-			{
-				<option value="@topi.TopicId">@topi.TopicName</option>
-			}
-		</select>
+		<div style="display:flex">
+			<div style="margin-right:20px">
+				<h6>Topics</h6>
+				<select name="topics" class="form-control" multiple>
+					@foreach (var topi in topics)
+					{
+						<option value="@topi.TopicId">@topi.TopicName</option>
+					}
+				</select><br />
+			</div>
 
+			<div>
+				<h6>Track</h6>
+				<select name="Tid">
+					@foreach (var tracK in tracks)
+					{
+						<option value="@tracK.Tid">@tracK.Tname</option>
+					}
+				</select>
 
-		<br /><br />
+				<br />
+			</div>
+		</div>
+		
+		
+		<br />
 		<button type="submit" class="btn " style="background-color:#6943ce;color:white">Add Course</button>
 	</form>
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
 	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+	<script>
+		function validateSelection() {
+			var topicsDropdown = document.getElementsByName("topics")[0];
+			var trackDropdown = document.getElementsByName("Tid")[0];
+
+			if (topicsDropdown.selectedIndex === -1 || trackDropdown.selectedIndex === -1) {
+				alert("Please select values from both Topics and Track dropdowns.");
+				return false;
+			}
+			return true;
+		}
+	</script>
 
 </body>
 </html>

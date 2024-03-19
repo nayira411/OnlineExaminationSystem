@@ -27,7 +27,7 @@ namespace Examination.Controllers
 		public IActionResult Delete(int id)
 		{
 			var res = repo.DeleteCourseById2(id);
-			if (res == -1)
+			if (res == 0)
 			{
 				TempData["ErrorMessage"] = "Cannot delete course. Students are enrolled in this course.";
 				TempData["ShowAlert"] = true;
@@ -51,23 +51,28 @@ namespace Examination.Controllers
 
 		public IActionResult AddCourse()
 		{
-			var allTopics = repo.getAllTopics();
-			ViewBag.allTopics = allTopics;
+			ViewBag.Tracks=repo.GetAllTracks();
+			ViewBag.allTopics = repo.GetAllTopics();
 			return View();
 		}
 		[HttpPost]
-		public IActionResult AddCourse(Course crs, List<int> topics)
+		public IActionResult AddCourse(Course crs, List<int> topics,int Tid)
 		{
+			ViewBag.Tracks = repo.GetAllTracks();
+			ViewBag.allTopics = repo.GetAllTopics();
 			if (ModelState.IsValid)
 			{
 				if (repo.ISCourseUnique(crs.Cname))
 				{
 					var courseId = repo.AddCourse(crs.Cname, crs.Passgrade);
+					repo.AddCourseToTrack(Tid, courseId);	
 					if (courseId > 0)
 					{
 						foreach (var topicId in topics)
 						{
-							repo.AssociateTopicWithCourse(topicId,"gh" ,courseId);
+							var topic=repo.GetTopicById(topicId);
+							var t_Name=topic.TopicName;
+							repo.AssociateTopicWithCourse(topicId,t_Name ,courseId);
 						}
 					}
 					return RedirectToAction("Index");
@@ -76,7 +81,6 @@ namespace Examination.Controllers
 			}
 			return View(crs);
 		}
-
 		//public IActionResult AddCourse(Course crs, List<int> topics)
 		//{
 		//	if (ModelState.IsValid)
