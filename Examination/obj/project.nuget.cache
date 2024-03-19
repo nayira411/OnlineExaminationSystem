@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "l9wYbAq9aYtRFF/0ft20DqHHMXZxIqWjLD2SKykftU0ODpleG+K3axh+l4ljZNCq5tbh36mjYtBs8wbTc51y4g==",
+  "dgSpecHash": "m+Ai0CDmlVVn6wId9cuABd3IwSz4Wz4VXLMmkA3LFhRhSuFX2MwSEwfFGEZzhZSTJC3SiiU6DlwTigj+IvvLLw==",
   "success": true,
-  "projectFilePath": "E:\\my_iti_data\\AdvancedSqlProject\\sqlProject\\OnlineExaminationSystem\\Examination\\Examination.csproj",
+  "projectFilePath": "C:\\Users\\USER\\Documents\\OnlineExaminationSystem\\Examination\\Examination.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USER\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

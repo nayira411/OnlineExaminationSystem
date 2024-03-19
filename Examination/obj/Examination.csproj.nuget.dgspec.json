@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\my_iti_data\\AdvancedSqlProject\\sqlProject\\OnlineExaminationSystem\\Examination\\Examination.csproj": {}
+    "C:\\Users\\USER\\Documents\\OnlineExaminationSystem\\Examination\\Examination.csproj": {}
   },
   "projects": {
-    "E:\\my_iti_data\\AdvancedSqlProject\\sqlProject\\OnlineExaminationSystem\\Examination\\Examination.csproj": {
+    "C:\\Users\\USER\\Documents\\OnlineExaminationSystem\\Examination\\Examination.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\my_iti_data\\AdvancedSqlProject\\sqlProject\\OnlineExaminationSystem\\Examination\\Examination.csproj",
+        "projectUniqueName": "C:\\Users\\USER\\Documents\\OnlineExaminationSystem\\Examination\\Examination.csproj",
         "projectName": "Examination",
-        "projectPath": "E:\\my_iti_data\\AdvancedSqlProject\\sqlProject\\OnlineExaminationSystem\\Examination\\Examination.csproj",
+        "projectPath": "C:\\Users\\USER\\Documents\\OnlineExaminationSystem\\Examination\\Examination.csproj",
         "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "E:\\my_iti_data\\AdvancedSqlProject\\sqlProject\\OnlineExaminationSystem\\Examination\\obj\\",
+        "outputPath": "C:\\Users\\USER\\Documents\\OnlineExaminationSystem\\Examination\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
