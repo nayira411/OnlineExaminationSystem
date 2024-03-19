@@ -1,8 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Home";
 }
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +37,10 @@
             <div>
                 <a href="#">Teachers</a>
                 <a href="#">Students</a>
-                <a href="#">Courses</a>
+               
+                 <a  asp-area="" asp-controller="courses" asp-action="index">Courses</a>
+              
+              
             </div>
         </div>
 
@@ -51,9 +52,6 @@
             <div>
                 <a href="#services"><i class="fa-solid fa-arrow-right-from-bracket"></i>&ensp;&ensp;&ensp;Log Out</a>
             </div>
-
-
-
         </div>
     </div>
 

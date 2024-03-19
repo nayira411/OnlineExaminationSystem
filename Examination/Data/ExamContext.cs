@@ -19,7 +19,7 @@ public partial class ExamContext : DbContext
     public virtual DbSet<Admin> Admins { get; set; }
 
     public virtual DbSet<Answer> Answers { get; set; }
-
+   
     public virtual DbSet<Course> Courses { get; set; }
 
     public virtual DbSet<Exam> Exams { get; set; }

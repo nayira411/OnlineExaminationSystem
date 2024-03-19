@@ -1,2 +1,9 @@
 ﻿sidebar_bg =>#0b0d1b;
 hover=>#6943ce;
+------------ delete icon----------
+<i class="fa-solid fa-trash-can"></i>
+-----------------------------------
+------details---------<i class="fa-solid fa-eye"></i>
+----------------------------------
+<i class="fa-regular fa-pen-to-square"></i>
+-------------------------------------------

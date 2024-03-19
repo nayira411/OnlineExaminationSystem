@@ -1,0 +1,52 @@
+﻿@model Course
+@{
+	ViewData["Title"] = "AddCourse";
+	var topics = ViewBag.allTopics as List<Topic>;
+	SelectList topic = new SelectList(topics, "TopicId", "TopicName");
+
+}
+<html>
+<head>
+	<style>
+		.field-validation-error {
+			color: darkred;
+		}
+	</style>
+</head>
+<body>
+	<div style="display:flex">
+		<h2 style="margin-right:10px">Add Course</h2>
+		<a asp-controller="Courses" asp-action="index"
+		   onclick="index" class="btn btn-dark h-25">Back</a>
+	</div>
+	<form method="post" class="form-control form-floating" asp-action="AddCourse"
+		  style="background-color:whitesmoke;width:700px;margin:25px;color:#0b0d1b;">
+		<div class="form-group">
+			<label asp-for="Cname">Course Name</label>
+			<input class="form-control" asp-for="Cname" />
+			<span asp-validation-for="Cname"></span>
+		</div><br />
+		<div class="form-group">
+			<label asp-for="Passgrade">Pass Grade</label>
+			<input class="form-control" asp-for="Passgrade" />
+			<span asp-validation-for="Passgrade"></span>
+		</div>
+		<br />
+		<select class="form-control"  name="topics" multiple>
+			@foreach (var topi in topics)
+			{
+				<option value="@topi.TopicId">@topi.TopicName</option>
+			}
+		</select>
+
+
+		<br /><br />
+		<button type="submit" class="btn " style="background-color:#6943ce;color:white">Add Course</button>
+	</form>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+</body>
+</html>
+
