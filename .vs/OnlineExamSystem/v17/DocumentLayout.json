@@ -1,10 +1,10 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\USER\\Documents\\OnlineExaminationSystem\\",
+  "WorkspaceRootPath": "E:\\my_iti_data\\AdvancedSqlProject\\sqlProject\\OnlineExaminationSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\user\\documents\\onlineexaminationsystem\\examination\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\my_iti_data\\AdvancedSqlProject\\sqlProject\\OnlineExaminationSystem\\Examination\\Controllers\\CoursesController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Examination\\Controllers\\CoursesController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -24,11 +24,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "CoursesController.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Documents\\OnlineExaminationSystem\\Examination\\Controllers\\CoursesController.cs",
+              "DocumentMoniker": "E:\\my_iti_data\\AdvancedSqlProject\\sqlProject\\OnlineExaminationSystem\\Examination\\Controllers\\CoursesController.cs",
               "RelativeDocumentMoniker": "Examination\\Controllers\\CoursesController.cs",
-              "ToolTip": "C:\\Users\\USER\\Documents\\OnlineExaminationSystem\\Examination\\Controllers\\CoursesController.cs",
+              "ToolTip": "E:\\my_iti_data\\AdvancedSqlProject\\sqlProject\\OnlineExaminationSystem\\Examination\\Controllers\\CoursesController.cs",
               "RelativeToolTip": "Examination\\Controllers\\CoursesController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAADAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAdAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-19T10:19:27.363Z",
               "EditorCaption": ""
