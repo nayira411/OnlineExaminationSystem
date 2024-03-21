@@ -70,12 +70,14 @@ namespace Examination.Repo
 		}
 		public int DeleteCourseById2(int crsId)
 		{
-			int hasRelatedEntities = context.Database.ExecuteSqlRaw("exec ExistenceOfStds @crsId={0}", crsId);
-			if (hasRelatedEntities == -1)
+			Course c1=context.Courses.FirstOrDefault(a => a.CrId == crsId);
+			var x=c1.Sids.ToList();
+			var countOf = x.Count();
+			if(countOf > 0)
 			{
 				return 0;
 			}
-			else 
+			else
 			{
 				context.Courses.FromSqlRaw("exec [DeleteCourse] @crsId={0}", crsId).ToList();
 				context.SaveChanges();
@@ -94,13 +96,6 @@ namespace Examination.Repo
 			int insertedCourseId = (int)insertedCourseIdParam.Value;
 			return insertedCourseId;
 		}
-		//public int AddCourse(string CourseName, int passGrade)
-		//{
-		//	int x;
-		//	var result = context.Database.ExecuteSqlRaw("exec AddCourse @crsName={0}, @passGrade={1},@InsertedCourseId={2}", CourseName, passGrade,x);
-		//	context.SaveChanges();
-		//	return result;
-		//}
 		public void UpdateCourse(int crsId, string crsName, int passGrade)
 		{
 			context.Database.ExecuteSqlRaw("exec UpdateCourse @crsId={0}, @crsName={1}, @passGrade={2}", crsId, crsName, passGrade);

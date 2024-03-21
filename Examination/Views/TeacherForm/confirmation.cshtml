@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "confirmation";
+}
+
+<h1>confirmation</h1>
+
+@if (TempData["ShowAlert"] != null && (bool)TempData["ShowAlert"])
+{
+    <div id="alertContainer">
+        <h1 class="alert alert-success align-content-lg-center">@TempData["ErrorMessage"]</h1>
+    </div>
+}
