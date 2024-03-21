@@ -1,10 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\USER\\Documents\\OnlineExaminationSystem\\",
+  "WorkspaceRootPath": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\user\\documents\\onlineexaminationsystem\\examination\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\h2\\desktop\\sql-conflict\\onlineexaminationsystem\\examination\\views\\courses\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\views\\courses\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\h2\\desktop\\sql-conflict\\onlineexaminationsystem\\examination\\views\\courses\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\views\\courses\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\h2\\desktop\\sql-conflict\\onlineexaminationsystem\\examination\\wwwroot\\css\\mainlayoutcass.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\wwwroot\\css\\mainlayoutcass.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\h2\\desktop\\sql-conflict\\onlineexaminationsystem\\examination\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\h2\\desktop\\sql-conflict\\onlineexaminationsystem\\examination\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\h2\\desktop\\sql-conflict\\onlineexaminationsystem\\examination\\data\\examcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\data\\examcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\h2\\desktop\\sql-conflict\\onlineexaminationsystem\\examination\\views\\shared\\_mainlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\views\\shared\\_mainlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\h2\\desktop\\sql-conflict\\onlineexaminationsystem\\examination\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\h2\\desktop\\sql-conflict\\onlineexaminationsystem\\examination\\views\\report\\examreport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\views\\report\\examreport.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\h2\\desktop\\sql-conflict\\onlineexaminationsystem\\examination\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,19 +54,136 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CoursesController.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Documents\\OnlineExaminationSystem\\Examination\\Controllers\\CoursesController.cs",
-              "RelativeDocumentMoniker": "Examination\\Controllers\\CoursesController.cs",
-              "ToolTip": "C:\\Users\\USER\\Documents\\OnlineExaminationSystem\\Examination\\Controllers\\CoursesController.cs",
-              "RelativeToolTip": "Examination\\Controllers\\CoursesController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAADAAAA",
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\Views\\Courses\\Index.cshtml",
+              "RelativeDocumentMoniker": "Examination\\Views\\Courses\\Index.cshtml",
+              "ToolTip": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\Views\\Courses\\Index.cshtml",
+              "RelativeToolTip": "Examination\\Views\\Courses\\Index.cshtml",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAYwG8AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-21T23:09:28.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\Views\\Courses\\Details.cshtml",
+              "RelativeDocumentMoniker": "Examination\\Views\\Courses\\Details.cshtml",
+              "ToolTip": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\Views\\Courses\\Details.cshtml",
+              "RelativeToolTip": "Examination\\Views\\Courses\\Details.cshtml",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAUwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-21T22:43:07.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Examination\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Examination\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAIwCUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-21T22:31:55.4Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ExamContext.cs",
+              "DocumentMoniker": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\Data\\ExamContext.cs",
+              "RelativeDocumentMoniker": "Examination\\Data\\ExamContext.cs",
+              "ToolTip": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\Data\\ExamContext.cs",
+              "RelativeToolTip": "Examination\\Data\\ExamContext.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAkwCwAAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-19T10:19:27.363Z",
+              "WhenOpened": "2024-03-21T22:13:26.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CoursesController.cs",
+              "DocumentMoniker": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\Controllers\\CoursesController.cs",
+              "RelativeDocumentMoniker": "Examination\\Controllers\\CoursesController.cs",
+              "ToolTip": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\Controllers\\CoursesController.cs",
+              "RelativeToolTip": "Examination\\Controllers\\CoursesController.cs",
+              "ViewState": "AQIAAGMAAAAAAAAAAAAIwHcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-21T21:47:12.66Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Examination\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "Examination\\Views\\_ViewStart.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-21T21:48:25.296Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "mainLayoutCass.css",
+              "DocumentMoniker": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\wwwroot\\css\\mainLayoutCass.css",
+              "RelativeDocumentMoniker": "Examination\\wwwroot\\css\\mainLayoutCass.css",
+              "ToolTip": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\wwwroot\\css\\mainLayoutCass.css",
+              "RelativeToolTip": "Examination\\wwwroot\\css\\mainLayoutCass.css",
+              "ViewState": "AQIAACwAAAAAAAAAAAAAwEIAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-03-21T21:42:50.198Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "Examination\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "Examination\\wwwroot\\js\\site.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-03-21T21:42:38.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_mainLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\Views\\Shared\\_mainLayout.cshtml",
+              "RelativeDocumentMoniker": "Examination\\Views\\Shared\\_mainLayout.cshtml",
+              "ToolTip": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\Views\\Shared\\_mainLayout.cshtml",
+              "RelativeToolTip": "Examination\\Views\\Shared\\_mainLayout.cshtml",
+              "ViewState": "AQIAACkAAAAAAAAAAAAcwD4AAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-21T21:38:13.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ExamReport.cshtml",
+              "DocumentMoniker": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\Views\\Report\\ExamReport.cshtml",
+              "RelativeDocumentMoniker": "Examination\\Views\\Report\\ExamReport.cshtml",
+              "ToolTip": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\Views\\Report\\ExamReport.cshtml",
+              "RelativeToolTip": "Examination\\Views\\Report\\ExamReport.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-21T20:22:27.373Z",
               "EditorCaption": ""
             }
           ]
