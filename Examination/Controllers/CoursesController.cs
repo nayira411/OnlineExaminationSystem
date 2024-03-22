@@ -1,5 +1,4 @@
-﻿using Examination.Data;
-using Examination.Models;
+﻿using Examination.Models;
 using Examination.Repo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;

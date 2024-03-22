@@ -1,4 +1,4 @@
-﻿using Examination.Data;
+﻿
 using Examination.Models;
 using Microsoft.Build.ObjectModelRemoting;
 using Microsoft.Data.SqlClient;
@@ -55,12 +55,12 @@ namespace Examination.Repo
 
 		public Course GetCourseById(int crsId)
 		{
-			var courseDetails = context.Courses.FirstOrDefault(a => a.CrId == crsId && a.TrackCourses.Any(tc => tc.Crid == crsId));
+			var courseDetails = context.Courses.FirstOrDefault(a => a.CrId == crsId && a.Track_Courses.Any(tc => tc.Crid == crsId));
 			return courseDetails;
 		}
 		public void DeleteCourseById(int crsId)
 		{
-			var res = context.Courses.Include(a => a.Sids).FirstOrDefault(a => a.CrId == crsId);
+			var res = context.Courses.Include(a => a.Student_Courses).FirstOrDefault(a => a.CrId == crsId);
 			context.Courses.Remove(res);
 			context.SaveChanges();
 		}
@@ -71,7 +71,7 @@ namespace Examination.Repo
 		public int DeleteCourseById2(int crsId)
 		{
 			Course c1=context.Courses.FirstOrDefault(a => a.CrId == crsId);
-			var x=c1.Sids.ToList();
+			var x=c1.Student_Courses.ToList();
 			var countOf = x.Count();
 			if(countOf > 0)
 			{
@@ -120,8 +120,8 @@ namespace Examination.Repo
 		}
 		public void AddCourseToTrack(int Tid, int crId)
 		{
-			var track = new TrackCourse { Tid = Tid, Crid = crId };
-			context.TrackCourses.Add(track);
+			var track = new Track_Course { TId = Tid, Crid = crId };
+			context.Track_Courses.Add(track);
 			context.SaveChanges();
 		}
 		public bool ISCourseUnique(string courseName)

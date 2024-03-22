@@ -1,5 +1,4 @@
-﻿using Examination.Data;
-using Examination.Models;
+﻿using Examination.Models;
 using Microsoft.EntityFrameworkCore;
 using NuGet.DependencyResolver;
 using NuGet.Protocol;
@@ -23,7 +22,7 @@ namespace Examination.Repo
 		public int GenerateExam(string CourseName,int TrackId,int NoOfMCQ,int NoOfTF,DateTime date,string start,string end,int insId)
 		{
 			var existingExam=context.Exams.FirstOrDefault(a=>a.InsId==insId 
-			&& a.Tid==TrackId && a.CrId.ToString()==CourseName &&a.ExamDate.Day==date.Day);
+			&& a.TId==TrackId && a.CrId.ToString()==CourseName &&a.ExamDate.Day==date.Day);
             Console.WriteLine(existingExam.CrId);
             Console.WriteLine("==============================================");
 			if(existingExam!=null)

@@ -5,13 +5,11 @@ using System.Collections.Generic;
 
 namespace Examination.Models;
 
-public partial class Topic
+public partial class Track_Course
 {
-    public int TopicId { get; set; }
+    public int TId { get; set; }
 
-    public string TopicName { get; set; }
+    public int Crid { get; set; }
 
-    public string TopicDescription { get; set; }
-
-    public int CrId { get; set; }
+    public virtual Course Cr { get; set; }
 }
