@@ -13,7 +13,6 @@ namespace Examination.Controllers
 		public IActionResult Index()
 		{
 			ViewBag.courseCount = repo.getCoursesCount();
-
 			return View(repo.GetAllCourses());
 		}
 		public IActionResult Details(int id)
@@ -81,30 +80,7 @@ namespace Examination.Controllers
 			}
 			return View(crs);
 		}
-		//public IActionResult AddCourse(Course crs, List<int> topics)
-		//{
-		//	if (ModelState.IsValid)
-		//	{
-		//		if (repo.ISCourseUnique(crs.Cname))
-		//		{
-		//		var id=	repo.AddCourse(crs.Cname, crs.Passgrade);
-		//			if(id >0)
-		//			{
-		//			var allCourseTopics = repo.getCourseTopics(id);
-		//			foreach (var item in topics)
-		//			{
-		//				var topic = repo.GetTopicById(item);
-		//				allCourseTopics.Add(topic);
-		//			}
-
-		//			}
-		//			return RedirectToAction("index");
-		//		}
-		//		ModelState.AddModelError(nameof(Course.Cname), "Course name already exists");
-
-		//	}
-		//	return View(crs);
-		//}
+	
 		public IActionResult IsCouseUnique(string courseName)
 		{
 			if (repo.ISCourseUnique(courseName))
