@@ -1,5 +1,4 @@
-﻿using Examination.Data;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Examination.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Data.SqlClient;
@@ -26,7 +25,7 @@ namespace Examination.Repo
         public Student GetStudentDetailsById(int studentId)
         {
             var studentDetails = Context.Students.FromSqlRaw("EXEC GetStudentsAndCourses").ToList()
-                 .FirstOrDefault(s => s.Sid == studentId);
+                 .FirstOrDefault(s => s.SId == studentId);
 
             return studentDetails;
 

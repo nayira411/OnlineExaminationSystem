@@ -42,5 +42,6 @@ public partial class Student
     [Required(ErrorMessage = " course is Required")]
     public int CrsId { get; set; }
 
-    public virtual ICollection<Course> Crs { get; set; } = new List<Course>();
+    //public virtual ICollection<Course> Crs { get; set; } = new List<Course>();
+    public virtual Track Track { get; set; }
 }

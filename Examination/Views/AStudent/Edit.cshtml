@@ -79,7 +79,7 @@
     <div class="form-container">
         <h2>Edit Student</h2>
         <form asp-action="Edit" asp-controller="AStudent" method="post">
-            <input type="hidden"  asp-for="Sid" /> 
+            <input type="hidden"  asp-for="SId" /> 
             <label asp-for="Sname">Name</label><br />
             <input asp-for="Sname" type="text" /><br />
             <span asp-validation-for="Sname"></span><br>
@@ -94,9 +94,9 @@
             <span asp-validation-for="Sgender"></span><br>
 
 
-            <label asp-for="Password">Password</label><br />
-            <input asp-for="Password" type="text" /><br />
-            <span asp-validation-for="Password"></span><br>
+            <label asp-for="password">password</label><br />
+            <input asp-for="password" type="text" /><br />
+            <span asp-validation-for="password"></span><br>
 
             <label asp-for="TrackId">TrackName</label><br />
             <select asp-for="TrackId" asp-items="trkli">

@@ -120,23 +120,23 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.Sid</td>
+                    <td>@item.SId </td>
                     <td>@item.Sname</td>
                     <td>@item.Semail</td>
                     <td>@item.Sgender</td>
                     <td>@item.TrackName</td>
                     <td>
-                        <a style="color:#6943ce" asp-action="Edit" asp-controller="Astudent" asp-route-id="@item.Sid">
+                        <a style="color:#6943ce" asp-action="Edit" asp-controller="Astudent" asp-route-id="@item.SId">
                             <i class="fa-regular fa-pen-to-square"></i>
                         </a>
                     </td>
                     <td>
-                        <a style="color:#6943ce" asp-action="GetStudentDetails" asp-controller="Astudent" asp-route-id="@item.Sid">
+                        <a style="color:#6943ce" asp-action="GetStudentDetails" asp-controller="Astudent" asp-route-id="@item.SId">
                             <i class="fa-solid fa-eye"></i>
                         </a>
                     </td>
                     <td>
-                        <a style="color:#6943ce" asp-action="Delete" onclick="return confirm('Delete student?')" asp-controller="Astudent" asp-route-id="@item.Sid">
+                        <a style="color:#6943ce" asp-action="Delete" onclick="return confirm('Delete student?')" asp-controller="Astudent" asp-route-id="@item.SId">
                             <i class="fa-solid fa-trash-can"></i>
                         </a>
                     </td>

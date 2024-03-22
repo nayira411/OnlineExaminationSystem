@@ -72,9 +72,9 @@ namespace Examination.Controllers
         {
             try
             {
-                Console.WriteLine($"Received student data: {student.Sid}, {student.Sname}, {student.Semail}, {student.Password}, {student.Sgender}, {student.TrackId}, {student.CrsId}");
+                Console.WriteLine($"Received student data: {student.SId}, {student.Sname}, {student.Semail}, {student.password}, {student.Sgender}, {student.TrackId}, {student.CrsId}");
 
-                _stdrepo.UpdateStudent(student.Sid, student.Sname, student.Semail, student.Password, student.Sgender, student.TrackId, student.CrsId);
+                _stdrepo.UpdateStudent(student.SId, student.Sname, student.Semail, student.password, student.Sgender, student.TrackId, student.CrsId);
 
                 Console.WriteLine("Student details updated successfully.");
                 ViewBag.ConfirmationMessage = "Student details updated successfully.";
@@ -103,7 +103,7 @@ namespace Examination.Controllers
         {
             try
             {
-                _stdrepo.AddStudent(student.Sname, student.Semail, student.Password, student.Sgender, student.TrackId);
+                _stdrepo.AddStudent(student.Sname, student.Semail, student.password, student.Sgender, student.TrackId);
                 ViewBag.ConfirmationMessage = "Student details added successfully.";
             }
             catch (Exception ex)
