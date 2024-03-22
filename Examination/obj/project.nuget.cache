@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DKDRg2CeRO3kCFAupK8TSwL5DZWtmDCUoHNZLqhVlqULa7/YgFKMOxkX4FzMgXA1WUkJC0wOgNy49qpdRHWy0g==",
+  "dgSpecHash": "tLGi1DggRTRg0CMMKgj2yZCxfj6SbRMl+Rca+10AOlZB9z/w7GG/U/BwYod7J1EihBg87cwuUfQFoNSUZNI9tQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\Examination.csproj",
+  "projectFilePath": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\Examination.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\H2\\.nuget\\packages\\alanjuden.mvcreportviewer.netcore\\1.0.10\\alanjuden.mvcreportviewer.netcore.1.0.10.nupkg.sha512",
     "C:\\Users\\H2\\.nuget\\packages\\aspnetcore.reporting\\2.1.0\\aspnetcore.reporting.2.1.0.nupkg.sha512",
