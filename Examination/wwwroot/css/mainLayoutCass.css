@@ -28,7 +28,11 @@
 
 
 .main {
+<<<<<<< HEAD
+    margin-left: 300px;
+=======
     margin-left: 280px;
+>>>>>>> master
     padding: 20px;
 }
 
