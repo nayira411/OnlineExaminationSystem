@@ -5,15 +5,19 @@ using System.Collections.Generic;
 
 namespace Examination.Models;
 
-public partial class Answer
+public partial class Student_Answer
 {
-    public int AnswerId { get; set; }
+    public int SId { get; set; }
 
-    public string Answerbody { get; set; }
+    public int EId { get; set; }
 
     public int QId { get; set; }
 
-    public bool IsCorrect { get; set; }
+    public string SAnswer { get; set; }
+
+    public virtual Exam EIdNavigation { get; set; }
 
     public virtual Question QIdNavigation { get; set; }
+
+    public virtual Student SIdNavigation { get; set; }
 }

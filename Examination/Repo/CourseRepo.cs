@@ -1,4 +1,4 @@
-﻿using Examination.Data;
+﻿
 using Examination.Models;
 using Microsoft.Build.ObjectModelRemoting;
 using Microsoft.Data.SqlClient;
@@ -55,12 +55,12 @@ namespace Examination.Repo
 
 		public Course GetCourseById(int crsId)
 		{
-			var courseDetails = context.Courses.FirstOrDefault(a => a.CrId == crsId && a.TrackCourses.Any(tc => tc.Crid == crsId));
+			var courseDetails = context.Courses.FirstOrDefault(a => a.CrId == crsId && a.Track_Courses.Any(tc => tc.Crid == crsId));
 			return courseDetails;
 		}
 		public void DeleteCourseById(int crsId)
 		{
-			var res = context.Courses.Include(a => a.Sids).FirstOrDefault(a => a.CrId == crsId);
+			var res = context.Courses.Include(a => a.Student_Courses).FirstOrDefault(a => a.CrId == crsId);
 			context.Courses.Remove(res);
 			context.SaveChanges();
 		}
@@ -70,12 +70,14 @@ namespace Examination.Repo
 		}
 		public int DeleteCourseById2(int crsId)
 		{
-			int hasRelatedEntities = context.Database.ExecuteSqlRaw("exec ExistenceOfStds @crsId={0}", crsId);
-			if (hasRelatedEntities == -1)
+			Course c1=context.Courses.FirstOrDefault(a => a.CrId == crsId);
+			var x=c1.Student_Courses.ToList();
+			var countOf = x.Count();
+			if(countOf > 0)
 			{
 				return 0;
 			}
-			else 
+			else
 			{
 				context.Courses.FromSqlRaw("exec [DeleteCourse] @crsId={0}", crsId).ToList();
 				context.SaveChanges();
@@ -94,13 +96,6 @@ namespace Examination.Repo
 			int insertedCourseId = (int)insertedCourseIdParam.Value;
 			return insertedCourseId;
 		}
-		//public int AddCourse(string CourseName, int passGrade)
-		//{
-		//	int x;
-		//	var result = context.Database.ExecuteSqlRaw("exec AddCourse @crsName={0}, @passGrade={1},@InsertedCourseId={2}", CourseName, passGrade,x);
-		//	context.SaveChanges();
-		//	return result;
-		//}
 		public void UpdateCourse(int crsId, string crsName, int passGrade)
 		{
 			context.Database.ExecuteSqlRaw("exec UpdateCourse @crsId={0}, @crsName={1}, @passGrade={2}", crsId, crsName, passGrade);
@@ -125,8 +120,8 @@ namespace Examination.Repo
 		}
 		public void AddCourseToTrack(int Tid, int crId)
 		{
-			var track = new TrackCourse { Tid = Tid, Crid = crId };
-			context.TrackCourses.Add(track);
+			var track = new Track_Course { TId = Tid, Crid = crId };
+			context.Track_Courses.Add(track);
 			context.SaveChanges();
 		}
 		public bool ISCourseUnique(string courseName)
