@@ -20,7 +20,7 @@ namespace Examination.Repo
         public void Delete(int id)
         {
 
-            Context.Database.ExecuteSqlRaw("EXEC DeleteStudent @stId", new SqlParameter("@stId", id));
+            Context.Database.ExecuteSqlRaw("EXEC DeleteStudent @stId", new System.Data.SqlClient.SqlParameter("@stId", id));
             Context.SaveChanges();
         }
         public Student GetStudentDetailsById(int studentId)
@@ -47,13 +47,13 @@ namespace Examination.Repo
             {
                 Context.Database.ExecuteSqlRaw(
                     "EXEC UpdateStudent @stId, @stName, @stEmail, @stPassword, @stGender, @TrackId, @crsId",
-                    new SqlParameter("@stId", studentId),
-                    new SqlParameter("@stName", name),
-                    new SqlParameter("@stEmail", email),
-                    new SqlParameter("@stPassword", password),
-                    new SqlParameter("@stGender", gender),
-                    new SqlParameter("@TrackId", trackId),
-                    new SqlParameter("@crsId", courseId)
+                    new System.Data.SqlClient.SqlParameter("@stId", studentId),
+                    new System.Data.SqlClient.SqlParameter("@stName", name),
+                    new System.Data.SqlClient.SqlParameter("@stEmail", email),
+                    new System.Data.SqlClient.SqlParameter("@stPassword", password),
+                    new System.Data.SqlClient.SqlParameter("@stGender", gender),
+                    new System.Data.SqlClient.SqlParameter("@TrackId", trackId),
+                    new System.Data.SqlClient.SqlParameter("@crsId", courseId)
                 );
 
                
@@ -80,11 +80,11 @@ namespace Examination.Repo
                 {
                     Context.Database.ExecuteSqlRaw(
                         "EXEC AddStudent @stName, @stEmail, @stPassword, @stGender, @TrackId",
-                        new SqlParameter("@stName", name),
-                        new SqlParameter("@stEmail", email),
-                        new SqlParameter("@stPassword", password),
-                        new SqlParameter("@stGender", gender),
-                        new SqlParameter("@TrackId", trackId)
+                        new System.Data.SqlClient.SqlParameter("@stName", name),
+                        new System.Data.SqlClient.SqlParameter("@stEmail", email),
+                        new System.Data.SqlClient.SqlParameter("@stPassword", password),
+                        new System.Data.SqlClient.SqlParameter("@stGender", gender),
+                        new System.Data.SqlClient.SqlParameter("@TrackId", trackId)
                     );
 
                     Context.SaveChanges();
