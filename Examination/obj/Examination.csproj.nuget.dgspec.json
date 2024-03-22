@@ -13,6 +13,9 @@
         "packagesPath": "C:\\Users\\H2\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\H2\\Desktop\\sql-conflict\\OnlineExaminationSystem\\Examination\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\H2\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
