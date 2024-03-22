@@ -1,3 +1,6 @@
+using Examination.Repo;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 namespace Examination
 {
     public class Program
@@ -8,6 +11,9 @@ namespace Examination
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddScoped<IAccountRepo, AccountRepo>();
+            builder.Services.AddSession();
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 
             var app = builder.Build();
 
@@ -23,12 +29,14 @@ namespace Examination
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
+            app.UseSession();
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Account}/{action=Login}/{id?}");
 
             app.Run();
         }

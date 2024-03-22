@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Examination.Models;
 
-public partial class Admin
+public partial class Admin : User
 {
     public int Aid { get; set; }
 

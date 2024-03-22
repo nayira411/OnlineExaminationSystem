@@ -20,6 +20,12 @@
 
   <ItemGroup>
     <Folder Include="Data\" />
+    <Folder Include="wwwroot\fonts\linearicons\fonts\" />
+    <Folder Include="wwwroot\fonts\muli\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\.DS_Store" />
   </ItemGroup>
 
 </Project>
