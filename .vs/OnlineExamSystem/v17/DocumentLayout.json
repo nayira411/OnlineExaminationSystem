@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\USER\\Videos\\OnlineExaminationSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\user\\videos\\onlineexaminationsystem\\examination\\models\\instructor_course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\models\\instructor_course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\user\\videos\\onlineexaminationsystem\\examination\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\controllers\\coursescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Instructor_Course.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Videos\\OnlineExaminationSystem\\Examination\\Models\\Instructor_Course.cs",
+              "RelativeDocumentMoniker": "Examination\\Models\\Instructor_Course.cs",
+              "ToolTip": "C:\\Users\\USER\\Videos\\OnlineExaminationSystem\\Examination\\Models\\Instructor_Course.cs",
+              "RelativeToolTip": "Examination\\Models\\Instructor_Course.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAwwAgAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-22T11:12:52.085Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CoursesController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Videos\\OnlineExaminationSystem\\Examination\\Controllers\\CoursesController.cs",
+              "RelativeDocumentMoniker": "Examination\\Controllers\\CoursesController.cs",
+              "ToolTip": "C:\\Users\\USER\\Videos\\OnlineExaminationSystem\\Examination\\Controllers\\CoursesController.cs",
+              "RelativeToolTip": "Examination\\Controllers\\CoursesController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-19T10:19:27.363Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
