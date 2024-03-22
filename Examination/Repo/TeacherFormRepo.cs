@@ -1,5 +1,7 @@
 ﻿using Examination.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using NuGet.DependencyResolver;
 using NuGet.Protocol;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -38,5 +40,18 @@ namespace Examination.Repo
 			return 1;
 			}
         }
+		public List<Student_Course> GetStudentsWithInstructor(int id)
+		{
+			var res = context.Student_Courses.Where(a=>a.CrId==id).ToList();
+			return res;
+		}
+		public void UpdateDegree(int id,int degree,int crId)
+		{
+			var res = context.Student_Courses.FirstOrDefault(a=>a.SId==id && a.CrId==crId);
+			res.degree = degree;
+			context.SaveChanges();
+            Console.WriteLine("updated successfully !");
+        }
+	
     }
 }
