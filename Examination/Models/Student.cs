@@ -9,7 +9,12 @@ namespace Examination.Models;
 
 public partial class Student 
 {
+<<<<<<< HEAD
     public int SId { get; set; }
+=======
+    [Key]
+    public int Sid { get; set; }
+>>>>>>> origin/bothinaahmed
 
      [Required(ErrorMessage = " Name is Required")]
     [StringLength(20, MinimumLength = 3)]
@@ -42,6 +47,7 @@ public partial class Student
     [Required(ErrorMessage = " course is Required")]
     public int CrsId { get; set; }
 
-    //public virtual ICollection<Course> Crs { get; set; } = new List<Course>();
     public virtual Track Track { get; set; }
+    public virtual ICollection<Course> Crs { get; set; } = new List<Course>();
+    public ICollection<StudentCourse> Courses { get; set; }
 }

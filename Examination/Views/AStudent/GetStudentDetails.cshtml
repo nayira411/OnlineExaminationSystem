@@ -20,9 +20,9 @@
         .container {
             background-color: #fff;
             padding: 20px;
-            width:400px;
+            width: 400px;
             border-radius: 8px;
-            margin-left:-50px;
+            margin-left: -50px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
@@ -30,12 +30,25 @@
             font-weight: bold;
             margin-bottom: 5px;
             color: #6943ce;
-            font-size:20px;
+            font-size: 20px;
         }
 
         .value {
             margin-bottom: 15px;
             font-size: 25px;
+        }
+
+        .course-list {
+            margin-top: 20px;
+        }
+
+        .course-item {
+            margin-bottom: 10px;
+        }
+
+        .course-title {
+            font-weight: bold;
+            color: #333;
         }
     </style>
 </head>
@@ -53,16 +66,27 @@
         <div class="label">Email:</div>
         <div class="value">@Model.Semail</div>
 
-
         <div class="label">Password:</div>
         <div class="value">@Model.password</div>
 
-
-        <div class="label">Course:</div>
-        <div class="value">@Model.CourseName</div>
+      
 
         <div class="label">Track:</div>
         <div class="value">@Model.TrackName</div>
+
+
+          <div class="course-list">
+            <div class="label">Courses:</div>
+            @foreach (var course in ViewBag.Courses)
+            {
+                <div class="course-item">
+                    <span class="course-title">@course.CourseName</span>
+
+                  
+                </div>
+            }
+
+        </div>
     </div>
 </body>
 </html>

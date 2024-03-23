@@ -100,7 +100,7 @@
     </div>
 
 
-    <table class="rwd-table" id="keywords">
+    <table class="rwd-table w-100" id="keywords">
         <thead>
             <tr style="background-color: #6943ce">
                 <th>ID</th>
@@ -151,21 +151,20 @@
             $("#searchButton").on("click", function () {
                 var searchText = $("#searchText").val().trim().toLowerCase();
 
-                // Iterate over each table row in tbody
+               
                 $("#keywords tbody tr").each(function () {
                     var row = $(this);
                     var rowVisible = false;
 
-                    // Iterate over each cell in the row
+                    
                     row.find("td").each(function () {
                         var cellText = $(this).text().trim().toLowerCase();
                         if (cellText.includes(searchText)) {
                             rowVisible = true;
-                            return false; // Break out of the loop once a match is found in this row
-                        }
+                            return false; 
                     });
 
-                    // Show or hide the row based on search result
+                   
                     if (rowVisible) {
                         row.show();
                     } else {

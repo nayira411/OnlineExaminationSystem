@@ -10,11 +10,27 @@ namespace Examination.Repo
     {
         ExamContext Context = new ExamContext();
 
-        public List<Student> GetAllAtudents()
+        public List<Student> GetAllStudents()
         {
-            var students = Context.Students.FromSqlRaw("EXEC GetStudentsAndCourses").ToList();
-            return students;
+            var studentsWithCourses = Context.Students.FromSqlRaw("EXEC GetStudentsAndCourses").ToList();
+
+            var distinctStudents = studentsWithCourses
+                .GroupBy(s => s.Sid)
+                .Select(g => new Student
+                {
+                    Sid = g.Key,
+                    Sname = g.First().Sname,
+                    Semail = g.First().Semail,
+                    Sgender = g.First().Sgender,
+                    TrackName = g.First().TrackName,
+                    
+                })
+                .ToList();
+
+            return distinctStudents;
         }
+
+
 
         public void Delete(int id)
         {
@@ -30,6 +46,17 @@ namespace Examination.Repo
             return studentDetails;
 
         }
+        public List<StudentCourse> GetStudentCourses(int studentId)
+        {
+            var studentCourses = Context.Set<StudentCourse>()
+                .FromSqlRaw("EXEC GetStudentCourses @stId", new SqlParameter("@stId", studentId))
+                .ToList();
+
+            return studentCourses;
+        }
+
+
+
         public List<Course> GetCourses()
         {
             
@@ -55,7 +82,7 @@ namespace Examination.Repo
                     new System.Data.SqlClient.SqlParameter("@crsId", courseId)
                 );
 
-               
+              
                 Context.SaveChanges();
             }
             catch (Exception ex)
@@ -69,7 +96,7 @@ namespace Examination.Repo
 
         public string AddStudent(string name, string email, string password, string gender, int trackId)
         {
-            if (Context.Students.Count() == 8)
+            if (Context.Students.Count() ==  25 )
             {
                 return "Can't Add";
             }
@@ -118,7 +145,16 @@ namespace Examination.Repo
             }
         }
 
+     public   List<StudentCourse> GetStudetGrade(int studentId)
+        {
+            var studentgrade = Context.Set<StudentCourse>()
+                .FromSqlRaw("EXEC GetStudentgrade @stId", new SqlParameter("@stId", studentId))
+                .ToList();
 
+            return studentgrade;
+        }
+
+      
 
 
 
@@ -127,3 +163,5 @@ namespace Examination.Repo
 
     }
 }
+
+
