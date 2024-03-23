@@ -1,4 +1,5 @@
-﻿using Examination.Repo;
+﻿using Examination.Models;
+using Examination.Repo;
 using Microsoft.AspNetCore.Mvc;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -6,7 +7,7 @@ namespace Examination.Controllers
 {
 	public class TeacherFormController : Controller
 	{
-		int insId = 2;//will be from db
+		int insId = 3;//will be from db
 
 		TeacherFormRepo repo = new TeacherFormRepo();
 		public IActionResult Index()
@@ -67,6 +68,28 @@ namespace Examination.Controllers
             }
             return RedirectToAction("ShowTeacherCourses");
         }
+		public IActionResult TeacherHomePage()
+		{
+            var courses = repo.GetInsCourses(insId);
+            List<string> StudentsNames = new List<string>();
+            List<int> stdsDegrees = new List<int>();
+            foreach (var crs in courses)
+            {
+                foreach (var studentCourse in crs.Student_Courses)
+                {
+                        StudentsNames.Add(studentCourse.SIdNavigation.Sname+"-"+ studentCourse.Cr.Cname); 
+                        stdsDegrees.Add(studentCourse.degree.Value);
+                }
+            }
+            var viewModel = new ChartViewModel
+            {
+                Labels = StudentsNames.ToArray(),
+                Data = stdsDegrees.ToArray()
+            };
+            ViewBag.TeacherCourses = repo.GetInsCourses(insId);
+            ViewBag.success = repo.CalculateSuccessPercentage(insId);
+            return View(viewModel);
+		}
 
     }
 }
