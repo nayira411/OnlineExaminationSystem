@@ -1,5 +1,6 @@
 ﻿using Examination.Models;
 using Examination.Repo;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ namespace Examination.Controllers
 	public class CoursesController : Controller
 	{
 		CourseRepo repo = new CourseRepo();
+		[Authorize(Roles ="Student")]
 		public IActionResult Index()
 		{
 			ViewBag.courseCount = repo.getCoursesCount();
@@ -22,6 +24,7 @@ namespace Examination.Controllers
 			ViewBag.topics = topics;
 			return View(res);
 		}
+		[Authorize(Roles = "Instructor")]
 		public IActionResult Delete(int id)
 		{
 			var res = repo.DeleteCourseById2(id);
@@ -46,7 +49,7 @@ namespace Examination.Controllers
 			repo.DeleteCourseById2(id.Value);
 			return RedirectToAction("index");
 		}
-
+		[Authorize(Roles = "Admin")]
 		public IActionResult AddCourse()
 		{
 			ViewBag.Tracks=repo.GetAllTracks();
