@@ -18,40 +18,61 @@ namespace Examination.Repo
 		}
 		public List<Track> GetInsTracks(int? id)
 		{
-            var res = context.Tracks.FromSqlRaw("exec GetInsTracks @insId={0}", id).ToList();
-            return res;
-        }
-		public int GenerateExam(string CourseName,int TrackId,int NoOfMCQ,int NoOfTF,DateTime date,string start,string end,int insId)
+			var res = context.Tracks.FromSqlRaw("exec GetInsTracks @insId={0}", id).ToList();
+			return res;
+		}
+		public int GenerateExam(string CourseName, int TrackId, int NoOfMCQ, int NoOfTF, DateTime date, string start, string end, int insId)
 		{
-			var existingExam=context.Exams.FirstOrDefault(a=>a.InsId==insId 
-			&& a.TId==TrackId && a.CrId.ToString()==CourseName &&a.ExamDate.Day==date.Day);
-            Console.WriteLine(existingExam.CrId);
-            Console.WriteLine("==============================================");
-			if(existingExam!=null)
+			var existingExam = context.Exams.FirstOrDefault(a => a.InsId == insId
+			&& a.TId == TrackId && a.CrId.ToString() == CourseName && a.ExamDate.Day == date.Day);
+			Console.WriteLine(existingExam.CrId);
+			Console.WriteLine("==============================================");
+			if (existingExam != null)
 			{
 				return -1;
 			}
 			else
 			{
-            var res = context.Database.ExecuteSqlRaw("exec GenerateExam @NoOfMCQ={0},@NoOfTF={1} ,@CourseName={2} ,@Date={3},@start={4},@end={5},@insId={6},@TrackId={7}",
-                    NoOfMCQ, NoOfTF, CourseName, date, start, end, insId, TrackId);
-			context.SaveChanges();
-            Console.WriteLine("saved correctly");
-			return 1;
+				var res = context.Database.ExecuteSqlRaw("exec GenerateExam @NoOfMCQ={0},@NoOfTF={1} ,@CourseName={2} ,@Date={3},@start={4},@end={5},@insId={6},@TrackId={7}",
+						NoOfMCQ, NoOfTF, CourseName, date, start, end, insId, TrackId);
+				context.SaveChanges();
+				Console.WriteLine("saved correctly");
+				return 1;
 			}
-        }
+		}
 		public List<Student_Course> GetStudentsWithInstructor(int id)
 		{
-			var res = context.Student_Courses.Where(a=>a.CrId==id).ToList();
+			var res = context.Student_Courses.Where(a => a.CrId == id).ToList();
 			return res;
 		}
-		public void UpdateDegree(int id,int degree,int crId)
+		public void UpdateDegree(int id, int degree, int crId)
 		{
-			var res = context.Student_Courses.FirstOrDefault(a=>a.SId==id && a.CrId==crId);
+			var res = context.Student_Courses.FirstOrDefault(a => a.SId == id && a.CrId == crId);
 			res.degree = degree;
 			context.SaveChanges();
-            Console.WriteLine("updated successfully !");
-        }
-	
-    }
+			Console.WriteLine("updated successfully !");
+		}
+		public double CalculateSuccessPercentage(int id)
+		{
+			var totalNumOfSuccess = 0;
+			var res = GetInsCourses(id);
+			int TotalStudents = 1;
+			foreach (var a in res)
+			{
+				foreach (var studentCourse in a.Student_Courses)
+				{
+					TotalStudents++;
+					if (studentCourse.degree > studentCourse.Cr.Passgrade)
+					{
+						totalNumOfSuccess++;
+					}
+				}
+			}
+			double successPercentage = ((double)totalNumOfSuccess / TotalStudents) * 100;
+			double roundedSuccessPercentage = Math.Round(successPercentage, 1);
+			return roundedSuccessPercentage;
+		}
+
+
+	}
 }
