@@ -1,5 +1,6 @@
 ﻿using Examination.Models;
 using Examination.Repo;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -9,10 +10,10 @@ namespace Examination.Controllers
 	public class CoursesController : Controller
 	{
 		CourseRepo repo = new CourseRepo();
+		[Authorize(Roles ="Student")]
 		public IActionResult Index()
 		{
 			ViewBag.courseCount = repo.getCoursesCount();
-
 			return View(repo.GetAllCourses());
 		}
 		public IActionResult Details(int id)
@@ -23,6 +24,7 @@ namespace Examination.Controllers
 			ViewBag.topics = topics;
 			return View(res);
 		}
+		[Authorize(Roles = "Instructor")]
 		public IActionResult Delete(int id)
 		{
 			var res = repo.DeleteCourseById2(id);
@@ -47,7 +49,7 @@ namespace Examination.Controllers
 			repo.DeleteCourseById2(id.Value);
 			return RedirectToAction("index");
 		}
-
+		[Authorize(Roles = "Admin")]
 		public IActionResult AddCourse()
 		{
 			ViewBag.Tracks=repo.GetAllTracks();
@@ -80,30 +82,7 @@ namespace Examination.Controllers
 			}
 			return View(crs);
 		}
-		//public IActionResult AddCourse(Course crs, List<int> topics)
-		//{
-		//	if (ModelState.IsValid)
-		//	{
-		//		if (repo.ISCourseUnique(crs.Cname))
-		//		{
-		//		var id=	repo.AddCourse(crs.Cname, crs.Passgrade);
-		//			if(id >0)
-		//			{
-		//			var allCourseTopics = repo.getCourseTopics(id);
-		//			foreach (var item in topics)
-		//			{
-		//				var topic = repo.GetTopicById(item);
-		//				allCourseTopics.Add(topic);
-		//			}
-
-		//			}
-		//			return RedirectToAction("index");
-		//		}
-		//		ModelState.AddModelError(nameof(Course.Cname), "Course name already exists");
-
-		//	}
-		//	return View(crs);
-		//}
+	
 		public IActionResult IsCouseUnique(string courseName)
 		{
 			if (repo.ISCourseUnique(courseName))

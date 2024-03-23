@@ -19,7 +19,7 @@
     .sidenav a {
         padding: 10px 15px;
         text-decoration: none;
-        font-size: 18px;
+        font-size: 15px;
         color: #ccc;
         display: block;
         transition: 0.3s;
@@ -28,7 +28,11 @@
 
 
 .main {
+<<<<<<< HEAD
+    margin-left: 300px;
+=======
     margin-left: 280px;
+>>>>>>> master
     padding: 20px;
 }
 
