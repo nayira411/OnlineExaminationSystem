@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Examination.Models;
 
-public partial class Student
+public partial class Student 
 {
     public int SId { get; set; }
 

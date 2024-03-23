@@ -1,0 +1,42 @@
+﻿@model List<Student_Course>
+
+@{
+	ViewData["Title"] = "ShowInstructorStudents";
+}
+<div style="display: flex; align-items: center;">
+	<h1 style="margin-right: 30px;">Students & Their Degrees</h1>
+	<a asp-controller="TeacherForm" asp-action="ShowTeacherCourses" class="btn btn-dark">Back</a>
+</div>
+@if (@ViewBag.students.Count == 0)
+{
+	<br />
+	<h1 class="alert alert-danger" style="text-align:center">No Students Enrolled Yet!</h1>
+}
+else
+{
+	<form method="post" asp-action="EditDegree">
+
+		@foreach (var item in ViewBag.students)
+		{
+			var passDegree = item.Cr.Passgrade;
+			<div style="display: flex; flex-direction: row; align-items: center; width: 700px; height: 100px; background-color: #f2f2f2; border-radius: 8px; margin-top: 20px; padding: 10px;">
+				<div style="margin-right: 20px;">
+					<h2>@item.SId</h2>
+				</div>
+				<div>
+					<h3>@item.SIdNavigation.Sname</h3>
+					<div style="width: 150px; height: 10px; background-color: @((@item.degree >= passDegree) ? "green" : "red"); border-radius: 5px;"></div>
+				</div>
+				<div>
+					<input type="hidden" value="@item.Cr.CrId" name="crId" />
+					<input type="hidden" value="@item.SId" name="studentIds" />
+					<input type="text" value="@item.degree" name="degrees" class="form-control" />
+				</div>
+			</div>
+		}
+		<br />
+		<input type="submit" class="btn" style="background-color:#0b0d1b;color:white" value="Save Changes" />
+	</form>
+
+}
+

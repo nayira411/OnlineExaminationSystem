@@ -1,0 +1,66 @@
+﻿@model ChartViewModel
+@{
+    ViewData["Title"] = "TeacherHomePage";
+}
+
+<h1>Welcome Again</h1>
+
+<div style="display:flex;flex-direction:row;justify-content: space-between;">
+    <div style="display: flex; flex-direction: row; justify-content: space-between;">
+        <div style="width: 500px; height: 210px; background-color: #0b0d1b; color: white; border-radius: 20px; display: flex; flex-direction: row; justify-content: space-between; margin: 10px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            <div style="margin-left: 20px; display: flex; flex-direction: column; justify-content: center; margin: 25px;">
+                <h4>Your Total Courses</h4>
+                <h1 style="font-size: 80px;color:#FF204E;margin-left:15px" id="TotalCoursesCount">@ViewBag.TeacherCourses.Count</h1>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <img src="/Images/teacher2.svg" width="200px" style="margin-right: 20px;">
+            </div>
+        </div>
+    </div>
+    <div style="display: flex; flex-direction: row; justify-content: space-between;">
+        <div style="width: 500px; height: 210px; background-color: #0b0d1b; color: white; border-radius: 20px; display: flex; flex-direction: row; justify-content: space-between; margin: 10px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+            <div style="margin-left: 20px; display: flex; flex-direction: column; justify-content: center; margin: 25px;">
+                <h4>Success Precision</h4>
+                <h1 style="font-size: 80px;color:#FF204E;margin-left:15px" id="SuccessPrecision">@ViewBag.success%</h1>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <img src="/Images/success.svg" width="200px" style="margin-right: 20px;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<center>
+    <hr style="width:500px;text-align:center;color:crimson; border-width: 3px;">
+</center>
+
+<div style="width: 600px; height: 400px;">
+    <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: @Html.Raw(Json.Serialize(Model.Labels)),
+            datasets: [{
+                label: 'Degrees',
+                data: @Html.Raw(Json.Serialize(Model.Data)),
+                backgroundColor: 'rgba(105, 67,206,0.5)',
+                borderColor: 'rgba(11, 13,27, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
