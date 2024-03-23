@@ -1,0 +1,118 @@
+﻿@model Course
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New Exam</title>
+  
+    <style>
+        body {
+            padding: 20px;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #6943ce;
+        }
+    </style>
+</head>
+<body>
+    @if (TempData["ShowAlert"] != null && (bool)TempData["ShowAlert"])
+    {
+        <div id="alertContainer">
+            <h3 class="alert alert-success align-content-lg-center">@TempData["ErrorMessage"]</h3>
+        </div>
+    }
+    <div class="container">
+        <div class="form-container">
+            <h1>Create New Exam</h1>
+            <form method="post" asp-action="CreateExam" onsubmit="return validateSelection()">
+                @*here i put inst id static==========================================*@
+                <input type="text" value="2" hidden name="insId" />
+                <div class="mb-3">
+                    <label for="courseName" class="form-label">Course Name</label>
+                    <select id="courseName" class="form-select" name="CourseName">
+                        <option selected disabled>Select Course</option>
+                        @foreach (var item in ViewBag.TeacherCourses)
+                        {
+                           <option value="@item.CrId">@item.Cname</option>
+                        }
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="TrackName" class="form-label">Track Name</label>
+                    <select id="TrackName" class="form-select" name="TrackId">
+                        <option selected disabled>Select Track</option>
+                        @foreach (var item in ViewBag.TeacherTracks)
+                        {
+                            <option value="@item.TId">@item.Tname</option>
+                        }
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="numOfMcqs" class="form-label" >Number of MCQs</label>
+                    <input type="number" min="1" max="10" class="form-control" id="numOfMcqs" placeholder="Enter number of MCQs" name="NoOfMCQ">
+                </div>
+                <div class="mb-3">
+                    <label for="numOfTF" class="form-label">Number of True & False questions</label>
+                    <input type="number" name="NoOfTF" min="1" max="10" class="form-control" id="numOfTF" placeholder="Enter number of True & False questions">
+                </div>
+                <div class="mb-3">
+                    <label for="examDate" class="form-label">Date of Exam</label>
+                    <input type="date" name="date" class="form-control" id="examDate" min="@DateTime.Now.ToString("yyyy-MM-dd")">
+                </div>
+                <div class="mb-3">
+                    <label for="startTime" class="form-label">Start Time</label>
+                    <input type="time" name="start" class="form-control" id="startTime">
+                </div>
+                <div class="mb-3">
+                    <label for="endTime" class="form-label">End Time</label>
+                    <input type="time" name="end" class="form-control" id="endTime">
+                </div>
+                <button type="submit" class="btn btn-dark">Create</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById("numOfMcqs").addEventListener("blur", function () {
+            let val = parseInt(this.value); 
+            if (val < 1 || val > 10) {
+                val = 1; 
+                this.value = val;
+            }
+        });
+        document.getElementById("numOfTF").addEventListener("blur", function () {
+            let val = parseInt(this.value);
+            if (val < 1 || val > 10) {
+                val = 1;
+                this.value = val;
+            }
+        });
+
+
+        var today = new Date().toISOString().split('T')[0];
+        document.getElementById("examDate").setAttribute("min", today);
+       
+            function validateSelection() {
+                var courseNameDropdown = document.getElementById("courseName");
+                var trackDropdown = document.getElementById("TrackName");
+                var mcqNum = document.getElementById("numOfMcqs").value;
+                var numOfTF = document.getElementById("numOfTF").value;
+                var date = document.getElementById("examDate").value;
+                var start = document.getElementById("startTime").value;
+                var end = document.getElementById("endTime").value;
+
+                if (courseNameDropdown.selectedIndex === 0 || trackDropdown.selectedIndex === 0 || mcqNum === "" || numOfTF === "" || date === "" || start === "" || end === "") {
+                    alert("Please fill out all fields.");
+                    return false;
+                }
+                return true;
+            }
+    </script>
+
+</body>
+</html>

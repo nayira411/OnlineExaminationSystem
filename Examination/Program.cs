@@ -1,5 +1,7 @@
 using Examination.Repo;
+
 using Microsoft.AspNetCore.Authentication.Cookies;
+
 
 namespace Examination
 {
@@ -11,9 +13,13 @@ namespace Examination
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
             builder.Services.AddScoped<IAccountRepo, AccountRepo>();
             builder.Services.AddSession();
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+
+            builder.Services.AddScoped<AStudentRepo>();
+
 
             var app = builder.Build();
 

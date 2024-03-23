@@ -1,0 +1,22 @@
+﻿@model List<Course>
+
+@{
+	ViewData["Title"] = "ShowTeacherCourses";
+}
+
+<h1>Your Courses</h1>
+
+@foreach (var item in ViewBag.TeacherCourses)
+{
+	<div style="display: flex; flex-direction: row; justify-content: space-between; margin-bottom: 20px;">
+		<div style="width: 700px; height: 100px; background-color: #0b0d1b; color: white; border-radius: 20px; display: flex; flex-direction: row; align-items: center; padding: 0 20px;">
+			<div>
+				<h2>@item.Cname</h2>
+				<p>Course ID: <strong>@item.CrId</strong></p>
+			</div>
+			<div style="margin-left: auto;">
+				<a class="btn btn-success" asp-action="ShowInstructorStudents" asp-controller="TeacherForm" asp-route-id="@item.CrId" style="width: 100px;">View Students</a>
+			</div>
+		</div>
+	</div>
+}

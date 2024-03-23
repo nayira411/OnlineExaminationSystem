@@ -1,0 +1,68 @@
+﻿@model Student
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetStudentDetails</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            width:400px;
+            border-radius: 8px;
+            margin-left:-50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #6943ce;
+            font-size:20px;
+        }
+
+        .value {
+            margin-bottom: 15px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="label">Student ID:</div>
+        <div class="value">@Model.SId</div>
+
+        <div class="label">Name:</div>
+        <div class="value">@Model.Sname</div>
+
+        <div class="label">Gender:</div>
+        <div class="value">@Model.Sgender</div>
+
+        <div class="label">Email:</div>
+        <div class="value">@Model.Semail</div>
+
+
+        <div class="label">Password:</div>
+        <div class="value">@Model.password</div>
+
+
+        <div class="label">Course:</div>
+        <div class="value">@Model.CourseName</div>
+
+        <div class="label">Track:</div>
+        <div class="value">@Model.TrackName</div>
+    </div>
+</body>
+</html>

@@ -35,7 +35,6 @@
 			<span asp-validation-for="Passgrade"></span>
 		</div>
 		<br />
-		<div style="display:flex">
 			<div style="margin-right:20px">
 				<h6>Topics</h6>
 				<select name="topics" class="form-control" multiple>
@@ -48,15 +47,15 @@
 
 			<div>
 				<h6>Track</h6>
-				<select name="Tid">
+				<select name="Tid" class="form-control">
 					@foreach (var tracK in tracks)
 					{
-						<option value="@tracK.Tid">@tracK.Tname</option>
+						<option value="@tracK.TId">@tracK.Tname</option>
 					}
 				</select>
 
 				<br />
-			</div>
+		
 		</div>
 		
 		

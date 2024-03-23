@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AlanJuden.MvcReportViewer.NetCore" Version="1.0.10" />
+    <PackageReference Include="AspNetCore.Reporting" Version="2.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter" Version="8.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="8.0.3" />
@@ -19,13 +21,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Connected Services\" />
     <Folder Include="Data\" />
+
     <Folder Include="wwwroot\fonts\linearicons\fonts\" />
     <Folder Include="wwwroot\fonts\muli\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\js\.DS_Store" />
+
+    <Folder Include="wwwroot\Images\" />
+
+    <Folder Include="wwwroot\Images\" />
+
   </ItemGroup>
 
 </Project>
