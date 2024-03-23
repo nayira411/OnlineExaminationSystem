@@ -7,6 +7,7 @@ namespace Examination.Models;
 
 public partial class Student
 {
+    [Key]
     public int Sid { get; set; }
 
     [Required(ErrorMessage = " Name is Required")]
@@ -45,4 +46,6 @@ public partial class Student
     public int CrsId { get; set; }
 
     public virtual ICollection<Course> Crs { get; set; } = new List<Course>();
+
+    public ICollection<StudentCourse> Courses { get; set; }
 }

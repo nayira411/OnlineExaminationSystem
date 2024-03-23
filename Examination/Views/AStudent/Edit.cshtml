@@ -106,10 +106,21 @@
 
             <label asp-for="CrsId">CourseName</label><br />
             <select asp-for="CrsId" asp-items="crsname">
-                <option value="">-- Select Course --</option>
+                
             </select>
             <span asp-validation-for="CrsId"></span><br>
             <br/>
+            
+
+
+         @*    @foreach (var crs in ViewBag.CoursesName)
+            {
+                <div class="course-item">
+                    <span class="course-title">@crs.CourseName</span>
+
+
+                </div>
+            } *@
 
             <input type="submit" value="Update">
             <input style="margin-left:180px" asp-action="Display" asp-controller="AStudent" type="submit" value="back">
