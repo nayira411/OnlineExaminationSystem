@@ -1,0 +1,143 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\h2\\desktop\\check\\onlineexaminationsystem\\examination\\wwwroot\\css\\exam.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\wwwroot\\css\\exam.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\h2\\desktop\\check\\onlineexaminationsystem\\examination\\views\\student\\startexam.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\views\\student\\startexam.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\h2\\desktop\\check\\onlineexaminationsystem\\examination\\repo\\studentrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\repo\\studentrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\h2\\desktop\\check\\onlineexaminationsystem\\examination\\views\\shared\\_mainlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\views\\shared\\_mainlayout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\h2\\desktop\\check\\onlineexaminationsystem\\examination\\models\\answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\models\\answer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\h2\\desktop\\check\\onlineexaminationsystem\\examination\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|c:\\users\\h2\\desktop\\check\\onlineexaminationsystem\\examination\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B903326A-2F9F-4AA3-AD3B-F821EA4985F9}|Examination\\Examination.csproj|solutionrelative:examination\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Exam.css",
+              "DocumentMoniker": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\wwwroot\\css\\Exam.css",
+              "RelativeDocumentMoniker": "Examination\\wwwroot\\css\\Exam.css",
+              "ToolTip": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\wwwroot\\css\\Exam.css",
+              "RelativeToolTip": "Examination\\wwwroot\\css\\Exam.css",
+              "ViewState": "AQIAAF8AAAAAAAAAAAAAACUAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-03-23T20:04:03.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_mainLayout.cshtml",
+              "DocumentMoniker": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\Views\\Shared\\_mainLayout.cshtml",
+              "RelativeDocumentMoniker": "Examination\\Views\\Shared\\_mainLayout.cshtml",
+              "ToolTip": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\Views\\Shared\\_mainLayout.cshtml",
+              "RelativeToolTip": "Examination\\Views\\Shared\\_mainLayout.cshtml",
+              "ViewState": "AQIAADcAAAAAAAAAAAAUwEwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-23T20:00:35.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StartExam.cshtml",
+              "DocumentMoniker": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\Views\\Student\\StartExam.cshtml",
+              "RelativeDocumentMoniker": "Examination\\Views\\Student\\StartExam.cshtml",
+              "ToolTip": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\Views\\Student\\StartExam.cshtml",
+              "RelativeToolTip": "Examination\\Views\\Student\\StartExam.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-03-23T19:57:41.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Answer.cs",
+              "DocumentMoniker": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\Models\\Answer.cs",
+              "RelativeDocumentMoniker": "Examination\\Models\\Answer.cs",
+              "ToolTip": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\Models\\Answer.cs",
+              "RelativeToolTip": "Examination\\Models\\Answer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-23T19:54:44.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Question.cs",
+              "DocumentMoniker": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\Models\\Question.cs",
+              "RelativeDocumentMoniker": "Examination\\Models\\Question.cs",
+              "ToolTip": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\Models\\Question.cs",
+              "RelativeToolTip": "Examination\\Models\\Question.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAiwBMAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-23T19:53:50.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StudentRepo.cs",
+              "DocumentMoniker": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\Repo\\StudentRepo.cs",
+              "RelativeDocumentMoniker": "Examination\\Repo\\StudentRepo.cs",
+              "ToolTip": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\Repo\\StudentRepo.cs",
+              "RelativeToolTip": "Examination\\Repo\\StudentRepo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACYAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-23T19:49:43.185Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\Program.cs",
+              "RelativeDocumentMoniker": "Examination\\Program.cs",
+              "ToolTip": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\Program.cs",
+              "RelativeToolTip": "Examination\\Program.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAwwBYAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-23T19:47:04.508Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

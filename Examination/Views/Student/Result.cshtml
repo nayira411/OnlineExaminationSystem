@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Result";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+@section Header {
+    <link rel="stylesheet" href="/css/Exam.css" />
+}
+
+<script>
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+        history.go(1);
+    };
+</script>
+
+<div id="aftersubmit" class="container" style="text-align: center;">
+    <div class="header1">
+        <p><span style="color:#B80000;font-weight:bold">Congratulations </span>You have Submitted The Exam Successfully!</p>
+    </div>
+    <div class="text">
+        <a>Your Score :@ViewBag.Score/@ViewBag.TotalScore </a>
+        <a class="btn btn-danger">Your Response</a>
+    </div>
+    <div class="img-container1">
+        <img class="animated-image1" src="~/Images/sub2 (1).png" />
+    </div>
+</div>
+
+

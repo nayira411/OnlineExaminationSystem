@@ -5,16 +5,24 @@
       "PackagePath": "staticwebassets\\Examination.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\28-1.jpg.webp",
-      "PackagePath": "staticwebassets\\Images\\28-1.jpg.webp"
-    },
-    {
       "Id": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\courses.svg",
       "PackagePath": "staticwebassets\\Images\\courses.svg"
     },
     {
+      "Id": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\ques.png",
+      "PackagePath": "staticwebassets\\Images\\ques.png"
+    },
+    {
+      "Id": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\ques2.png",
+      "PackagePath": "staticwebassets\\Images\\ques2.png"
+    },
+    {
       "Id": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\student.png",
       "PackagePath": "staticwebassets\\Images\\student.png"
+    },
+    {
+      "Id": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\sub2 (1).png",
+      "PackagePath": "staticwebassets\\Images\\sub2 (1).png"
     },
     {
       "Id": "C:\\Users\\H2\\Desktop\\check\\OnlineExaminationSystem\\Examination\\wwwroot\\css\\TableStd.css",

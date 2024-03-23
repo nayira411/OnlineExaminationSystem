@@ -11,6 +11,8 @@ namespace Examination
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<AStudentRepo>();
+            builder.Services.AddTransient<IStudentRepo, StudentRepo>();
+
 
             var app = builder.Build();
 
