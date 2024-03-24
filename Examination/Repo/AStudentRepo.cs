@@ -1,68 +1,83 @@
 ﻿using System.Collections.Generic;
 using Examination.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Data.SqlClient;
-using Microsoft.Data.SqlClient;
 using System.Linq;
+using Examination.ViewModel;
+using System.Data.Entity;
 namespace Examination.Repo
 {
     public class AStudentRepo
     {
         ExamContext Context = new ExamContext();
 
-        public List<Student> GetAllStudents()
+        public List<StudentCourseTrackModel> GetAllStudents()
         {
-            var studentsWithCourses = Context.Students.FromSqlRaw("EXEC GetStudentsAndCourses").ToList();
+            List<StudentCourseTrackModel> studentCourseTrackModels = new List<StudentCourseTrackModel>();
+            List<Student> Students = Context.Students
+                .FromSqlRaw("EXEC GETStudentsAndCourses").ToList();
 
-            var distinctStudents = studentsWithCourses
-                .GroupBy(s => s.SId)
-                .Select(g => new Student
+            foreach (var Student in Students)
+            {
+                StudentCourseTrackModel stc = new StudentCourseTrackModel();
+                stc.SId = Student.SId;
+                stc.Sname = Student.Sname;
+                stc.Sgender = Student.Sgender;
+                stc.Semail = Student.Semail;
+                stc.password = Student.password;
+                stc.TrackName = Student.Track.Tname;
+                stc.TrackId = Student.TrackId;
+                foreach (Student_Course course in Student.Student_Courses)
                 {
-                    SId = g.Key,
-                    Sname = g.First().Sname,
-                    Semail = g.First().Semail,
-                    Sgender = g.First().Sgender,
-                   // TrackName = g.First().TrackName,
-                    
-                })
-                .ToList();
+                    stc.CourseName = course.Cr.Cname;
+                    stc.CourseId = course.CrId;
 
-            return distinctStudents;
+                }
+                studentCourseTrackModels.Add(stc);
+            }
+            return studentCourseTrackModels;
         }
-
-
-
         public void Delete(int id)
         {
-
-            Context.Database.ExecuteSqlRaw("EXEC DeleteStudent @stId", new System.Data.SqlClient.SqlParameter("@stId", id));
+            Context.Database.ExecuteSqlRaw("EXEC DeleteStudent @stId", new Microsoft.Data.SqlClient.SqlParameter("@stId", id));
             Context.SaveChanges();
         }
-        public Student GetStudentDetailsById(int studentId)
+        public StudentCourseTrackModel GetStudentDetailsById(int studentId)
         {
-            var studentDetails = Context.Students.FromSqlRaw("EXEC GetStudentsAndCourses").ToList()
-                 .FirstOrDefault(s => s.SId == studentId);
+            Student Student = Context.Students
+                .FromSqlRaw("EXEC GETStudentsAndCourses")
+                .AsEnumerable()
+                .FirstOrDefault(s => s.SId == studentId);
 
-            return studentDetails;
 
+            StudentCourseTrackModel stc = new StudentCourseTrackModel();
+            stc.SId = Student.SId;
+            stc.Sname = Student.Sname;
+            stc.Sgender = Student.Sgender;
+            stc.Semail = Student.Semail;
+            stc.password = Student.password;
+            stc.TrackName = Student.Track.Tname;
+            stc.TrackId = Student.TrackId;
+            foreach (Student_Course course in Student.Student_Courses)
+            {
+                stc.CourseName = course.Cr.Cname;
+                stc.CourseId = course.CrId;
+
+            }
+            return stc;
         }
-        public List<StudentCourse> GetStudentCourses(int studentId)
+        public List<Course> GetStudentCourses(int studentId)
         {
-            var studentCourses = Context.Set<StudentCourse>()
-                .FromSqlRaw("EXEC GetStudentCourses @stId", new System.Data.SqlClient.SqlParameter("@stId", studentId))
+            var studentCourses = Context.Set<Course>()
+                .FromSqlRaw("EXEC GetStudentCourses @stId", new Microsoft.Data.SqlClient.SqlParameter("@stId", studentId))
                 .ToList();
 
             return studentCourses;
         }
-
-
-
         public List<Course> GetCourses()
         {
-            
+
             return Context.Courses.ToList();
         }
-
         public List<Track> GetTracks()
         {
             return Context.Tracks.ToList();
@@ -82,7 +97,7 @@ namespace Examination.Repo
                     new System.Data.SqlClient.SqlParameter("@crsId", courseId)
                 );
 
-              
+
                 Context.SaveChanges();
             }
             catch (Exception ex)
@@ -91,12 +106,9 @@ namespace Examination.Repo
                 throw;
             }
         }
-
-
-
         public string AddStudent(string name, string email, string password, string gender, int trackId)
         {
-            if (Context.Students.Count() ==  25 )
+            if (Context.Students.Count() == 25)
             {
                 return "Can't Add";
             }
@@ -106,11 +118,11 @@ namespace Examination.Repo
                 {
                     Context.Database.ExecuteSqlRaw(
                         "EXEC AddStudent @stName, @stEmail, @stPassword, @stGender, @TrackId",
-                        new System.Data.SqlClient.SqlParameter("@stName", name),
-                        new System.Data.SqlClient.SqlParameter("@stEmail", email),
-                        new System.Data.SqlClient.SqlParameter("@stPassword", password),
-                        new System.Data.SqlClient.SqlParameter("@stGender", gender),
-                        new System.Data.SqlClient.SqlParameter("@TrackId", trackId)
+                        new Microsoft.Data.SqlClient.SqlParameter("@stName", name),
+                        new Microsoft.Data.SqlClient.SqlParameter("@stEmail", email),
+                        new Microsoft.Data.SqlClient.SqlParameter("@stPassword", password),
+                        new Microsoft.Data.SqlClient.SqlParameter("@stGender", gender),
+                        new Microsoft.Data.SqlClient.SqlParameter("@TrackId", trackId)
                     );
 
                     Context.SaveChanges();
@@ -125,13 +137,10 @@ namespace Examination.Repo
 
             }
 
-         
-            
+
+
         }
-
-
-    
-    public int GetStudentCount()
+        public int GetStudentCount()
         {
             try
             {
@@ -144,24 +153,37 @@ namespace Examination.Repo
                 throw;
             }
         }
-
-     public   List<StudentCourse> GetStudetGrade(int studentId)
+        public List<Student_Course> GetStudetGrade(int studentId)
         {
-            var studentgrade = Context.Set<StudentCourse>()
+            var studentgrade = Context.Set<Student_Course>()
                 .FromSqlRaw("EXEC GetStudentgrade @stId", new System.Data.SqlClient.SqlParameter("@stId", studentId))
                 .ToList();
 
             return studentgrade;
         }
+        public void UpdateStudentCourse(int studentId, int newCourseId)
+        {
 
-      
+            var student = Context.Students.SingleOrDefault(s => s.SId == studentId);
 
+            if (student != null)
+            {
 
+                foreach (var studentCourse in student.Student_Courses)
+                {
+                    studentCourse.CrId = newCourseId;
+                }
+                Context.SaveChanges();
+            }
 
-
-
+        }
+        public Student GetStudentById(int id)
+        {
+            return Context.Students.FirstOrDefault(s => s.SId == id);
+        }
 
     }
+
 }
 
 
