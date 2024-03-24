@@ -12,7 +12,7 @@ namespace Examination.Repo
 		ExamContext context = new ExamContext();
 		public List<Course> GetAllCourses()
 		{
-			var courses = context.Courses.FromSqlRaw("exec GetAllCourses").ToList();//remove as
+			var courses = context.Courses.FromSqlRaw("exec GetAllCourses").ToList();
 			return courses;
 		}
 		public int getCoursesCount()

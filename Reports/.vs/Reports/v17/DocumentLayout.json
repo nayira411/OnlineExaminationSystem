@@ -1,0 +1,70 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\H2\\source\\repos\\Reports\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{53E09DD9-21B3-43E1-BEBB-C6EDCBD90BBF}|Report\\Report.rptproj|C:\\Users\\H2\\source\\repos\\Reports\\Report\\StudntGrade.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{53E09DD9-21B3-43E1-BEBB-C6EDCBD90BBF}|Report\\Report.rptproj|solutionrelative:Report\\StudntGrade.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53E09DD9-21B3-43E1-BEBB-C6EDCBD90BBF}|Report\\Report.rptproj|C:\\Users\\H2\\source\\repos\\Reports\\Report\\GetExam.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{53E09DD9-21B3-43E1-BEBB-C6EDCBD90BBF}|Report\\Report.rptproj|solutionrelative:Report\\GetExam.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53E09DD9-21B3-43E1-BEBB-C6EDCBD90BBF}|Report\\Report.rptproj|C:\\Users\\H2\\source\\repos\\Reports\\Report\\TopicReport.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{53E09DD9-21B3-43E1-BEBB-C6EDCBD90BBF}|Report\\Report.rptproj|solutionrelative:Report\\TopicReport.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GetExam.rdl [Design]",
+              "DocumentMoniker": "C:\\Users\\H2\\source\\repos\\Reports\\Report\\GetExam.rdl",
+              "RelativeDocumentMoniker": "Report\\GetExam.rdl",
+              "ToolTip": "C:\\Users\\H2\\source\\repos\\Reports\\Report\\GetExam.rdl [Design]",
+              "RelativeToolTip": "Report\\GetExam.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-03-18T21:29:44.038Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StudntGrade.rdl [Design]",
+              "DocumentMoniker": "C:\\Users\\H2\\source\\repos\\Reports\\Report\\StudntGrade.rdl",
+              "RelativeDocumentMoniker": "Report\\StudntGrade.rdl",
+              "ToolTip": "C:\\Users\\H2\\source\\repos\\Reports\\Report\\StudntGrade.rdl [Design]*",
+              "RelativeToolTip": "Report\\StudntGrade.rdl [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-03-17T22:35:33.492Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TopicReport.rdl [Design]",
+              "DocumentMoniker": "C:\\Users\\H2\\source\\repos\\Reports\\Report\\TopicReport.rdl",
+              "RelativeDocumentMoniker": "Report\\TopicReport.rdl",
+              "ToolTip": "C:\\Users\\H2\\source\\repos\\Reports\\Report\\TopicReport.rdl [Design]",
+              "RelativeToolTip": "Report\\TopicReport.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-03-17T14:02:26.395Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
