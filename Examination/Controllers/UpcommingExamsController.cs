@@ -1,16 +1,19 @@
 ﻿using Examination.Repo;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace Examination.Controllers
 {
 	public class UpcommingExamsController : Controller
 	{
 		//this will be from auth data
-		int StdId = 4;
 		TeacherFormRepo repo = new TeacherFormRepo();
 		public IActionResult Index()
 		{
-			var StdTrack = repo.GetTrackIdOfStudent(StdId);
+            var user = HttpContext.User;
+            var studentId = user.FindFirst(c => c.Type == ClaimTypes.Sid).Value;
+			var StdId = int.Parse(studentId);
+            var StdTrack = repo.GetTrackIdOfStudent(StdId);
 			var StdCourses = repo.GetStudentCourses(StdId);
 			List<int> coursesIds = new List<int>();
 			foreach (var Courses in StdCourses)

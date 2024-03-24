@@ -1,17 +1,19 @@
 ﻿using Examination.Models;
 using Examination.Repo;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Examination.Controllers
 {
 	public class TeacherFormController : Controller
 	{
-		int insId = 2;//will be from db
-
 		TeacherFormRepo repo = new TeacherFormRepo();
 		public IActionResult Index()
 		{
+			var user = HttpContext.User;
+			var studentId = user.FindFirst(c => c.Type == ClaimTypes.Sid).Value;
+			int insId = int.Parse(studentId);
 			ViewBag.TeacherCourses = repo.GetInsCourses(insId);
 			ViewBag.TeacherTracks = repo.GetInsTracks(insId);
 			return View();
@@ -41,6 +43,9 @@ namespace Examination.Controllers
 		}
 		public IActionResult ShowTeacherCourses()
 		{
+			var user = HttpContext.User;
+			var studentId = user.FindFirst(c => c.Type == ClaimTypes.Sid).Value;
+			int insId = int.Parse(studentId);
 			ViewBag.TeacherCourses = repo.GetInsCourses(insId);
 			return View();
 		}
@@ -53,44 +58,47 @@ namespace Examination.Controllers
 			ViewBag.students = repo.GetStudentsWithInstructor(Id.Value);
 			return View();
 		}
-        [HttpPost]
-        public IActionResult EditDegree(List<int> degrees, List<int> studentIds,int crId)
-        {
-            for (int i = 0; i < studentIds.Count; i++)
-            {
-                int studentId = studentIds[i];
-                int degree = degrees[i];
+		[HttpPost]
+		public IActionResult EditDegree(List<int> degrees, List<int> studentIds, int crId)
+		{
+			for (int i = 0; i < studentIds.Count; i++)
+			{
+				int studentId = studentIds[i];
+				int degree = degrees[i];
 
-                Console.WriteLine("Student ID: " + studentId);
-                Console.WriteLine("Degree: " + degree);
+				Console.WriteLine("Student ID: " + studentId);
+				Console.WriteLine("Degree: " + degree);
 
-               repo.UpdateDegree(studentId, degree,crId);
-            }
-            return RedirectToAction("ShowTeacherCourses");
-        }
+				repo.UpdateDegree(studentId, degree, crId);
+			}
+			return RedirectToAction("ShowTeacherCourses");
+		}
 		public IActionResult TeacherHomePage()
 		{
-            var courses = repo.GetInsCourses(insId);
-            List<string> StudentsNames = new List<string>();
-            List<int> stdsDegrees = new List<int>();
-            foreach (var crs in courses)
-            {
-                foreach (var studentCourse in crs.Student_Courses)
-                {
-                        StudentsNames.Add(studentCourse.SIdNavigation.Sname+"-"+ studentCourse.Cr.Cname); 
-                        stdsDegrees.Add(studentCourse.grade.Value);
-                }
-            }
-            var viewModel = new ChartViewModel
-            {
-                Labels = StudentsNames.ToArray(),
-                Data = stdsDegrees.ToArray()
-            };
-            ViewBag.TeacherCourses = repo.GetInsCourses(insId);
-            ViewBag.success = repo.CalculateSuccessPercentage(insId);
-            return View(viewModel);
+			var user = HttpContext.User;
+			var studentId = user.FindFirst(c => c.Type == ClaimTypes.Sid).Value;
+			int insId = int.Parse(studentId);
+			var courses = repo.GetInsCourses(insId);
+			List<string> StudentsNames = new List<string>();
+			List<int> stdsDegrees = new List<int>();
+			foreach (var crs in courses)
+			{
+				foreach (var studentCourse in crs.Student_Courses)
+				{
+					StudentsNames.Add(studentCourse.SIdNavigation.Sname + "-" + studentCourse.Cr.Cname);
+					stdsDegrees.Add(studentCourse.grade.Value);
+				}
+			}
+			var viewModel = new ChartViewModel
+			{
+				Labels = StudentsNames.ToArray(),
+				Data = stdsDegrees.ToArray()
+			};
+			ViewBag.TeacherCourses = repo.GetInsCourses(insId);
+			ViewBag.success = repo.CalculateSuccessPercentage(insId);
+			return View(viewModel);
 		}
-		
 
-    }
+
+	}
 }
