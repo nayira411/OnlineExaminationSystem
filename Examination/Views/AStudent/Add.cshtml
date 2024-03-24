@@ -1,0 +1,110 @@
+﻿@model Student
+@{
+    var courses = ViewBag.Courses as List<Course>;
+    var tracks = ViewBag.Tracks as List<Track>;
+    SelectList crsli = new SelectList(courses, "CrId", "Cname");
+    SelectList trkli = new SelectList(tracks, "TId", "Tname");
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 450px;
+            margin-left: -50px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #0b0d1b;
+            color: white;
+            padding: 10px 35px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #6943ce;
+        }
+        h2{
+            color:#6943ce;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Add Student</h2>
+        <form asp-action="Add" asp-controller="AStudent" method="post">
+            <label asp-for="Sname">Name</label><br />
+            <input asp-for="Sname" type="text" /><br />
+            <span asp-validation-for="Sname"></span><br>
+
+            <label asp-for="Semail">Email</label><br />
+            <input asp-for="Semail" type="text" /><br />
+            <span asp-validation-for="Semail"></span><br>
+
+            <label asp-for="Sgender">Gender</label><br />
+            <input type="radio" asp-for="Sgender" value="male" /> Male<br />
+            <input type="radio" asp-for="Sgender" value="female" /> Female<br />
+            <span asp-validation-for="Sgender"></span><br>
+
+            <label asp-for="password">Password</label><br />
+            <input asp-for="password" type="text" /><br />
+            <span asp-validation-for="password"></span><br>
+
+            <label asp-for="TrackId">Track</label><br />
+            <select asp-for="TrackId" asp-items="trkli">
+                <option value="">Select Track</option>
+            </select><br />
+            <span asp-validation-for="TrackId"></span><br>
+
+            <input type="submit" value="Add">
+            <input style="margin-left:200px" asp-action="Display" asp-controller="AStudent" type="submit" value="back">
+        </form>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>

@@ -12,7 +12,7 @@ namespace Examination.Repo
 		ExamContext context = new ExamContext();
 		public List<Course> GetAllCourses()
 		{
-			var courses = context.Courses.FromSqlRaw("exec GetAllCourses").ToList();//remove as
+			var courses = context.Courses.FromSqlRaw("exec GetAllCourses").ToList();
 			return courses;
 		}
 		public int getCoursesCount()
@@ -121,7 +121,7 @@ namespace Examination.Repo
 		public void AddCourseToTrack(int Tid, int crId)
 		{
 			var track = new Track_Course { TId = Tid, Crid = crId };
-			context.Track_Courses.Add(track);
+			context.TrackCourses.Add(track);
 			context.SaveChanges();
 		}
 		public bool ISCourseUnique(string courseName)

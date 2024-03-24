@@ -2,16 +2,18 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Examination.Models;
 
 public partial class Student_Course
 {
+   
     public int SId { get; set; }
 
     public int CrId { get; set; }
 
-    public int? degree { get; set; }
+    public int? grade { get; set; }
 
     public virtual Course Cr { get; set; }
 

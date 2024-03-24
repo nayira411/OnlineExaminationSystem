@@ -25,12 +25,12 @@ else
 				</div>
 				<div>
 					<h3>@item.SIdNavigation.Sname</h3>
-					<div style="width: 150px; height: 10px; background-color: @((@item.degree >= passDegree) ? "green" : "red"); border-radius: 5px;"></div>
+					<div style="width: 150px; height: 10px; background-color: @((@item.grade >= passDegree) ? "green" : "red"); border-radius: 5px;"></div>
 				</div>
 				<div>
 					<input type="hidden" value="@item.Cr.CrId" name="crId" />
 					<input type="hidden" value="@item.SId" name="studentIds" />
-					<input type="text" value="@item.degree" name="degrees" class="form-control" />
+					<input type="text" value="@item.grade" name="degrees" class="form-control" />
 				</div>
 			</div>
 		}

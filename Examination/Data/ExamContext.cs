@@ -3,6 +3,9 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Examination.ViewModel;
+using System.Data.Entity.Infrastructure;
+using Examination.ViewModel;
 
 namespace Examination.Models;
 
@@ -41,20 +44,21 @@ public partial class ExamContext : DbContext
 
     public virtual DbSet<Track> Tracks { get; set; }
 
-    public virtual DbSet<Track_Course> Track_Courses { get; set; }
+    public virtual DbSet<Track_Course> TrackCourses { get; set; }
+
+        
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseLazyLoadingProxies().UseSqlServer("Data Source=.;Initial Catalog=ExaminationDB;Integrated Security=True;Encrypt=False");
-
+        => optionsBuilder.UseLazyLoadingProxies().UseSqlServer("Server=.;Database=ExaminationDB;Integrated Security=True;TrustServerCertificate=True;");
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+
         modelBuilder.Entity<Admin>(entity =>
         {
             entity.HasKey(e => e.AId).HasName("PK__Admin__C69006288A1BE04D");
 
             entity.ToTable("Admin");
-
             entity.HasIndex(e => e.Aemail, "UQ__Admin__221408751DA40015").IsUnique();
 
             entity.HasIndex(e => e.Apassword, "UQ__Admin__93C2B8ED72C5F4B9").IsUnique();
@@ -86,7 +90,11 @@ public partial class ExamContext : DbContext
                 .HasForeignKey(d => d.QId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Answers_Questions");
+
         });
+
+        modelBuilder.Entity<Student_Course>()
+        .HasKey(sc => new { sc.SId, sc.CrId });
 
         modelBuilder.Entity<Course>(entity =>
         {

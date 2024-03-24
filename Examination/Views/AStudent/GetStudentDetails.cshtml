@@ -1,0 +1,108 @@
+﻿@model StudentCourseTrackModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetStudentDetails</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            width: 400px;
+            border-radius: 8px;
+            margin-left: -50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .label {
+            font-weight: bold;
+            color: #6943ce;
+            font-size: 18px;
+            flex: 1;
+        }
+
+        .value {
+            font-size: 20px;
+            color: #333;
+            flex: 2;
+            margin-left: 10px;
+        }
+
+        /* Additional Styling */
+        hr {
+            border: 0;
+            clear: both;
+            display: block;
+            width: 100%;
+            background-color: #ddd;
+            height: 1px;
+            margin: 15px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="label">Student ID:</div>
+            <div class="value">@Model.SId</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Name:</div>
+            <div class="value">@Model.Sname</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Gender:</div>
+            <div class="value">@Model.Sgender</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Email:</div>
+            <div class="value">@Model.Semail</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Password:</div>
+            <div class="value">@Model.password</div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="label">Track:</div>
+            <div class="value">@Model.TrackName</div>
+        </div>
+
+        <div class="course-list">
+            <div class="label">Courses:</div>
+            @foreach (Course course in ViewBag.Courses)
+            {
+                <div class="course-item">
+                    <span class="course-title">@course.Cname</span>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>
