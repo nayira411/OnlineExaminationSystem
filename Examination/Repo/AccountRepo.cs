@@ -1,5 +1,4 @@
-﻿using Examination.Data;
-using Examination.Models;
+﻿using Examination.Models;
 using Examination.ViewModel;
 namespace Examination.Repo
 {
@@ -23,7 +22,7 @@ namespace Examination.Repo
         //}
         public (object user, UserType userType) GetUser( LoginViewModel model)
         {
-			var student = db.Students.FirstOrDefault(a => a.Semail == model.Email && a.Password == model.Password);
+			var student = db.Students.FirstOrDefault(a => a.Semail == model.Email && a.password == model.Password);
 			if (student != null)
 			{
 				return (student, UserType.Student);

@@ -78,7 +78,7 @@ namespace Examination.Controllers
                 foreach (var studentCourse in crs.Student_Courses)
                 {
                         StudentsNames.Add(studentCourse.SIdNavigation.Sname+"-"+ studentCourse.Cr.Cname); 
-                        stdsDegrees.Add(studentCourse.degree.Value);
+                        stdsDegrees.Add(studentCourse.grade.Value);
                 }
             }
             var viewModel = new ChartViewModel

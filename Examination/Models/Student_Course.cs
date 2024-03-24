@@ -11,7 +11,7 @@ public partial class Student_Course
 
     public int CrId { get; set; }
 
-    public int? degree { get; set; }
+    public int? grade { get; set; }
 
     public virtual Course Cr { get; set; }
 

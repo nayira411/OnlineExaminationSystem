@@ -121,7 +121,7 @@ namespace Examination.Repo
 		public void AddCourseToTrack(int Tid, int crId)
 		{
 			var track = new Track_Course { TId = Tid, Crid = crId };
-			context.Track_Courses.Add(track);
+			context.TrackCourses.Add(track);
 			context.SaveChanges();
 		}
 		public bool ISCourseUnique(string courseName)

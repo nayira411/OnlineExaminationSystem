@@ -15,14 +15,14 @@ namespace Examination.Repo
             var studentsWithCourses = Context.Students.FromSqlRaw("EXEC GetStudentsAndCourses").ToList();
 
             var distinctStudents = studentsWithCourses
-                .GroupBy(s => s.Sid)
+                .GroupBy(s => s.SId)
                 .Select(g => new Student
                 {
-                    Sid = g.Key,
+                    SId = g.Key,
                     Sname = g.First().Sname,
                     Semail = g.First().Semail,
                     Sgender = g.First().Sgender,
-                    TrackName = g.First().TrackName,
+                   // TrackName = g.First().TrackName,
                     
                 })
                 .ToList();
@@ -49,7 +49,7 @@ namespace Examination.Repo
         public List<StudentCourse> GetStudentCourses(int studentId)
         {
             var studentCourses = Context.Set<StudentCourse>()
-                .FromSqlRaw("EXEC GetStudentCourses @stId", new SqlParameter("@stId", studentId))
+                .FromSqlRaw("EXEC GetStudentCourses @stId", new System.Data.SqlClient.SqlParameter("@stId", studentId))
                 .ToList();
 
             return studentCourses;
@@ -148,7 +148,7 @@ namespace Examination.Repo
      public   List<StudentCourse> GetStudetGrade(int studentId)
         {
             var studentgrade = Context.Set<StudentCourse>()
-                .FromSqlRaw("EXEC GetStudentgrade @stId", new SqlParameter("@stId", studentId))
+                .FromSqlRaw("EXEC GetStudentgrade @stId", new System.Data.SqlClient.SqlParameter("@stId", studentId))
                 .ToList();
 
             return studentgrade;

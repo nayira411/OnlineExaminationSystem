@@ -25,7 +25,6 @@ namespace Examination.Repo
 		{
 			var existingExam = context.Exams.FirstOrDefault(a => a.InsId == insId
 			&& a.TId == TrackId && a.CrId.ToString() == CourseName && a.ExamDate.Day == date.Day);
-			Console.WriteLine(existingExam.CrId);
 			Console.WriteLine("==============================================");
 			if (existingExam != null)
 			{
@@ -48,7 +47,7 @@ namespace Examination.Repo
 		public void UpdateDegree(int id, int degree, int crId)
 		{
 			var res = context.Student_Courses.FirstOrDefault(a => a.SId == id && a.CrId == crId);
-			res.degree = degree;
+			res.grade = degree;
 			context.SaveChanges();
 			Console.WriteLine("updated successfully !");
 		}
@@ -62,7 +61,7 @@ namespace Examination.Repo
 				foreach (var studentCourse in a.Student_Courses)
 				{
 					TotalStudents++;
-					if (studentCourse.degree > studentCourse.Cr.Passgrade)
+					if (studentCourse.grade > studentCourse.Cr.Passgrade)
 					{
 						totalNumOfSuccess++;
 					}

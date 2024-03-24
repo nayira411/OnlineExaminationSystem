@@ -1,4 +1,5 @@
-﻿@model Student
+﻿@* 
+    @model Student
 @{
     
     var course = ViewBag.courses as List<Course>;
@@ -113,14 +114,14 @@
             
 
 
-         @*    @foreach (var crs in ViewBag.CoursesName)
+            @foreach (var crs in ViewBag.CoursesName)
             {
                 <div class="course-item">
                     <span class="course-title">@crs.CourseName</span>
 
 
                 </div>
-            } *@
+            }
 
             <input type="submit" value="Update">
             <input style="margin-left:180px" asp-action="Display" asp-controller="AStudent" type="submit" value="back">
@@ -131,3 +132,4 @@
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 </body>
 </html>
+  *@
