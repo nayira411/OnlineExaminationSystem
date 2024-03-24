@@ -7,7 +7,7 @@ namespace Examination.Controllers
 {
 	public class TeacherFormController : Controller
 	{
-		int insId = 3;//will be from db
+		int insId = 2;//will be from db
 
 		TeacherFormRepo repo = new TeacherFormRepo();
 		public IActionResult Index()
@@ -90,6 +90,7 @@ namespace Examination.Controllers
             ViewBag.success = repo.CalculateSuccessPercentage(insId);
             return View(viewModel);
 		}
+		
 
     }
 }
