@@ -1,4 +1,5 @@
-﻿using Examination.Models;
+﻿using CRUD.CustomFilters;
+using Examination.Models;
 using Examination.Repo;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -6,6 +7,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Examination.Controllers
 {
+	[AuthFilter]
 	public class TeacherFormController : Controller
 	{
 		TeacherFormRepo repo = new TeacherFormRepo();
@@ -14,6 +16,7 @@ namespace Examination.Controllers
 			var user = HttpContext.User;
 			var studentId = user.FindFirst(c => c.Type == ClaimTypes.Sid).Value;
 			int insId = int.Parse(studentId);
+			ViewBag.id=insId;
 			ViewBag.TeacherCourses = repo.GetInsCourses(insId);
 			ViewBag.TeacherTracks = repo.GetInsTracks(insId);
 			return View();

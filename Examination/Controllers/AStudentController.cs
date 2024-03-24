@@ -5,9 +5,11 @@ using Examination.Repo;
 using Examination.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
+using CRUD.CustomFilters;
 
 namespace Examination.Controllers
 {
+    [AuthFilter]
     public class AStudentController : Controller
     {
 

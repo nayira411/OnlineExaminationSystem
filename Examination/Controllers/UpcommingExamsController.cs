@@ -1,9 +1,11 @@
-﻿using Examination.Repo;
+﻿using CRUD.CustomFilters;
+using Examination.Repo;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
 namespace Examination.Controllers
 {
+	[AuthFilter]
 	public class UpcommingExamsController : Controller
 	{
 		//this will be from auth data
