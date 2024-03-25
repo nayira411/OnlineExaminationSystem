@@ -1,0 +1,150 @@
+﻿@model Instructor
+@{
+    ViewData["Title"] = "Create";
+
+   /*
+     var tracks = ViewBag.tracks as List<Track>;
+     var Courses = ViewBag.coursrs as List<Course>;
+
+     SelectList track = new SelectList(tracks, "Tid", "Tname");
+     SelectList courses = new SelectList(Courses, "CrId", "Cname");
+     */
+    var selectedCourses = ViewBag.SelectedCourses as List<int>;
+    var selectedTracks = ViewBag.SelectedTracks as List<int>;
+
+
+}
+
+<link rel="stylesheet" href="/css/AddInsForm.css" />
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header text-center">Add Instructor</div>
+                <div class="card-body row">
+                    <form method="post" enctype="multipart/form-data" class="row">
+                        <div class="form-group mt-4 col-md-6">
+                            <label asp-for="Insname">Name:</label>
+                            <input class="form-control" asp-for="Insname">
+                            <span asp-validation-for="Insname"></span>
+                        </div>
+                        <div class="form-group mt-4 col-md-6">
+                            <label asp-for="Insemail">Email:</label>
+                            <input class="form-control" asp-for="Insemail">
+                            <span asp-validation-for="Insemail"></span>
+                        </div>
+                        @if (ViewBag.ErrorMsg != null)
+                                      {
+                            <div class="alert alert-danger">@ViewBag.ErrorMsg</div>
+                                       }
+                        <div class="form-group mt-4 col-md-6">
+                            <label asp-for="Inspassword">Password:</label>
+                            <input class="form-control" asp-for="Inspassword">
+                            <span asp-validation-for="Inspassword"></span>
+                        </div>
+                        <div class="form-group mt-4 col-md-6">
+                            <label asp-for="Inssalary">Salary:</label>
+                            <input class="form-control" asp-for="Inssalary" min="1">
+                            <span asp-validation-for="Inssalary"></span>
+                        </div>
+                        <div class="form-group mt-4 col-md-6">
+                            <label asp-for="Insgender">Gender:</label>
+                            <select class="form-control" asp-for="Insgender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                            <span asp-validation-for="Insgender"></span>
+                        </div>
+
+                        <div class="form-group mt-4 col-md-6">
+                            <label asp-for="InsImg">Image:</label>
+                            <input type="file" class="form-control-file" asp-for="InsImg" name="Image">
+                            <span asp-validation-for="InsImg"></span>
+                        </div>
+                     @*  <div class="form-group mt-4 col-md-6">
+                            <label asp-for="@tracks">Tracks:</label>
+                             <select multiple class="form-control" asp-for="@Model.SelectedTracks" asp-items="allTrs"></select>
+                            <select multiple class="form-control"  name="tracks">
+                                @foreach (var tr in tracks)
+                                {
+                                    <option value="@tr.TId">@tr.Tname</option>
+                                }
+                            </select>
+                            <span asp-validation-for="@tracks"></span>
+                        </div>
+                        
+
+                        <!-- Main View -->
+                        <div class="form-group mt-4 row">
+                            @foreach (var kvp in ViewBag.TrackCourses)
+                            {
+                                <div class="col-md-6">
+                                    <input type="hidden" name="selectedCoursesByTrack[@kvp.Key.TId]" value="@kvp.Key.TId" />
+                                    <label class="control-label">Courses for @kvp.Key.Tname:</label>
+                                    <select name="selectedCoursesByTrack[@kvp.Key.TId]" class="form-control" multiple>
+                                        @foreach (var course in kvp.Value)
+                                        {
+                                            <option value="@course.CrId">@course.Cname</option>
+                                        }
+                                    </select>
+                                </div>
+                            }
+                        </div>
+                       
+
+                        <div class="form-group mt-4 row">
+                            @foreach (var kvp in ViewBag.TrackCourses)
+                            {
+                                <div class="col-md-6">
+                                    <input type="hidden" name="selectedCoursesByTrack[@kvp.Key.TId]" value="@kvp.Key.TId" />
+                                    <label class="control-label">Courses for @kvp.Key.Tname:</label>
+                                    <select name="selectedCoursesByTrack[@kvp.Key.TId][]" class="form-control" multiple>
+                                        @foreach (var course in kvp.Value)
+                                        {
+                                            <option value="@course.CrId">@course.Cname</option>
+                                        }
+                                    </select>
+                                </div>
+                            }
+                        </div>
+                        *@
+                        <div class="form-group mt-4 row">
+                        @foreach (var kvp in ViewBag.TrackCourses)
+                        {
+                        <div class="col-md-6">
+                        <input type="hidden" name="selectedCoursesByTrack[@kvp.Key.TId]" value="@kvp.Key.TId" />
+                        <label class="control-label">Courses for @kvp.Key.Tname:</label>
+                        <select name="selectedCoursesByTrack[@kvp.Key.TId][]" class="form-control" multiple onchange="debugSelectedCourse(this)">
+                        @foreach (var course in kvp.Value)
+                        {
+                        <option value="@course.CrId">@course.Cname</option>
+                        }
+                        </select>
+                        </div>
+                        }
+                        </div>
+
+
+
+           
+                        <div class="form-group mt-4 col-md-12">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+    function debugSelectedCourse(selectElement) {
+        var selectedOptions = Array.from(selectElement.selectedOptions).map(option => option.value);
+        console.log("Selected options:", selectedOptions);
+    }
+</script>

@@ -1,3 +1,4 @@
+using Examination.Models;
 using Examination.Repo;
 
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -19,10 +20,12 @@ namespace Examination
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 
             builder.Services.AddScoped<AStudentRepo>();
+
+            builder.Services.AddScoped<IInstructorRepo,InstructorRepo>();
+            builder.Services.AddScoped<TrackCourseRepo, TrackCourseRepo>();
+            builder.Services.AddDbContext<ExamContext>();
             builder.Services.AddTransient<IStudentRepo, StudentRepo>();
             builder.Services.AddTransient<IquestionRepo, QuestionRepo>();
-
-
 
             var app = builder.Build();
 

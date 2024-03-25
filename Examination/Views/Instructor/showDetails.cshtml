@@ -1,0 +1,96 @@
+﻿@model InstructorViewModel;
+@{
+    ViewData["Title"] = "showDetails";
+    Layout = "_mainLayout";
+
+}
+
+<link rel="stylesheet" href="/css/table.css" />
+
+
+<div    class="text-center mx-4 alert-success mb-5">info about instructor @Model.intstrutor.Insname</div>
+<table class="table ">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>
+                Image
+            </th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Salary</th>
+        </tr>
+
+
+    </thead>
+    <tbody>
+
+        @if (Model.intstrutor.InsId == 0)
+        {
+            <tr>
+                <td colspan="6">No Instructor exist</td>
+
+            </tr>
+        }
+        else
+        {
+            <tr>
+                <td class="text-center alert-info">@Model.intstrutor.InsId</td>
+                <td>
+                    <img src="/Images/@Model.intstrutor.InsImg" width="50px" class="instImge" alt="No image " />
+                </td>
+                <td>@Model.intstrutor.Insname</td>
+                <td>@Model.intstrutor.Insemail</td>
+                <td>@Model.intstrutor.Inspassword</td>
+                <td>@Model.intstrutor.Inssalary</td>
+                @*<td>@((ViewBag.TracksDetails as List<Examination.Models.InstructorTracksDetails>).Count)</td>*@
+            </tr>
+        }
+
+    </tbody>
+</table>
+<div class="text-center mx-4 alert-success mb-5">courses :</div>
+
+<div class="contianerDivTracks ">
+
+@foreach (var trackPair in Model.CoursesByTrack)
+{
+    <div class="allDivs ">
+            <p style="padding: 10px;">
+            <a data-bs-toggle="collapse" href="#@trackPair.Key.TId" role="button" aria-expanded="false"
+                   aria-controls="@trackPair.Key.TId" class="trackName" style="color: #6943ce">
+                @trackPair.Key.Tname <!-- Assuming TrackName is a property of Track -->
+            </a>
+        </p>
+        <div class="collapse text-center" id="@trackPair.Key.TId">
+            <div>
+                @foreach (var course in trackPair.Value)
+                {
+                    <a href="#">@course.Cname</a> <!-- Assuming CourseName is a property of Course -->
+                    <br />
+                }
+            </div>
+        </div>
+    </div>
+}
+</div>
+
+<a asp-action="index" class="btn btn-primary w-25 my-3" >Go Back</a>
+@*
+    <div class="alert bg-info">
+    @foreach (var item in Model.AllTracks)
+    {
+        @item.Tname
+    }
+</div>
+<div class="alert bg-secondary">
+    @foreach (var item in Model.AllCourses)
+    {
+        @item.Cname
+    }
+</div>
+*@
+
+
+

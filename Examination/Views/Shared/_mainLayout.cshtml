@@ -1,5 +1,6 @@
 ﻿@{
-	ViewData["Title"] = "Home";
+    ViewData["Title"] = "Home";
+
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -29,6 +30,7 @@
 </head>
 
 <body>
+
 	<div class="sidenav">
 		<div class="logo">
 			<i class="fa-solid fa-graduation-cap"></i>
@@ -81,7 +83,7 @@
 				<div>
 					<a asp-area="" asp-controller="AdminDasbord" asp-action="index">Index</a>
 
-					<a href="#">Teachers</a>
+					<a asp-area="" asp-controller="Instructor" asp-action="index">Instructors</a>
 					<a asp-area="" asp-controller="AStudent" asp-action="Display">Student</a>
 					<a asp-area="" asp-controller="courses" asp-action="index">Courses</a>
 				</div>
@@ -124,5 +126,6 @@
 	<script src="~/lib/jquery/dist/jquery.min.js"></script>
 	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
 </body>
 </html>

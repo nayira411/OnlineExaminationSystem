@@ -194,6 +194,7 @@ public partial class ExamContext : DbContext
                 .HasConstraintName("FK_Instructor_Courses_Track");
         });
 
+
         modelBuilder.Entity<Question>(entity =>
         {
             entity.HasKey(e => e.QId).HasName("PK__Question__CAB1462B7330046F");
@@ -322,6 +323,7 @@ public partial class ExamContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Track_Courses_Courses");
         });
+    
 
         OnModelCreatingPartial(modelBuilder);
     }

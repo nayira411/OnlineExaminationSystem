@@ -1,0 +1,71 @@
+﻿@model Instructor
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "_mainLayout";
+}
+
+<div class="container confirmation-modal">
+    <div class="card">
+        <div class="card-body text-center">
+            <p class="card-text">
+                @if (@Model != null)
+                {
+                    <h3 class="alert bg-info">
+                        @Model.Insname (@Model.Insemail) - Salary: @Model.Inssalary
+                    </h3>
+                }
+                else
+                {
+                    <h3 class="alert bg-info">
+                        No instructor Exists
+                    </h3>
+                }
+
+                has the following courses:
+            </p>
+            @if (ViewBag.CoursesToReassign != null)
+            {
+                <ul class="list-group">
+                    @foreach (var course in ViewBag.CoursesToReassign as SelectList)
+                    {
+                        <li class="list-group-item">@course.Text</li>
+                    }
+                </ul>
+            }
+
+            @using (Html.BeginForm("Delete", "Instructor", FormMethod.Post, new { id = "deleteForm" }))
+            {
+                @Html.AntiForgeryToken()
+                <div>
+                    @if (ViewBag.AlternativeInstructors != null)
+                    {
+                        <div>
+                            <label for="AlternativeInstructorId">Select an alternative instructor:</label>
+                            @Html.DropDownList("AlternativeInstructorId", ViewBag.AlternativeInstructors as SelectList, "Select...", new { @class = "form-control", id = "AlternativeInstructorId" })
+                            <span id="alternativeInstructorError" class="text-danger" style="display:none;">Please select an alternative instructor.</span>
+                        </div>
+                    }
+
+                    <p class="text-center mt-3">
+                        <button type="submit" class="btn btn-danger" id="deleteButton">Delete</button>
+                        <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+                    </p>
+                </div>
+            }
+            </div>
+        </div>
+  </div>
+
+            @section Scripts {
+                <script>
+                    $(document).ready(function () {
+                        $('#deleteForm').submit(function (event) {
+                            if ($('#AlternativeInstructorId').val() == '') {
+                                $('#alternativeInstructorError').show();
+                                event.preventDefault();
+                            }
+                        });
+                    });
+                </script>
+            }
