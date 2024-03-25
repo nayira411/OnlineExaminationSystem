@@ -33,10 +33,6 @@
   <ItemGroup>
     <None Include="wwwroot\js\.DS_Store" />
 
-    <Folder Include="wwwroot\Images\" />
-
-    <Folder Include="wwwroot\Images\" />
-
   </ItemGroup>
 
 </Project>

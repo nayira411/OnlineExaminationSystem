@@ -47,16 +47,15 @@
 				<a asp-area="" asp-controller="UpcommingExams" asp-action="Index" class="dashboard-link">
 					<i class="fas fa-clipboard-list"></i> Upcoming Exams
 				</a>
-			</div>
-			
+			</div>			
 		}
 		@if (User.IsInRole("Instructor"))
 		{
-			<div class="dashboard-links">
+			<div class="dashboard-links ">
 				<a asp-area="" asp-controller="TeacherForm" asp-action="TeacherHomePage" class="dashboard-link">
 					<i class="fas fa-home"></i> Instructor Dashboard
 				</a>
-				<a asp-area="" asp-controller="Courses" asp-action="Index" class="dashboard-link">
+				<a asp-area="" asp-controller="Questions" asp-action="Add" class="dashboard-link">
 					<i class="fas fa-plus"></i> Add Question
 				</a>
 				<a asp-area="" asp-controller="TeacherForm" asp-action="Index" class="dashboard-link">
@@ -80,6 +79,8 @@
 			</p>
 			<div class="collapse text-center" id="collapseExample">
 				<div>
+					<a asp-area="" asp-controller="AdminDasbord" asp-action="index">Index</a>
+
 					<a href="#">Teachers</a>
 					<a asp-area="" asp-controller="AStudent" asp-action="Display">Student</a>
 					<a asp-area="" asp-controller="courses" asp-action="index">Courses</a>

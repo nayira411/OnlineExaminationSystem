@@ -1,0 +1,75 @@
+﻿@model ChartViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+
+    <div style="background-color: #0b0d1b; color: white; border-radius: 20px; padding: 20px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; flex-direction: column;">
+                <h4>Total Students</h4>
+                <h1 style="font-size: 80px; color: #FF204E; margin: 0;">@ViewBag.stdCount</h1>
+            </div>
+            <img src="/Images/std.svg" width="200px" style="margin-left: 20px;">
+        </div>
+    </div>
+
+    <div style="background-color: #0b0d1b; color: white; border-radius: 20px; padding: 20px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; flex-direction: column;">
+                <h4>Instructors Count</h4>
+                <h1 style="font-size: 80px; color: #FF204E; margin: 0;">@ViewBag.insCount</h1>
+            </div>
+            <img src="/Images/ins.svg" width="200px" style="margin-left: 20px;">
+        </div>
+    </div>
+
+    <div style="background-color: #0b0d1b; color: white; border-radius: 20px; padding: 20px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; flex-direction: column;">
+                <h4>Courses Count</h4>
+                <h1 style="font-size: 80px; color: #FF204E; margin: 0;">@ViewBag.crsCount</h1>
+            </div>
+            <img src="/Images/crs.svg" width="200px" style="margin-left: 20px;">
+        </div>
+    </div>
+
+</div>
+<center>
+    <hr style="width:500px;text-align:center;color:crimson; border-width: 3px;">
+</center>
+<br />
+<div style="width: 600px; height: 400px;">
+    <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: @Html.Raw(Json.Serialize(Model.Labels)),
+            datasets: [{
+                label: 'Tracks Capacity',
+                data: @Html.Raw(Json.Serialize(Model.Data)),
+                backgroundColor: 'RGBA(64, 31, 113,0.6)',
+                borderColor: 'rgba(11, 13,27, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>
