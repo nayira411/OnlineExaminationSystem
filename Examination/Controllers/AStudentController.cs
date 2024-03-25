@@ -98,11 +98,13 @@ namespace Examination.Controllers
         }
 
         [HttpPost]
-        public IActionResult Edit(StudentCourseTrackModel student)
+
+        public IActionResult Edit(StudentCourseTrackModel model)
         {
             try
             {
-                var studentToUpdate = _stdrepo.GetStudentById(student.SId);
+                // Retrieve the student to update
+                var studentToUpdate = _stdrepo.GetStudentById(model.SId);
 
                 if (studentToUpdate == null)
                 {
@@ -111,9 +113,20 @@ namespace Examination.Controllers
                     return RedirectToAction("Display");
                 }
 
-                studentToUpdate.TrackId = student.TrackId;
+                // Update student information
+                studentToUpdate.Sname = model.Sname;
+                studentToUpdate.Semail = model.Semail;
+                studentToUpdate.password = model.password;
+                studentToUpdate.Sgender = model.Sgender;
+                studentToUpdate.TrackId = model.TrackId;
 
-                _stdrepo.UpdateStudentCourse(student.SId, student.CourseId);
+                // Update courses for the student
+                var studentCourse = new Student_Course { SId = model.SId, CrId = model.CourseId };
+                studentToUpdate.Student_Courses = new List<Student_Course> { studentCourse };
+
+                // Save changes to the database
+                _stdrepo.SaveChanges();
+
                 Console.WriteLine("Student details updated successfully.");
                 ViewBag.ConfirmationMessage = "Student details updated successfully.";
             }
@@ -126,7 +139,8 @@ namespace Examination.Controllers
             return RedirectToAction("Display");
         }
 
-        [HttpGet]
+
+
 
         public IActionResult Add()
         {
@@ -179,7 +193,6 @@ namespace Examination.Controllers
             }
             catch (Exception ex)
             {
-
                 return StatusCode(500, "An error occurred while processing your request.");
             }
         }

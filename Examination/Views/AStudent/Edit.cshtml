@@ -1,10 +1,10 @@
 ﻿@model StudentCourseTrackModel
 @{
-    
+
     var course = ViewBag.courses as List<Course>;
-    var Track = ViewBag.tracks as List<Track>;
-    SelectList crsli = new SelectList(ViewBag.courses, "CrsId", "Cname");
-    SelectList trkli = new SelectList(ViewBag.tracks, "Tid", "Tname");
+    var tracks = ViewBag.Tracks as List<Track>;
+    SelectList crsli = new SelectList(ViewBag.courses, "CrsId",  "Cname");
+    SelectList trkli = new SelectList(tracks, "TId", "Tname");
     SelectList crsname = new SelectList(ViewBag.Courses, "CrId", "Cname", Model.CourseName);
 }
 
@@ -98,10 +98,11 @@
             <input asp-for="password" type="text" /><br />
             <span asp-validation-for="password" class="text-danger"></span><br>
 
-            <label asp-for="TrackId">TrackName</label><br />
+           <br />
+            <label asp-for="TrackId">Track</label><br />
             <select asp-for="TrackId" asp-items="trkli">
-                <option>TrackId</option>
-            </select> <br />
+                <option value="">Select Track</option>
+            </select><br />
             <span asp-validation-for="TrackId" class="text-danger"></span><br>
 
             <label asp-for="CourseId">CourseName</label><br />
@@ -110,17 +111,10 @@
             </select>
             <span asp-validation-for="CourseId" class="text-danger"></span><br>
             <br/>
-            
 
 
-            @foreach (var crs in ViewBag.CoursesName)
-            {
-                <div class="course-item">
-                    <span class="course-title">@crs.CourseName</span>
 
-
-                </div>
-            }
+          
 
             <input type="submit" value="Update">
             <input style="margin-left:180px" asp-action="Display" asp-controller="AStudent" type="submit" value="back">
