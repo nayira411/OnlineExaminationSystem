@@ -19,9 +19,6 @@ namespace Examination.ViewModel
         public string Sname { get; set; }
 
         [NotMapped]
-        public int StudentId { get; set; }
-
-        [NotMapped]
         public string Tname { get; set; }
 
         [NotMapped]

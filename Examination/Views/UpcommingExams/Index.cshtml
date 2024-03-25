@@ -76,8 +76,14 @@
                         <h2>@exam.Cr.Cname</h2>
                         <p>Date: @exam.ExamDate</p>
                         <p>Start Time: @exam.StartTime</p>
-                        <a class="btn btn-warning" asp-controller="Student" asp-action="StartExam" asp-route-ExamId="@exam.EId" > Start Exam</a>
-
+                        @if (DateOnly.FromDateTime(DateTime.Today)< exam.ExamDate)
+                        {
+                            <button class="btn btn-warning start-exam" data-exam-id="@exam.EId">Start Exam</button>
+                        }
+                        else
+                        {
+                            <button class="btn btn-warning" disabled>Exam Over</button>
+                        }
                     </div>
                 }
             }
@@ -86,5 +92,17 @@
             <img src="~/images/Exam.svg" width="400px" />
         </div>
     </div>
+    @section Script
+    {
+        <script>
+            const startExamButtons = document.querySelectorAll('.start-exam');
+            startExamButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const examId = button.getAttribute('data-exam-id');
+                    window.location.href = `/Student/StartExam?ExamId=${examId}`;
+                });
+            });
+        </script>
+    }
 </body>
 </html>

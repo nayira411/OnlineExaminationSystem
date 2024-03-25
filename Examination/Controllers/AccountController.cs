@@ -78,8 +78,18 @@ namespace Examination.Controllers
 			ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 			await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);
 
-			return RedirectToAction("Index", "Home");
-		}
+            switch (userType)
+            {
+                case UserType.Student:
+                   return RedirectToAction("Dashboard", "TeacherForm");
+                case UserType.Instructor:
+                    return RedirectToAction("TeacherHomePage", "TeacherForm");
+                case UserType.Admin:
+                    return RedirectToAction("Index", "AdminDasbord");
+                default:
+                    return RedirectToAction("Login", "Account");
+            }
+        }
 
 
 		public async Task <IActionResult> LogOut()

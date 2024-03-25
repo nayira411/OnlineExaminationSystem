@@ -158,17 +158,26 @@ namespace Examination.Repo
                 throw;
             }
         }
-        public List<StudentCourseModel> GetStudetGrade(int studentId)
-        {
-            var studentgrade = Context.Set<StudentCourseModel>()
-                .FromSqlRaw("EXEC GetStudentGrade @StudentId = {0}", studentId)
-                .ToList();
+		public List<StudentCourseModel> GetStudetGrade(int studentId)
+		{
+            List<StudentCourseModel> studCourses = new List<StudentCourseModel>();
+			Student student = Context.Students.FirstOrDefault(s => s.SId == studentId);
+            List<Student_Course> studentCourses = student.Student_Courses.ToList();
+            foreach(var studentCource in studentCourses)
+            {
+                StudentCourseModel studCoursegrade = new StudentCourseModel();
+                studCoursegrade.SId  =studentId;
+                studCoursegrade.Sname = student.Sname;
+                studCoursegrade.Cname = Context.Courses.FirstOrDefault(c => c.CrId == studentCource.CrId).Cname;
+                studCoursegrade.Tname = Context.Tracks.FirstOrDefault(t => t.TId == student.TrackId).Tname;
+				studCoursegrade.Grade = (int)(studentCource.grade ?? 0);
+				studCoursegrade.CrId= studentCource.CrId;
+				studCourses.Add(studCoursegrade);
 
-            return studentgrade;
-        }
-
-
-        public void UpdateStudentCourse(int studentId, int newCourseId)
+			}
+			return studCourses;
+		}
+		public void UpdateStudentCourse(int studentId, int newCourseId)
 {
     var student = Context.Students.SingleOrDefault(s => s.SId == studentId);
 
@@ -186,15 +195,10 @@ namespace Examination.Repo
         {
             return Context.Students.FirstOrDefault(s => s.SId == id);
         }
-<<<<<<< HEAD
-      
-=======
-
         public void SaveChanges()
         {
             Context.SaveChanges();
         }
->>>>>>> origin/bothinamesalem1
     }
 
 }

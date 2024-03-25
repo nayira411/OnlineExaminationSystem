@@ -19,7 +19,7 @@
     </div>
     <div class="text">
         <a>Your Score :@ViewBag.Score/@ViewBag.TotalScore </a>
-        <a class="btn btn-danger">Your Response</a>
+        <a class="btn btn-danger" asp-action="ShowReponse" asp-controller="Student" asp-route-Eid="@ViewBag.EId" asp-route-Sid="@ViewBag.StId">Your Response</a>
     </div>
     <div class="img-container1">
         <img class="animated-image1" src="~/Images/sub2 (1).png" />

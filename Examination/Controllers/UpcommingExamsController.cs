@@ -22,7 +22,7 @@ namespace Examination.Controllers
 			{
 				coursesIds.Add(Courses.CrId);
 			}
-			var data = repo.HaveExam(StdTrack, coursesIds);
+			var data = repo.HaveExam(StdTrack, coursesIds, StdId);
 			foreach (var Courses in data)
 			{
                 Console.WriteLine(Courses);

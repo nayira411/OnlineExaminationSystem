@@ -102,6 +102,29 @@ namespace Examination.Controllers
 			return View(viewModel);
 		}
 
+        public IActionResult Dashboard()
+        {
+            var user = HttpContext.User;
+            var studentId = user.FindFirst(c => c.Type == ClaimTypes.Sid).Value;
+            int stdId = int.Parse(studentId);
+            ViewBag.count = repo.getCountOfStdsCourses(stdId);
+            List<string> STUDENTCRS = new List<string>();
+            List<int> STUDENTDEGREE = new List<int>();
+            var res = repo.GetStudentCourses(stdId);
+            foreach (var c in res)
+            {
+                STUDENTCRS.Add(c.Cr. Cname);
+                STUDENTDEGREE.Add(c.grade.Value);
+            }
+            double gpa = repo.CalculateGPA(STUDENTDEGREE);
+            ViewBag.GPA = gpa;
+            var viewModel = new ChartViewModel
+            {
+                Labels = STUDENTCRS.ToArray(),
+                Data = STUDENTDEGREE.ToArray()
+            };
+            return View(viewModel);
+        }
 
-	}
+    }
 }

@@ -1,6 +1,8 @@
-﻿@{
-    ViewData["Title"] = "Home";
-
+﻿@using System.Security.Claims
+@{
+	var user = Context.User;
+	var sid = user.FindFirst(ClaimTypes.Sid)?.Value;
+	Context.Items["Sid"] = sid;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -40,10 +42,10 @@
 		@if (User.IsInRole("Student"))
 		{
 			<div class="dashboard-links">
-				<a asp-area="" asp-controller="" asp-action="" class="dashboard-link">
+				<a asp-area="" asp-controller="TeacherForm" asp-action="dashboard" class="dashboard-link">
 					<i class="fas fa-home"></i> Student Dashboard
 				</a>
-				<a asp-area="" asp-controller="AStudent" asp-action="GetStudetGrade" class="dashboard-link">
+				<a asp-area="" asp-controller="AStudent" asp-action="GetStudetGrade" asp-route-stdid="@sid" class="dashboard-link">
 					<i class="fas fa-book"></i> Your Courses
 				</a>
 				<a asp-area="" asp-controller="UpcommingExams" asp-action="Index" class="dashboard-link">

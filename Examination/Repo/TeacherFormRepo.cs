@@ -90,21 +90,61 @@ namespace Examination.Repo
             }
         }
 
-        public List<Exam> HaveExam(int tid, List<int> crsIds)
-		{
-			List<Exam> res = new List<Exam>();
-			foreach (var cId in crsIds)
-			{
-				var stdExam = context.Exams.FirstOrDefault(a => a.TId == tid && a.CrId == cId);
-				if (stdExam != null && stdExam.ExamDate.Day > DateTime.Today.Day)
-				{
-					res.Add(stdExam);
-				}
-			}
-			return res;
+        public List<Exam> HaveExam(int tid, List<int> crsIds, int sid)
+        {
+            List<Exam> res = new List<Exam>();
 
-		}
+            using (var context = new ExamContext())
+            {
+                foreach (var cId in crsIds)
+                {
+                    var stdExam = context.Exams
+                        .Include(e => e.Cr) 
+                        .Where(a => a.TId == tid && a.CrId == cId)
+                        .ToList(); 
+
+                    foreach (var sexam in stdExam)
+                    {
+                        var studentAnswers = context.Student_Answers.FirstOrDefault(sA => sA.SId == sid && sA.EId == sexam.EId);
+                        DateOnly today = DateOnly.FromDateTime(DateTime.Today);
+                        if (sexam?.ExamDate > today && studentAnswers != null)
+                        {
+                            res.Add(sexam);
+                        }
+                    }
+                }
+            }
+
+            return res;
+        }
+
+        public List<Student_Course> GetStdDegrees(int id)
+        {
+            var Stdcourses = context.Student_Courses
+                                .Where(s => s.SId == id && s.grade != null) 
+                                .ToList();
+            return Stdcourses;
+        }
+
+        public int getCountOfStdsCourses(int id)
+        {
+            var count = context.Student_Courses.Where(s => s.SId == id && s.grade != null).Count();
+            return count;
+        }
+        public double CalculateGPA(List<int> degrees)
+        {
+            if (degrees == null || degrees.Count == 0)
+                return 0;
+
+            double totalDegrees = 0;
+            foreach (var degree in degrees)
+            {
+                totalDegrees += degree;
+            }
 
 
-	}
+            double gpa = totalDegrees / degrees.Count;
+            return gpa;
+        }
+    }
 }

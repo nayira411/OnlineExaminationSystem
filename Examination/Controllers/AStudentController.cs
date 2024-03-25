@@ -188,8 +188,8 @@ namespace Examination.Controllers
                     return NotFound("No courses found for the student.");
                 }
 
-                ViewBag.Courses = courses;
-                return View(student);
+                ViewBag.student = student;
+                return View(courses);
             }
             catch (Exception ex)
             {

@@ -1,0 +1,55 @@
+﻿@model ChartViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+}
+
+<div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+    <div style="width: 35%; height: 210px; background-color: #0b0d1b; color: white; border-radius: 20px; margin-right: 10px; display: flex; align-items: center; padding: 20px;">
+        <img src="/Images/teacher2.svg" alt="Completed Courses" style="margin-right: 20px; width: 200px;">
+        <div>
+            <h4>Completed Courses</h4>
+            <h1 style="font-size: 40px; color: #FF204E; margin: 0;">@ViewBag.Count</h1>
+        </div>
+    </div>
+    <div style="width: 35%; height: 210px; background-color: #0b0d1b; color: white; border-radius: 20px; margin-left: 10px; display: flex; align-items: center; padding: 20px;">
+        <img src="/Images/success.svg" alt="GPA" style="margin-right: 20px; width: 200px;">
+        <div>
+            <h4>GPA</h4>
+            <h1 style="font-size: 40px; color: #FF204E; margin: 0;">@ViewBag.GPA%</h1>
+        </div>
+    </div>
+</div>
+<br />
+<div style="width: 800px; height: 400px;text-align:center" class="container">
+    <canvas id="myChart"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: @Html.Raw(Json.Serialize(Model.Labels)),
+            datasets: [{
+                label: 'Degrees',
+                data: @Html.Raw(Json.Serialize(Model.Data)),
+                backgroundColor: 'rgba(105, 67, 206, 0.5)',
+                borderColor: 'rgba(11, 13, 27, 1)',
+                borderWidth: 1,
+                lineTension: 0.4
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+</script>

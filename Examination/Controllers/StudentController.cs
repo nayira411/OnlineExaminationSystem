@@ -62,10 +62,13 @@ namespace Examination.Controllers
         {
             ViewBag.Score = Srepo.CalculateExamScore(Eid, Sid);
             ViewBag.TotalScore = Srepo.CalculateTotalExamScore(Eid);
+            ViewBag.StId = Sid;
+            ViewBag.EId = Eid;
             return View("Result");
         }
-        public IActionResult ShowReponse(int Eid, int Sid)
+        public IActionResult ShowReponse(int Eid,int Sid)
         {
+          
             List<Student_Answer> studentAnswers = Srepo.GetStudentAnswers(Eid, Sid);
             List<Question> questions = Srepo.GetCorrectAnswers(Eid);
 
@@ -94,8 +97,6 @@ namespace Examination.Controllers
 
             return View(questionAnswerViewModels);
         }
-
-
 
 
     }

@@ -1,4 +1,4 @@
-﻿@model Student
+﻿@model IEnumerable<StudentCourseModel>
 
 <!DOCTYPE html>
 <html>
@@ -10,9 +10,38 @@
     <link href="~/css/tablestd.css" rel="stylesheet" />
     <title>Get Student Grade</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        h4 {
+            color: #6943ce;
+            font-weight: bold;
+        }
+
+        h5 {
+            color: #6943ce;
+            margin-left: 500px;
+            margin-bottom: 20px;
+        }
+
         .divsearch {
             margin-left: 700px;
             margin-top: -30px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        #searchText {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-left: 10px;
         }
 
         #searchButton {
@@ -24,61 +53,84 @@
             cursor: pointer;
         }
 
-        #searchText {
-            padding: 8px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            margin-left: 200px;
+            #searchButton:hover {
+                background-color: #5c32a8;
+            }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
         }
 
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        thead {
+            background-color: #6943ce;
+            color: #fff;
+        }
+
+        tbody tr:hover {
+            background-color: #f2f2f2;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
     </style>
 </head>
 <body>
-
-
     <div>
-        <h4 style="color:#6943ce; display: inline-block;">Welcome</h4>
-        <h4 style="color:black; display: inline-block;">@Model.Sname</h4>
+        <h4>Welcome <span style="color:black;">@ViewBag.student.Sname</span></h4>
     </div>
 
-
-
-
-
-    <div class="divsearch" style="margin-bottom: 20px; ">
+    <div class="divsearch">
         <input type="text" id="searchText" placeholder="Enter search text">
         <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
-    <h5 style="margin-left:500px">My Courses and Grade</h5>
+
+    <h5>My Courses and Grade</h5>
+
     <table class="rwd-table w-100" id="keywords">
         <thead>
-            <tr style="background-color: #6943ce">
-                <th>CourseName</th>
+            <tr>
+                <th>Course Name</th>
                 <th>Grade</th>
             </tr>
         </thead>
         <tbody>
-            <tr> </tr>
-            @foreach (var course in ViewBag.Courses)
+            @foreach (var course in @Model)
             {
                 <tr>
-                    <td>@course.CourseName</td>
-                    <td>@course.Grade</td> <!-- Changed from Stgrade to Grade -->
+                    <td>@course.Cname</td>
+                    <td>@course.Grade</td>
                 </tr>
             }
         </tbody>
     </table>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
             $("#searchButton").on("click", function () {
                 var searchText = $("#searchText").val().trim().toLowerCase();
 
-
                 $("#keywords tbody tr").each(function () {
                     var row = $(this);
                     var rowVisible = false;
-
 
                     row.find("td").each(function () {
                         var cellText = $(this).text().trim().toLowerCase();
@@ -87,7 +139,6 @@
                             return false;
                         }
                     });
-
 
                     if (rowVisible) {
                         row.show();
@@ -98,8 +149,5 @@
             });
         });
     </script>
-
-
 </body>
 </html>
-
