@@ -1,0 +1,152 @@
+﻿@model QuestionAnswersModel
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_mainLayout.cshtml";
+    var Courses = ViewBag.Course as List<Course>;
+    SelectList LCourses = new SelectList(Courses, "CrId", "Cname");
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Error"]
+    </div>
+}
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["Message"]
+    </div>
+}
+
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <h1>Add New Question</h1>
+    <div>
+        <i class="fas fa-question-circle" style="font-size: 3rem; color: #6943ce;"></i>
+    </div>
+</div>
+<br />
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Qbody" class="form-label">Question</label>
+        <input asp-for="Qbody" type="text" class="form-control" name="Qbody" />
+        <span asp-validation-for="Qbody" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Qtype" class="form-label">Question Type</label>
+        <select asp-for="Qtype" class="form-control" id="questionType" name="Qtype">
+            <option value="">Select Type</option>
+            <option value="multiple">MCQ</option>
+            <option value="TF">True/False</option>
+        </select>
+        <span asp-validation-for="Qtype" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Qmark" class="form-label">Question Mark</label>
+        <input asp-for="Qmark" type="number" class="form-control" name="Qmark" />
+        <span asp-validation-for="Qmark" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Course</label>
+        <select class="form-control" asp-for="CrId" asp-items="LCourses" name="CrId">
+            <option>Select Course</option>
+        </select>
+        <span asp-validation-for="CrId" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group TrueFalse" style="display:none">
+        <label class="form-label" style="color:#B80000">Answer</label>
+        <select class="form-control Ans1" name="Answers[0].Answerbody">
+            <option value="True">True</option>
+            <option value="False">False</option>
+        </select>
+        <input type="hidden" name="Answers[0 ].IsCorrect" class="Ans1" value="true" />
+    </div>
+
+    <div class="form-group Mcq" style="display:none">
+        <label class="form-label" style="color:#B80000">Correct Choice</label>
+        <input type="text" class="form-control Ans2" name="Answers[0].Answerbody" />
+        <input type="hidden" name="Answers[0].IsCorrect" class="Ans2" value="true" />
+
+        <br />
+
+        <label>Choice 1</label>
+        <input type="text" class="form-control Ans2" name="Answers[1].Answerbody" />
+        <input type="hidden" name="Answers[1].IsCorrect" class="Ans2" value="false" />
+
+        <br />
+
+        <label>Choice 2</label>
+        <input type="text" class="form-control Ans2" name="Answers[2].Answerbody" />
+        <input type="hidden" name="Answers[2].IsCorrect" class="Ans2" value="false" />
+
+        <br />
+
+        <label>Choice 3</label>
+        <input type="text" class="form-control Ans2" name="Answers[3].Answerbody" />
+        <input type="hidden" name="Answers[3].IsCorrect" class="Ans2" value="false" />
+
+        <br />
+    </div>
+    <br />
+    <button type="submit" class="btn btn-warning" style="background-color:#6943ce; font-size: 1.5rem;color:aliceblue;">Submit</button>
+
+    </form>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+@section script
+{
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById('questionType').addEventListener('change', function () {
+                var mcq = document.querySelector('.Mcq');
+                var TrueFalse = document.querySelector('.TrueFalse');
+                var ans1Inputs = document.querySelectorAll('.Ans1');
+                var ans2Inputs = document.querySelectorAll('.Ans2');
+
+                if (this.value === 'multiple') {
+                    mcq.style.display = 'block';
+                    TrueFalse.style.display = 'none';
+                    ans1Inputs.forEach(function (input) {
+                        input.disabled = true;
+                    });
+                    ans2Inputs.forEach(function (input) {
+                        input.disabled = false;
+                    });
+                } else if (this.value === 'TF') {
+                    mcq.style.display = 'none';
+                    TrueFalse.style.display = 'block';
+                    ans1Inputs.forEach(function (input) {
+                        input.disabled = false;
+                    });
+                    ans2Inputs.forEach(function (input) {
+                        input.disabled = true;
+                    });
+                } else {
+                    mcq.style.display = 'none';
+                    TrueFalse.style.display = 'none';
+                    ans1Inputs.forEach(function (input) {
+                        input.disabled = false;
+                    });
+                    ans2Inputs.forEach(function (input) {
+                        input.disabled = false;
+                    });
+                }
+            });
+        });
+    </script>
+}
+
+@section header
+{
+<style>
+    .form-label {
+        font-weight: bold;
+        color: #0b0d1b;
+        font-size: 18px;
+    }
+</style>
+}

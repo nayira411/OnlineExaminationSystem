@@ -1,25 +1,30 @@
 ﻿@model List<Course>
+
 @{
 	ViewData["Title"] = "ShowTeacherCourses";
 }
 
-<h1>Your Courses</h1>
-@foreach (var item in ViewBag.TeacherCourses)
+
+@if (@ViewBag.TeacherCourses.Count == 0)
 {
-	<div style="display:flex;flex-direction:row;justify-content:space-between;">
-		<div style="width: 700px;height: 100px;background-color: #0b0d1b; color: white;border-radius: 20px; display: flex; flex-direction: row;margin-right:35px ;justify-content: space-between; margin: 10px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; ">
-			<div style="margin-left: 20px;display: flex;flex-direction: row; margin:25px;">
-				<a class="btn btn-success" style="width:100px">@item.Cname</a>
-			</div>
-			<div style="margin:15px">
-				<h6 >Course id</h6>
-				<h1 style="color:#F8BDEB">@item.CrId</h1>
-			</div>
-
-		</div>
-
-	</div>
-
+	<h1 class="alert alert-danger" style="text-align:center">No Courses Yet</h1>
 }
-
+else
+{
+	<h1>Your Courses</h1>
+	@foreach (var item in ViewBag.TeacherCourses)
+	{
+		<div style="display: flex; flex-direction: row; justify-content: space-between; margin-bottom: 20px;">
+			<div style="width: 700px; height: 100px; background-color: #0b0d1b; color: white; border-radius: 20px; display: flex; flex-direction: row; align-items: center; padding: 0 20px;">
+				<div>
+					<h2>@item.Cname</h2>
+					<p>Course ID: <strong>@item.CrId</strong></p>
+				</div>
+				<div style="margin-left: auto;">
+					<a class="btn btn-success" asp-action="ShowInstructorStudents" asp-controller="TeacherForm" asp-route-id="@item.CrId" style="width: 100px;">View Students</a>
+				</div>
+			</div>
+		</div>
+	}
+}
 

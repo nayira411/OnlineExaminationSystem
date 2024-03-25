@@ -3,7 +3,7 @@
     var courses = ViewBag.Courses as List<Course>;
     var tracks = ViewBag.Tracks as List<Track>;
     SelectList crsli = new SelectList(courses, "CrId", "Cname");
-    SelectList trkli = new SelectList(tracks, "Tid", "Tname");
+    SelectList trkli = new SelectList(tracks, "TId", "Tname");
 }
 
 <!DOCTYPE html>

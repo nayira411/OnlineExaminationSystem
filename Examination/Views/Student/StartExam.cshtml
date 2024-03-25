@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Student_Answer>
+@{
+    Layout = "_mainLayout";
+}
+
+@section Header {
+    <link rel="stylesheet" href="/css/Exam.css" />
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+}
+
+<div class="container">
+    <div id="form">
+        <div class="header">
+            <div class="title">
+                <h4 style="color:#6943ce ; font-size:2rem; font-weight:bold">@ViewBag.ExamName</h4>
+                <h6>@ViewBag.NumberOfQuestion Questions</h6>
+                <div class="countdown-container">
+                    <div class="countdown-timer">
+                        <i class='fas fa-hourglass-half' style='font-size:28px;color:#6943ce'></i>
+                        <span id="countdown"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="image-container">
+                <img class="animated-image" src="~/Images/ques2.png" alt="Image" />
+            </div>
+        </div>
+        <form method="post" id="exam">
+            @foreach (var q in ViewBag.questions)
+            {
+                <div class="form-control" style="background-color:#e5e5e5">
+                    <label>@q.Qbody</label><br />
+                    @foreach (var answer in q.Answers)
+                    {
+                        <div class="answer">
+                            <input type="radio" name="answers[@q.QId].Sanswer" value="@answer.AnswerId" />
+                            <label>@answer.Answerbody</label>
+                            <input type="hidden" name="answers[@q.QId].SId" value="3" />
+                            <input type="hidden" name="answers[@q.QId].EId" value="1" />
+                            <input type="hidden" name="answers[@q.QId].QId" value="@q.QId" />
+                        </div>
+                    }
+                </div>
+            }
+            <input type="submit" class="btn btn-primary" id="Submit" />
+        </form>
+    </div>
+ 
+</div>
+
+@section Script {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var time = @ViewBag.ExamDuration;
+            var countdownTimeInMinutes = time;
+            var currentTime = new Date();
+            var endTime = new Date(currentTime.getTime() + countdownTimeInMinutes * 60 * 1000);
+
+            function updateCountdown() {
+                var now = new Date().getTime();
+                var timeLeft = endTime - now;
+
+                var hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown').textContent = hours + "h " + minutes + "m " + seconds + "s ";
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                document.getElementById("exam").submit();
+
+                    
+                }
+            }
+
+            var countdownInterval = setInterval(updateCountdown, 1000);
+
+     
+        
+        });
+    </script>
+}

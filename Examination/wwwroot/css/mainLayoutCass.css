@@ -24,11 +24,11 @@
         display: block;
         transition: 0.3s;
     }
+.main {
 
-
-
-
-
+    margin-left: 280px;
+    padding: 20px;
+}
 .logo {
     display: flex;
     color: white;

@@ -1,4 +1,4 @@
-﻿@model Student
+﻿@model StudentCourseTrackModel
 @{
     
     var course = ViewBag.courses as List<Course>;
@@ -104,12 +104,23 @@
             </select> <br />
             <span asp-validation-for="TrackId"></span><br>
 
-            <label asp-for="CrsId">CourseName</label><br />
-            <select asp-for="CrsId" asp-items="crsname">
-                <option value="">-- Select Course --</option>
+            <label asp-for="CourseId">CourseName</label><br />
+            <select asp-for="CourseId" asp-items="crsname">
+                
             </select>
-            <span asp-validation-for="CrsId"></span><br>
+            <span asp-validation-for="CourseId"></span><br>
             <br/>
+            
+
+
+            @foreach (var crs in ViewBag.CoursesName)
+            {
+                <div class="course-item">
+                    <span class="course-title">@crs.CourseName</span>
+
+
+                </div>
+            }
 
             <input type="submit" value="Update">
             <input style="margin-left:180px" asp-action="Display" asp-controller="AStudent" type="submit" value="back">
@@ -120,3 +131,4 @@
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 </body>
 </html>
+ 

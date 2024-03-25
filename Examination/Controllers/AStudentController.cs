@@ -1,9 +1,15 @@
 ﻿using Examination.Models;
+using Examination.ViewModel;
+
 using Examination.Repo;
+using Examination.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
+using CRUD.CustomFilters;
 
 namespace Examination.Controllers
 {
+    [AuthFilter]
     public class AStudentController : Controller
     {
 
@@ -14,12 +20,32 @@ namespace Examination.Controllers
             _stdrepo = stdrepo;
         }
         public IActionResult Display()
-        {
-            var model = _stdrepo.GetAllAtudents();
-            int studentCount = _stdrepo.GetStudentCount();
-            ViewBag.StudentCount = studentCount;
-            return View(model);
+                                                                                                                                                     {
+            try
+            {
+                var studentsWithTracks = _stdrepo.GetAllStudents();
+
+                if (studentsWithTracks != null && studentsWithTracks.Any())
+                {
+                    int studentCount = studentsWithTracks.Count();
+                    ViewBag.StudentCount = studentCount;
+
+                    return View(studentsWithTracks);
+                }
+                else
+                {
+                    ViewBag.StudentCount = 0;
+                    return View(new List<StudentCourseTrackModel>());
+                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.StudentCount = 0;
+                return View("Error");
+            }
         }
+
+
         public IActionResult Delete(int? id)
         {
             if (id == null)
@@ -39,12 +65,14 @@ namespace Examination.Controllers
             }
 
             var student = _stdrepo.GetStudentDetailsById(id.Value);
+            var courses = _stdrepo.GetStudentCourses(id.Value);
 
             if (student == null)
             {
                 return NotFound();
             }
 
+            ViewBag.Courses = courses;
             return View(student);
         }
         public IActionResult Edit(int? id)
@@ -53,7 +81,7 @@ namespace Examination.Controllers
             {
                 return BadRequest();
             }
-
+            var coursesName = _stdrepo.GetStudentCourses(id.Value);
             var studentedit = _stdrepo.GetStudentDetailsById(id.Value);
 
             if (studentedit == null)
@@ -63,19 +91,29 @@ namespace Examination.Controllers
 
             ViewBag.Courses = _stdrepo.GetCourses();
             ViewBag.Tracks = _stdrepo.GetTracks();
+            ViewBag.CoursesName = coursesName;
+
 
             return View(studentedit);
         }
 
         [HttpPost]
-        public IActionResult Edit(Student student)
+        public IActionResult Edit(StudentCourseTrackModel student)
         {
             try
             {
-                Console.WriteLine($"Received student data: {student.SId}, {student.Sname}, {student.Semail}, {student.password}, {student.Sgender}, {student.TrackId}, {student.CrsId}");
+                var studentToUpdate = _stdrepo.GetStudentById(student.SId);
 
-                _stdrepo.UpdateStudent(student.SId, student.Sname, student.Semail, student.password, student.Sgender, student.TrackId, student.CrsId);
+                if (studentToUpdate == null)
+                {
+                    Console.WriteLine("Student not found.");
+                    ViewBag.ErrorMessage = "Student not found.";
+                    return RedirectToAction("Display");
+                }
 
+                studentToUpdate.TrackId = student.TrackId;
+
+                _stdrepo.UpdateStudentCourse(student.SId, student.CourseId);
                 Console.WriteLine("Student details updated successfully.");
                 ViewBag.ConfirmationMessage = "Student details updated successfully.";
             }
@@ -88,11 +126,11 @@ namespace Examination.Controllers
             return RedirectToAction("Display");
         }
 
-
+        [HttpGet]
 
         public IActionResult Add()
         {
-           
+
             ViewBag.Courses = _stdrepo.GetCourses();
             ViewBag.Tracks = _stdrepo.GetTracks();
             return View(new Student());
@@ -109,10 +147,41 @@ namespace Examination.Controllers
             catch (Exception ex)
             {
                 ViewBag.ErrorMessage = "An error occurred while adding the student.";
-                // Log the error if necessary
+
             }
 
             return RedirectToAction("Display");
+        }
+
+        public IActionResult GetStudetGrade(int? stdid)
+        {
+            try
+            {
+                if (stdid == null)
+                {
+                    return BadRequest("Student ID is missing.");
+                }
+
+                var student = _stdrepo.GetStudentDetailsById(stdid.Value);
+                if (student == null)
+                {
+                    return NotFound("Student not found.");
+                }
+
+                var courses = _stdrepo.GetStudetGrade(stdid.Value);
+                if (courses == null || courses.Count == 0)
+                {
+                    return NotFound("No courses found for the student.");
+                }
+
+                ViewBag.Courses = courses;
+                return View(student);
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500, "An error occurred while processing your request.");
+            }
         }
 
 
