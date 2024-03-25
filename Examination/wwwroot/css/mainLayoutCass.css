@@ -6,7 +6,7 @@
 
 .sidenav {
     height: 100%;
-    width: 25%;
+    width: 19%;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -24,11 +24,14 @@
         display: block;
         transition: 0.3s;
     }
-.main {
 
+
+
+.main {
     margin-left: 280px;
     padding: 20px;
 }
+
 .logo {
     display: flex;
     color: white;
@@ -53,7 +56,7 @@
     #collapseExample a:hover,
     a.sharedColor:hover {
         background-color: #6943ce;
-        color:white;
+        color: white;
     }
 
 .setting {

@@ -1,41 +1,90 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Upcoming Exams</title>
-	<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Exams</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
 
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
 
+        .content {
+            flex: 1;
+            margin-right: 50px;
+        }
 
-	</style>
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        .alert-success {
+            background-color: #dff0d8;
+            color: #3c763d;
+            text-align: center;
+        }
+
+        .exam {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+
+            .exam h2 {
+                margin-top: 0;
+                margin-bottom: 5px;
+            }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-	<div style="display:flex;flex-direction:row">
-		<div style="display:flex;flex-direction:column;align-content:space-between">
-			<h1 style="margin-right:300px">Your Upcoming Exams</h1>
-			<br />
-			@if (@ViewBag.exam.Count==0)
-			{
-				<br />
-				<h1 class="alert alert-success" style="text-align:center">You Don't Have Any Upcomming Exams!</h1>
-			}
-			else
-			{
-				@foreach (var exam in ViewBag.exam)
-				{
-					<div class="exam alert alert-danger" style="width:500px;color:black">
-						<h2>@exam.Cr.Cname</h2>
-						<p>Date: @exam.ExamDate</p>
-						<p>Start Time:@exam.StartTime</p>
-					</div>
-				}
+    <div class="container">
+        <div class="content">
+            <h1>Your Upcoming Exams</h1>
+            @if (@ViewBag.exam.Count == 0)
+            {
+                <div class="alert alert-success">
+                    You Don't Have Any Upcoming Exams!
+                </div>
+            }
+            else
+            {
+                @foreach (var exam in ViewBag.exam)
+                {
+                    <div class="exam alert">
+                        <h2>@exam.Cr.Cname</h2>
+                        <p>Date: @exam.ExamDate</p>
+                        <p>Start Time: @exam.StartTime</p>
+                        <a class="btn btn-warning" asp-controller="Student" asp-action="StartExam" asp-route-ExamId="@exam.EId" > Start Exam</a>
 
-			}
-		</div><br />
-		<div>
-		<img src="~/images/Exam.svg"  width="400px" />
-		</div>
-	</div>
+                    </div>
+                }
+            }
+        </div>
+        <div>
+            <img src="~/images/Exam.svg" width="400px" />
+        </div>
+    </div>
 </body>
 </html>

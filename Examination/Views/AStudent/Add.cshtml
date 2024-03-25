@@ -78,26 +78,26 @@
         <form asp-action="Add" asp-controller="AStudent" method="post">
             <label asp-for="Sname">Name</label><br />
             <input asp-for="Sname" type="text" /><br />
-            <span asp-validation-for="Sname"></span><br>
+            <span asp-validation-for="Sname" class="text-danger"></span><br>
 
             <label asp-for="Semail">Email</label><br />
             <input asp-for="Semail" type="text" /><br />
-            <span asp-validation-for="Semail"></span><br>
+            <span asp-validation-for="Semail" class="text-danger"></span><br>
 
             <label asp-for="Sgender">Gender</label><br />
             <input type="radio" asp-for="Sgender" value="male" /> Male<br />
             <input type="radio" asp-for="Sgender" value="female" /> Female<br />
-            <span asp-validation-for="Sgender"></span><br>
+            <span asp-validation-for="Sgender" class="text-danger"></span><br>
 
             <label asp-for="password">Password</label><br />
             <input asp-for="password" type="text" /><br />
-            <span asp-validation-for="password"></span><br>
+            <span asp-validation-for="password" class="text-danger"></span><br>
 
             <label asp-for="TrackId">Track</label><br />
             <select asp-for="TrackId" asp-items="trkli">
                 <option value="">Select Track</option>
             </select><br />
-            <span asp-validation-for="TrackId"></span><br>
+            <span asp-validation-for="TrackId" class="text-danger"></span><br>
 
             <input type="submit" value="Add">
             <input style="margin-left:200px" asp-action="Display" asp-controller="AStudent" type="submit" value="back">

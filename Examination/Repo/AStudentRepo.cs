@@ -3,7 +3,7 @@ using Examination.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Examination.ViewModel;
-using System.Data.Entity;
+//using System.Data.Entity;
 namespace Examination.Repo
 {
     public class AStudentRepo
@@ -181,7 +181,7 @@ namespace Examination.Repo
         {
             return Context.Students.FirstOrDefault(s => s.SId == id);
         }
-
+      
     }
 
 }

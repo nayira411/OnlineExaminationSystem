@@ -51,13 +51,6 @@ namespace Examination.Repo
 
 			return uniqueTopics;
 		}
-
-
-		public Course GetCourseById(int crsId)
-		{
-			var courseDetails = context.Courses.FirstOrDefault(a => a.CrId == crsId && a.Track_Courses.Any(tc => tc.Crid == crsId));
-			return courseDetails;
-		}
 		public void DeleteCourseById(int crsId)
 		{
 			var res = context.Courses.Include(a => a.Student_Courses).FirstOrDefault(a => a.CrId == crsId);
@@ -79,6 +72,7 @@ namespace Examination.Repo
 			}
 			else
 			{
+				context.Database.ExecuteSqlRaw("EXEC [DeleteRelatedAnsweQuestionSAnswer] @CrId={0}", crsId);
 				context.Courses.FromSqlRaw("exec [DeleteCourse] @crsId={0}", crsId).ToList();
 				context.SaveChanges();
 				return 1;
@@ -121,12 +115,12 @@ namespace Examination.Repo
 		public void AddCourseToTrack(int Tid, int crId)
 		{
 			var track = new Track_Course { TId = Tid, Crid = crId };
-			context.TrackCourses.Add(track);
+			context.Track_Courses.Add(track);
 			context.SaveChanges();
 		}
-		public bool ISCourseUnique(string courseName)
-		{
-			return !context.Courses.Any(a => a.Cname == courseName);
-		}
-	}
+        public bool IsCourseUnique(string courseName, int courseId)
+        {
+            return !context.Courses.Any(a => a.Cname == courseName && a.CrId != courseId);
+        }
+    }
 }

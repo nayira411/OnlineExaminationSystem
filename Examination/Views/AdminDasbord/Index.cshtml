@@ -4,46 +4,52 @@
     Layout = "~/Views/Shared/_mainLayout.cshtml";
 }
 
-<h1>Index</h1>
-
+<h1 style="color:#0b0d1b;font-weight:bold;font-size:2rem">Welcome Again</h1>
+<hr style="background-color: #FF204E; font-weight: bold; border-width: 7px;">
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
 
+    @* Student Count Card *@
     <div style="background-color: #0b0d1b; color: white; border-radius: 20px; padding: 20px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
         <div style="display: flex; align-items: center; justify-content: space-between;">
             <div style="display: flex; flex-direction: column;">
                 <h4>Total Students</h4>
                 <h1 style="font-size: 80px; color: #FF204E; margin: 0;">@ViewBag.stdCount</h1>
             </div>
-            <img src="/Images/std.svg" width="200px" style="margin-left: 20px;">
+            <img src="/Images/std.svg" width="150px" style="margin-left: 20px;" alt="Student Icon">
         </div>
     </div>
 
+    @* Instructors Count Card *@
     <div style="background-color: #0b0d1b; color: white; border-radius: 20px; padding: 20px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
         <div style="display: flex; align-items: center; justify-content: space-between;">
             <div style="display: flex; flex-direction: column;">
                 <h4>Instructors Count</h4>
                 <h1 style="font-size: 80px; color: #FF204E; margin: 0;">@ViewBag.insCount</h1>
             </div>
-            <img src="/Images/ins.svg" width="200px" style="margin-left: 20px;">
+            <img src="/Images/ins.svg" width="150px" style="margin-left: 20px;" alt="Instructor Icon">
         </div>
     </div>
 
+    @* Courses Count Card *@
     <div style="background-color: #0b0d1b; color: white; border-radius: 20px; padding: 20px; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">
         <div style="display: flex; align-items: center; justify-content: space-between;">
             <div style="display: flex; flex-direction: column;">
                 <h4>Courses Count</h4>
                 <h1 style="font-size: 80px; color: #FF204E; margin: 0;">@ViewBag.crsCount</h1>
             </div>
-            <img src="/Images/crs.svg" width="200px" style="margin-left: 20px;">
+            <img src="/Images/crs.svg" width="150px" style="margin-left: 20px;" alt="Course Icon">
         </div>
     </div>
 
 </div>
+
 <center>
-    <hr style="width:500px;text-align:center;color:crimson; border-width: 3px;">
+    <hr style="width: 80%; text-align: center; color: crimson; border-width: 3px;">
 </center>
+
 <br />
-<div style="width: 600px; height: 400px;">
+
+<div style="width: 80%; height: 400px; margin: 0 auto;">
     <canvas id="myChart"></canvas>
 </div>
 
@@ -66,9 +72,26 @@
             scales: {
                 yAxes: [{
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        fontColor: 'rgba(11, 13,27, 1)'
+                    },
+                    gridLines: {
+                        color: 'rgba(11, 13,27, 0.1)'
+                    }
+                }],
+                xAxes: [{
+                    ticks: {
+                        fontColor: 'rgba(11, 13,27, 1)'
+                    },
+                    gridLines: {
+                        color: 'rgba(11, 13,27, 0.1)'
                     }
                 }]
+            },
+            legend: {
+                labels: {
+                    fontColor: 'rgba(11, 13,27, 1)'
+                }
             }
         }
     });

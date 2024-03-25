@@ -6,10 +6,20 @@
 		td:hover {
 			cursor: pointer;
 		}
+
+		.rwd-table tr:first-child {
+			border-top: none;
+			background-color: white;
+			color: #212529;
+		}
 	</style>
 	<link href="~/css/mainlayoutcass.css" rel="stylesheet" />
-	<link rel="stylesheet" href="/css/table.css" />
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+
+	@section Header {
+	<link rel="stylesheet" href="/css/table.css" />
+	}
+
 </head>
 <body>
 	@if (TempData["ShowAlert"] != null && (bool)TempData["ShowAlert"])

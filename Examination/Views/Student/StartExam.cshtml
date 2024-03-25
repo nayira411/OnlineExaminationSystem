@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<Student_Answer>
 @{
     Layout = "_mainLayout";
+  
 }
 
 @section Header {
@@ -35,8 +36,8 @@
                         <div class="answer">
                             <input type="radio" name="answers[@q.QId].Sanswer" value="@answer.AnswerId" />
                             <label>@answer.Answerbody</label>
-                            <input type="hidden" name="answers[@q.QId].SId" value="3" />
-                            <input type="hidden" name="answers[@q.QId].EId" value="1" />
+                            <input type="hidden" name="answers[@q.QId].SId" value="@ViewBag.studentId" />
+                            <input type="hidden" name="answers[@q.QId].EId" value="@ViewBag.ExamtId" />
                             <input type="hidden" name="answers[@q.QId].QId" value="@q.QId" />
                         </div>
                     }

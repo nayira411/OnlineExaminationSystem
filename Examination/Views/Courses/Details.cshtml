@@ -1,37 +1,77 @@
-﻿@model Course
-@{
+﻿@{
     ViewData["Title"] = "Details";
 }
+@section Header
+{
+    <style>
+    .course-details {
+    display: flex;
+    flex-direction: row;
+}
 
-<div style="display:flex;flex-direction:row">
+.course-details h1 {
+    margin-right: 30px;
+}
+
+.course-info {
+    margin-top: 20px;
+}
+
+.topic-heading {
+    color: red;
+}
+
+.topics-list {
+    margin-top: 20px;
+}
+
+.topic-item {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.topic-item h3 {
+    margin-top: 0;
+}
+
+.topic-item p {
+    margin-bottom: 5px;
+}
+    </style>
+
+}
+<div class="course-details">
     <h1>Course Details</h1>
-    <a class="btn btn-dark" asp-action="index" style="height:45px;margin-left:30px">Back</a>
+    <a class="btn btn-dark" asp-action="Index">Back</a>
 </div>
 
-<div class="alert alert-primary">
+<div class="alert alert-primary course-info">
     <dl>
-        <dt style="font-size:20px">Course Name:</dt>
-        <dd>@Model.Cname</dd>
+        <dt>Course Name:</dt>
+        <dd>@ViewBag.crs.Cname</dd>
 
-        <dt style="font-size:20px">Course ID:</dt>
-        <dd>@Model.CrId</dd>
+        <dt>Course ID:</dt>
+        <dd>@ViewBag.crs.CrId</dd>
 
-        <dt style="font-size:20px">Passing Degree:</dt>
-        <dd>@Model.Passgrade</dd>
-
-        <br />
-        <hr />
-        <h2 style="color:red">Course Topics:</h2>
-
-        <div class="topics-list">
-            @foreach (var item in ViewBag.topics)
-            {
-                <div class="topic-item">
-                    <h3>Topic ID: @item.TopicId</h3>
-                    <p><strong>Topic Name:</strong> @item.TopicName</p>
-                    <p><strong>Topic Description:</strong> @item.TopicDescription</p>
-                </div>
-            }
-        </div>
+        <dt>Passing Degree:</dt>
+        <dd>@ViewBag.crs.Passgrade</dd>
     </dl>
+</div>
+
+<div class="course-topics">
+    <hr />
+    <h2 class="topic-heading">Course Topics:</h2>
+
+    <div class="topics-list">
+        @foreach (var item in ViewBag.topics)
+        {
+            <div class="topic-item">
+                <h3>Topic ID: @item.TopicId</h3>
+                <p><strong>Topic Name:</strong> @item.TopicName</p>
+                <p><strong>Topic Description:</strong> @item.TopicDescription</p>
+            </div>
+        }
+    </div>
 </div>

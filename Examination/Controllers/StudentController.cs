@@ -3,6 +3,7 @@ using Examination.Models;
 using Examination.Repo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing.Constraints;
+using System.Security.Claims;
 
 namespace Examination.Controllers
 {
@@ -10,36 +11,37 @@ namespace Examination.Controllers
     public class StudentController : Controller
     {
         IStudentRepo Srepo;
+        int ExamID;
+        int StudentID;
         public StudentController(IStudentRepo _StudRepo)
         {
-            Srepo=_StudRepo;
+            Srepo = _StudRepo;
 
         }
 
         [HttpGet]
         public IActionResult StartExam(int ExamId)
         {
-           List<Question> questions= Srepo.GetExamQuestions(1);
-           ViewBag.questions = questions;
-           ViewBag.ExamName =Srepo.GetCourseById(Srepo.GetExam(1).CrId).Cname;
-           ViewBag.NumberOfQuestion = questions.Count();
-           TimeOnly endTime = Srepo.GetExam(1).EndTime;
-           TimeOnly startTime = Srepo.GetExam(1).StartTime;
-           TimeSpan examDuration = endTime - startTime;
-           ViewBag.ExamDuration = examDuration.TotalMinutes;
-           return View();
+            var user = HttpContext.User;
+            var studentId = user.FindFirst(c => c.Type == ClaimTypes.Sid).Value;
+            int sId = int.Parse(studentId);
+            ViewBag.studentId = sId;
+            ViewBag.ExamtId = ExamId;
+            List<Question> questions = Srepo.GetExamQuestions(ExamId);
+            ExamID = ExamId;
+            ViewBag.questions = questions;
+            ViewBag.ExamName = Srepo.GetCourseById(Srepo.GetExam(ExamId).CrId).Cname;
+            ViewBag.NumberOfQuestion = questions.Count();
+            TimeOnly endTime = Srepo.GetExam(ExamId).EndTime;
+            TimeOnly startTime = Srepo.GetExam(ExamId).StartTime;
+            TimeSpan examDuration = endTime - startTime;
+            ViewBag.ExamDuration = examDuration.TotalMinutes;
+            return View();
         }
         [HttpPost]
         public IActionResult StartExam(Dictionary<int, Student_Answer> answers)
         {
-            List<Question> questions = Srepo.GetExamQuestions(1);
-            ViewBag.questions = questions;
-            ViewBag.ExamName = Srepo.GetCourseById(Srepo.GetExam(1).CrId).Cname;
-            ViewBag.NumberOfQuestion = questions.Count();
-            TimeOnly endTime = Srepo.GetExam(1).EndTime;
-            TimeOnly startTime = Srepo.GetExam(1).StartTime;
-            TimeSpan examDuration = endTime - startTime;
-            ViewBag.ExamDuration = examDuration.TotalMinutes;
+      
             Student_Answer std = new Student_Answer();
             foreach (var entry in answers)
             {
@@ -55,7 +57,7 @@ namespace Examination.Controllers
 
             return RedirectToAction("Result", new { Eid = Eid, Sid = Sid });
         }
-        public IActionResult Result(int Eid,int Sid)
+        public IActionResult Result(int Eid, int Sid)
         {
             ViewBag.Score = Srepo.CalculateExamScore(Eid, Sid);
             ViewBag.TotalScore = Srepo.CalculateTotalExamScore(Eid);
