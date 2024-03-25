@@ -45,7 +45,7 @@
             <input type="submit" class="btn btn-primary" id="Submit" />
         </form>
     </div>
- 
+
 </div>
 
 @section Script {
@@ -68,16 +68,16 @@
 
                 if (timeLeft <= 0) {
                     clearInterval(countdownInterval);
-                document.getElementById("exam").submit();
+                    document.getElementById("exam").submit();
 
-                    
+
                 }
             }
 
             var countdownInterval = setInterval(updateCountdown, 1000);
 
-     
-        
+
+
         });
     </script>
 }

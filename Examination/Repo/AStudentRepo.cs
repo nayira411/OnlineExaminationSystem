@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Examination.ViewModel;
 using System.Data.Entity;
+using Microsoft.Data.SqlClient;
 namespace Examination.Repo
 {
     public class AStudentRepo
@@ -14,7 +15,11 @@ namespace Examination.Repo
         {
             List<StudentCourseTrackModel> studentCourseTrackModels = new List<StudentCourseTrackModel>();
             List<Student> Students = Context.Students
-                .FromSqlRaw("EXEC GETStudentsAndCourses").ToList();
+             .FromSqlRaw("EXEC GETStudentsAndCourses").ToList();
+
+
+
+
 
             foreach (var Student in Students)
             {
@@ -153,35 +158,39 @@ namespace Examination.Repo
                 throw;
             }
         }
-        public List<Student_Course> GetStudetGrade(int studentId)
+        public List<StudentCourseModel> GetStudetGrade(int studentId)
         {
-            var studentgrade = Context.Set<Student_Course>()
-                .FromSqlRaw("EXEC GetStudentgrade @stId", new System.Data.SqlClient.SqlParameter("@stId", studentId))
+            var studentgrade = Context.Set<StudentCourseModel>()
+                .FromSqlRaw("EXEC GetStudentGrade @StudentId = {0}", studentId)
                 .ToList();
 
             return studentgrade;
         }
+
+
         public void UpdateStudentCourse(int studentId, int newCourseId)
+{
+    var student = Context.Students.SingleOrDefault(s => s.SId == studentId);
+
+    if (student != null)
+    {
+        foreach (var studentCourse in student.Student_Courses)
         {
-
-            var student = Context.Students.SingleOrDefault(s => s.SId == studentId);
-
-            if (student != null)
-            {
-
-                foreach (var studentCourse in student.Student_Courses)
-                {
-                    studentCourse.CrId = newCourseId;
-                }
-                Context.SaveChanges();
-            }
-
+            studentCourse.CrId = newCourseId;
         }
+        Context.SaveChanges();
+    }
+}
+
         public Student GetStudentById(int id)
         {
             return Context.Students.FirstOrDefault(s => s.SId == id);
         }
 
+        public void SaveChanges()
+        {
+            Context.SaveChanges();
+        }
     }
 
 }

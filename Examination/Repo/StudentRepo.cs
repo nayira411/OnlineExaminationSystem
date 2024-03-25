@@ -7,15 +7,18 @@ namespace Examination.Repo
     public interface IStudentRepo
     {
         public List<Question> GetExamQuestions(int ExamId);
+
+        List<Student_Answer> GetStudentAnswers(int ExamId, int StudentId);
+        List<Question> GetCorrectAnswers(int ExamId);
         public Exam GetExam(int ExamId);
         public Course GetCourseById(int CourseId);
         public void StudentAnswers(Student_Answer sa);
         public int CalculateExamScore(int ExamId, int StudentId);
         public int CalculateTotalExamScore(int ExamId);
     }
-    public class StudentRepo: IStudentRepo
+    public class StudentRepo : IStudentRepo
     {
-        ExamContext db=new ExamContext();
+        ExamContext db = new ExamContext();
 
         public List<Question> GetExamQuestions(int ExamId)
         {
@@ -62,6 +65,25 @@ namespace Examination.Repo
             int questions = examQuestion.QIds.Sum(q => q.Qmark);
             return questions;
         }
+
+        public List<Student_Answer> GetStudentAnswers(int ExamId, int StudentId)
+        {
+            return db.Student_Answers.Where(a=>a.EId==ExamId && a.SId==StudentId).ToList();
+        }
+
+        public List<Question> GetCorrectAnswers(int ExamId)
+        {
+            Exam exam = db.Exams.Include(a => a.QIds).FirstOrDefault(a => a.EId == ExamId);
+            if (exam != null)
+            {
+                return exam.QIds.ToList();
+            }
+            else
+            {
+                throw new Exception($"Exam with ID {ExamId} not found.");
+            }
+        }
+
 
     }
 }

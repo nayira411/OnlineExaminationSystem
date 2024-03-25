@@ -35,5 +35,7 @@ namespace Examination.ViewModel
 
         [Required(ErrorMessage = " course is Required")]
         public int CourseId { get; set; }
+
+        public string Grade { get; set; }
     }
 }

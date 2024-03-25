@@ -1,0 +1,33 @@
+﻿@model List<QuestionAnswerViewModel>
+@{
+    Layout = "_mainLayout";
+}
+
+<div class="container">
+    <h1 class=" mb-4"> Responses</h1>
+    @foreach (var item in Model)
+    {
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title"> @item.QuestionBody</h5>
+                @foreach (var answer in item.Answers.Select((value, index) => new { Value = value, Index = index }))
+                {
+                    <div class="mb-3" style="@(item.StudentAnswer == item.AnswerIds[answer.Index].ToString() && item.CorrectAnswerId.ToString() == item.StudentAnswer ? "background-color: lightgreen;" :
+                        item.StudentAnswer == item.AnswerIds[answer.Index].ToString() && item.CorrectAnswerId.ToString() != item.StudentAnswer ? "background-color: red;" :
+                        item.CorrectAnswerId.ToString() == item.AnswerIds[answer.Index].ToString() ? "background-color: lightgreen;" : "")">
+                        @* <span>Answer ID: @item.AnswerIds[answer.Index]</span> *@
+                        <span class="ms-2">@answer.Value</span>
+                        @if (item.CorrectAnswerId.ToString() == item.AnswerIds[answer.Index].ToString())
+                        {
+                            <span class="ms-2"><i class="fas fa-check-circle text-success"></i></span>
+                        }
+                        else
+                        {
+                            <span class="ms-2"><i class="fas fa-times-circle text-danger"></i></span>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>

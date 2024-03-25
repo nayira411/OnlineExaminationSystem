@@ -10,27 +10,26 @@
     <link href="~/css/tablestd.css" rel="stylesheet" />
     <title>Get Student Grade</title>
     <style>
-        .divsearch{
-            margin-left:700px;
-            margin-top:-30px;
+        .divsearch {
+            margin-left: 700px;
+            margin-top: -30px;
         }
-    #searchButton{
-    padding: 8px 16px;
-    border: none;
-    background-color: #6943ce;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
 
-    }
+        #searchButton {
+            padding: 8px 16px;
+            border: none;
+            background-color: #6943ce;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-    #searchText{
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    margin-left: 200px;
-
-    }
+        #searchText {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-left: 200px;
+        }
 
     </style>
 </head>
@@ -42,16 +41,16 @@
         <h4 style="color:black; display: inline-block;">@Model.Sname</h4>
     </div>
 
-            
-      
-        
-    
+
+
+
+
     <div class="divsearch" style="margin-bottom: 20px; ">
         <input type="text" id="searchText" placeholder="Enter search text">
         <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
     <h5 style="margin-left:500px">My Courses and Grade</h5>
-    <table class="rwd-table w-100"  id="keywords">
+    <table class="rwd-table w-100" id="keywords">
         <thead>
             <tr style="background-color: #6943ce">
                 <th>CourseName</th>
@@ -64,33 +63,32 @@
             {
                 <tr>
                     <td>@course.CourseName</td>
-                    <td> @course.Stgrade</td>
+                    <td>@course.Grade</td> <!-- Changed from Stgrade to Grade -->
                 </tr>
-
             }
         </tbody>
-        </table>
+    </table>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
             $("#searchButton").on("click", function () {
                 var searchText = $("#searchText").val().trim().toLowerCase();
 
-                
+
                 $("#keywords tbody tr").each(function () {
                     var row = $(this);
                     var rowVisible = false;
 
-                   
+
                     row.find("td").each(function () {
                         var cellText = $(this).text().trim().toLowerCase();
                         if (cellText.includes(searchText)) {
                             rowVisible = true;
-                            return false; 
+                            return false;
                         }
                     });
 
-                    
+
                     if (rowVisible) {
                         row.show();
                     } else {
@@ -101,7 +99,7 @@
         });
     </script>
 
-   
+
 </body>
 </html>
 
