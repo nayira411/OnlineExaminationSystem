@@ -41,35 +41,40 @@
 
 		@if (User.IsInRole("Student"))
 		{
-			<div class="dashboard-links">
+			<div class="dashboard-links instAndStdStyle">
 				<a asp-area="" asp-controller="TeacherForm" asp-action="dashboard" class="dashboard-link">
-					<i class="fas fa-home"></i> Student Dashboard
+					<i class="fas fa-home"></i>&ensp;&ensp;&ensp; Student Dashboard
 				</a>
 				<a asp-area="" asp-controller="AStudent" asp-action="GetStudetGrade" asp-route-stdid="@sid" class="dashboard-link">
-					<i class="fas fa-book"></i> Your Courses
+					<i class="fas fa-book"></i> &ensp;&ensp;&ensp;Your Courses
 				</a>
 				<a asp-area="" asp-controller="UpcommingExams" asp-action="Index" class="dashboard-link">
-					<i class="fas fa-clipboard-list"></i> Upcoming Exams
+					<i class="fas fa-clipboard-list"></i>&ensp;&ensp;&ensp; Upcoming Exams
 				</a>
 			</div>			
 		}
 		@if (User.IsInRole("Instructor"))
 		{
-			<div class="dashboard-links ">
+			<div class="dashboard-links instAndStdStyle">
 				<a asp-area="" asp-controller="TeacherForm" asp-action="TeacherHomePage" class="dashboard-link">
-					<i class="fas fa-home"></i> Instructor Dashboard
+					<i class="fas fa-home"></i>&ensp;&ensp;&ensp; Instructor Dashboard
 				</a>
 				<a asp-area="" asp-controller="Questions" asp-action="Add" class="dashboard-link">
-					<i class="fas fa-plus"></i> Add Question
+					<i class="fas fa-plus"></i>&ensp;&ensp;&ensp; Add Question
 				</a>
 				<a asp-area="" asp-controller="TeacherForm" asp-action="Index" class="dashboard-link">
-					<i class="fas fa-pencil-alt"></i> Create Exam
+					<i class="fas fa-pencil-alt"></i>&ensp;&ensp;&ensp; Create Exam
 				</a>
+<<<<<<< HEAD
 				<a href="http://DESKTOP-KKEBIIH/ReportServer/Pages/ReportViewer.aspx?%2fReport%2fGetExam" class="dashboard-link">
 					<i class="fas fa-chart-bar"></i> Exam Report
+=======
+				<a asp-area="" asp-controller="TeacherForm" asp-action="CreateExam" class="dashboard-link">
+					<i class="fas fa-chart-bar"></i>&ensp;&ensp;&ensp; Report
+>>>>>>> origin/habiba
 				</a>
 				<a asp-area="" asp-controller="TeacherForm" asp-action="ShowTeacherCourses" class="dashboard-link">
-					<i class="fas fa-book"></i> Your Courses
+					<i class="fas fa-book"></i>&ensp;&ensp;&ensp; Your Courses
 				</a>
 			</div>
 		}
@@ -81,13 +86,20 @@
 					<i class="fa-solid fa-user-tie"></i>&ensp;&ensp;&ensp; Admin DashBoard
 				</a>
 			</p>
-			<div class="collapse text-center" id="collapseExample">
+			<div class="collapse text-center instAndStdStyle" id="collapseExample">
 				<div>
+<<<<<<< HEAD
 					<a asp-area="" asp-controller="AdminDasbord" asp-action="index">Dashboard</a>
 
 					<a asp-area="" asp-controller="Instructor" asp-action="index">Instructors</a>
 					<a asp-area="" asp-controller="AStudent" asp-action="Display">Student</a>
 					<a asp-area="" asp-controller="courses" asp-action="index">Courses</a>
+=======
+					<a asp-area="" asp-controller="AdminDasbord" asp-action="index">&ensp;&ensp;&ensp; Index</a>
+					<a asp-area="" asp-controller="Instructor" asp-action="index">&ensp;&ensp;&ensp; Instructors</a>
+					<a asp-area="" asp-controller="AStudent" asp-action="Display">&ensp;&ensp;&ensp; Student</a>
+					<a asp-area="" asp-controller="courses" asp-action="index">&ensp;&ensp;&ensp; Courses</a>
+>>>>>>> origin/habiba
 				</div>
 			</div>
 			<p class="sharedColor">
@@ -97,22 +109,36 @@
 				</a>
 			</p>
 			<div class="collapse text-center" id="reportsCollapse">
-				<div>
+				
 					<a href="#">Student Exam</a>
 					<a href="http://DESKTOP-KKEBIIH/ReportServer/Pages/ReportViewer.aspx?%2fReport%2fGetExam">Exam</a>
 					<a href="http://DESKTOP-KKEBIIH/ReportServer/Pages/ReportViewer.aspx?%2fReport%2fStudntGrade">Student Grades</a>
 					<a href="http://DESKTOP-KKEBIIH/ReportServer/Pages/ReportViewer.aspx?%2fReport%2fTopicReport">Course Topic</a>
 					<a href="#">Department</a>
 					<a href="#">Instructor</a>
-				</div>
+				
 			</div>
 		}
 		<div class="setting">
-			<div>
+
+
+			<p class="sharedColor">
+				<a data-bs-toggle="collapse" href="#settingProfile" role="button" aria-expanded="false"
+				   aria-controls="settingProfile" class="sharedColor">
+					<i class="fa-solid fa-gear"></i>&ensp;&ensp;&ensp;Settings
+				</a>
+			</p>
+			<div class="collapse text-center" id="settingProfile">
+				<div>
+					<a asp-area="" asp-controller="Account" asp-action="EditProfile">Profile</a>
+				</div>
+			</div>
+	     	@*<div>
 				<a href="#services" ><i class="fa-solid fa-gear"></i>&ensp;&ensp;&ensp;Settings</a>
 			</div>
+			*@
 			<div>
-				<a asp-area="" asp-controller="Account" asp-action="LogOut"><i class="fa-solid fa-arrow-right-from-bracket"></i>&ensp;&ensp;&ensp;Log Out</a>
+				<a asp-area="" asp-controller="Account" asp-action="LogOut" class="logOutBtn"><i class="fa-solid fa-arrow-right-from-bracket"></i>&ensp;&ensp;&ensp;Log Out</a>
 			</div>
 		</div>
 		

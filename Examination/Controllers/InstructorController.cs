@@ -1,5 +1,6 @@
 ﻿using Examination.Models;
 using Examination.Repo;
+using Examination.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using NuGet.DependencyResolver;
@@ -161,7 +162,7 @@ namespace Examination.Controllers
         //    {
         //        ModelState.AddModelError("", "An error occurred while saving the instructor data.");
         //    }
-        //    return View(instructor);
+        //    return View(instructor);0
         //}
         public IActionResult showDetails(int? id)
         {

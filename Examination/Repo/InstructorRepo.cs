@@ -1,4 +1,5 @@
 ﻿using Examination.Models;
+using Examination.ViewModel;
 using Microsoft.EntityFrameworkCore;
 
 namespace Examination.Repo
@@ -52,7 +53,7 @@ namespace Examination.Repo
         }
         public List<Track_Course> GetAllCoursesWithTracks()
         {
-            return db.Track_Courses.Include(tc => tc.Cr).ToList();
+            return db.TrackCourses.Include(tc => tc.Cr).ToList();
         }
 
 
@@ -98,33 +99,46 @@ namespace Examination.Repo
         }
         public InstructorViewModel RetrieveAllRelatedDataAboutInstructor(int id)
         {
+            // Fetch the instructor along with related entities
             var model = db.Instructors
-                           .Include(ins => ins.Instructor_Courses)
-                           .ThenInclude(ic => ic.Cr)
-                           .ThenInclude(c => c.Track_Courses) // Include the Track associated with the Course
-                           .FirstOrDefault(i => i.InsId == id);
+                            .Include(ins => ins.Instructor_Courses)
+                                .ThenInclude(ic => ic.Cr) // Include the Course associated with the Instructor_Course
+                                    .ThenInclude(c => c.Track_Courses) // Include the Track associated with the Course
+                            .FirstOrDefault(i => i.InsId == id);
 
+            // Create a ViewModel object to hold all the retrieved data
             InstructorViewModel allData = new InstructorViewModel();
+
             if (model != null)
             {
-                allData.intstrutor = new Instructor();
-                allData.intstrutor.InsId = model.InsId;
-                allData.intstrutor.Insname = model.Insname;
-                allData.intstrutor.Insemail = model.Insemail;
-                allData.intstrutor.Inspassword = model.Inspassword;
-                allData.intstrutor.Insgender = model.Insgender;
-                allData.intstrutor.Inssalary = model.Inssalary;
-                allData.intstrutor.InsImg = model.InsImg;
+                // Populate instructor details
+                allData.intstrutor = new Instructor
+                {
+                    InsId = model.InsId,
+                    Insname = model.Insname,
+                    Insemail = model.Insemail,
+                    Inspassword = model.Inspassword,
+                    Insgender = model.Insgender,
+                    Inssalary = model.Inssalary,
+                    InsImg = model.InsImg
+                };
             }
             else
             {
+                // Throw an exception if the instructor is not found
                 throw new InvalidOperationException("Instructor not found");
             }
 
+            // Retrieve all courses associated with the instructor
             allData.AllCourses = model.Instructor_Courses.Select(ic => ic.Cr).ToList();
+
+            // Retrieve all tracks associated with the instructor's courses
             allData.AllTracks = model.Instructor_Courses.Where(ic => ic.TIdNavigation != null)
-                                                        .Select(ic => ic.TIdNavigation)
-                                                        .Distinct().ToList();
+                                                         .Select(ic => ic.TIdNavigation)
+                                                         .Distinct()
+                                                         .ToList();
+
+            // Group courses by track
             allData.CoursesByTrack = new Dictionary<Track, List<Course>>();
             foreach (var track in allData.AllTracks)
             {
@@ -138,6 +152,7 @@ namespace Examination.Repo
 
             return allData;
         }
+
 
 
         public void UpdeteInstructorData(Instructor OldData, Instructor NewData, int courseId, int trackId)

@@ -1,0 +1,417 @@
+{
+  "Files": [
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Examination.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Examination.bundle.scp.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\2060.jpeg",
+      "PackagePath": "staticwebassets\\Images\\2060.jpeg"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\2062..jpeg",
+      "PackagePath": "staticwebassets\\Images\\2062..jpeg"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\2063..jpeg",
+      "PackagePath": "staticwebassets\\Images\\2063..jpeg"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\2064..jpeg",
+      "PackagePath": "staticwebassets\\Images\\2064..jpeg"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\2066..jpeg",
+      "PackagePath": "staticwebassets\\Images\\2066..jpeg"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\2068..jpeg",
+      "PackagePath": "staticwebassets\\Images\\2068..jpeg"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\2069..jpeg",
+      "PackagePath": "staticwebassets\\Images\\2069..jpeg"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\Exam.svg",
+      "PackagePath": "staticwebassets\\Images\\Exam.svg"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\courses.svg",
+      "PackagePath": "staticwebassets\\Images\\courses.svg"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\crs.svg",
+      "PackagePath": "staticwebassets\\Images\\crs.svg"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\donia.jpeg",
+      "PackagePath": "staticwebassets\\Images\\donia.jpeg"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\h.jpg",
+      "PackagePath": "staticwebassets\\Images\\h.jpg"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\image-1.png",
+      "PackagePath": "staticwebassets\\Images\\image-1.png"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\image-2.png",
+      "PackagePath": "staticwebassets\\Images\\image-2.png"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\ins.svg",
+      "PackagePath": "staticwebassets\\Images\\ins.svg"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\noUser.png",
+      "PackagePath": "staticwebassets\\Images\\noUser.png"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\pUser.png",
+      "PackagePath": "staticwebassets\\Images\\pUser.png"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\ques.png",
+      "PackagePath": "staticwebassets\\Images\\ques.png"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\ques2.png",
+      "PackagePath": "staticwebassets\\Images\\ques2.png"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\std.svg",
+      "PackagePath": "staticwebassets\\Images\\std.svg"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\student.png",
+      "PackagePath": "staticwebassets\\Images\\student.png"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\sub2 (1).png",
+      "PackagePath": "staticwebassets\\Images\\sub2 (1).png"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\success.svg",
+      "PackagePath": "staticwebassets\\Images\\success.svg"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\teach.svg",
+      "PackagePath": "staticwebassets\\Images\\teach.svg"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\teacher1.svg",
+      "PackagePath": "staticwebassets\\Images\\teacher1.svg"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\Images\\teacher2.svg",
+      "PackagePath": "staticwebassets\\Images\\teacher2.svg"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\css\\AddInsForm.css",
+      "PackagePath": "staticwebassets\\css\\AddInsForm.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\css\\EditProfileUser.css",
+      "PackagePath": "staticwebassets\\css\\EditProfileUser.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\css\\Exam.css",
+      "PackagePath": "staticwebassets\\css\\Exam.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\css\\Login.css",
+      "PackagePath": "staticwebassets\\css\\Login.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\css\\TableStd.css",
+      "PackagePath": "staticwebassets\\css\\TableStd.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\css\\mainLayoutCass.css",
+      "PackagePath": "staticwebassets\\css\\mainLayoutCass.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\css\\table.css",
+      "PackagePath": "staticwebassets\\css\\table.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\fonts\\linearicons\\style.css",
+      "PackagePath": "staticwebassets\\fonts\\linearicons\\style.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\js\\jquery.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery.min.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\js\\popper.js",
+      "PackagePath": "staticwebassets\\js\\popper.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "H:\\ITI-9\\upOExamination\\OnlineExaminationSystem\\Examination\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Examination.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Examination.props",
+      "PackagePath": "build\\Examination.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Examination.props",
+      "PackagePath": "buildMultiTargeting\\Examination.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Examination.props",
+      "PackagePath": "buildTransitive\\Examination.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
