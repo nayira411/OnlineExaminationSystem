@@ -20,6 +20,7 @@ namespace Examination
 
             builder.Services.AddScoped<AStudentRepo>();
             builder.Services.AddTransient<IStudentRepo, StudentRepo>();
+            builder.Services.AddTransient<IquestionRepo, QuestionRepo>();
 
 
 
