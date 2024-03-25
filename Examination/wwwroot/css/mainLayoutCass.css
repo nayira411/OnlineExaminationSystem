@@ -8,7 +8,7 @@
     height: 100%;
     width: 25%;
     position: fixed;
-    z-index: 1;
+    z-index:1000;
     top: 0;
     left: 0;
     background-color: #0b0d1b;
@@ -26,7 +26,7 @@
     }
 .main {
 
-    margin-left: 280px;
+    margin-left:320px;
     padding: 20px;
 }
 .logo {
@@ -46,18 +46,29 @@
         font-family: "Lemon", serif;
     }
 
-#collapseExample {
+#collapseExample, #settingProfile, #reportsCollapse {
     background-color: #171927;
 }
 
+
     #collapseExample a:hover,
-    a.sharedColor:hover {
+    a.sharedColor:hover, #settingProfile a:hover,#reportsCollapse a:hover{
         background-color: #6943ce;
-        color:white;
+        color: white;
     }
 
 .setting {
     position: absolute;
-    bottom: 8%;
+    bottom: 1%;
     width: 100%;
+}
+
+.logOutBtn {
+    font-weight: 900;
+    color: darkred !important;
+}
+
+.instAndStdStyle a:hover {
+    background-color: #6943ce;
+    color: white;
 }
