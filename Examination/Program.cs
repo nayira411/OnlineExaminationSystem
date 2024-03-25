@@ -1,3 +1,4 @@
+using Examination.Models;
 using Examination.Repo;
 
 namespace Examination
@@ -11,7 +12,9 @@ namespace Examination
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<AStudentRepo>();
-
+            builder.Services.AddScoped<IInstructorRepo,InstructorRepo>();
+            builder.Services.AddScoped<TrackCourseRepo, TrackCourseRepo>();
+            builder.Services.AddDbContext<ExamContext>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

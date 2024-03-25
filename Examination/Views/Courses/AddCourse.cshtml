@@ -3,6 +3,8 @@
 	ViewData["Title"] = "AddCourse";
 	var topics = ViewBag.allTopics as List<Topic>;
 	SelectList topic = new SelectList(topics, "TopicId", "TopicName");
+
+
 	var tracks = ViewBag.Tracks as List<Track>;
 	SelectList track = new SelectList(tracks, "Tid", "Tname");
 

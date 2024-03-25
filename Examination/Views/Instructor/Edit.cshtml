@@ -1,0 +1,103 @@
+﻿@model InstructorViewModel
+@{
+    ViewData["Title"] = "Edit";
+    // Assuming you have ViewBag.TrackCourses populated with mergedData
+    var trackCourses = ViewBag.TrackCourses as Dictionary<Track, (List<Course> userChoices, List<Course> allCourses)>;
+}
+
+<link rel="stylesheet" href="/css/AddInsForm.css" />
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header text-center">Edit Instructor</div>
+                <div class="card-body row">
+                    <form method="post" enctype="multipart/form-data" class="row">
+                        <div class="form-group mt-4 col-md-6">
+                            <label asp-for="intstrutor.Insname">Name:</label>
+                            <input class="form-control" asp-for="intstrutor.Insname">
+                            <span asp-validation-for="intstrutor.Insname"></span>
+                        </div>
+                        <div class="form-group mt-4 col-md-6">
+                            <label asp-for="intstrutor.Insemail">Email:</label>
+                            <input class="form-control" asp-for="intstrutor.Insemail">
+                            <span asp-validation-for="intstrutor.Insemail"></span>
+                        </div>
+                        <div class="form-group mt-4 col-md-6">
+                            <label asp-for="intstrutor.Inspassword">Password:</label>
+                            <input class="form-control" asp-for="intstrutor.Inspassword">
+                            <span asp-validation-for="intstrutor.Inspassword"></span>
+                        </div>
+                        <div class="form-group mt-4 col-md-6">
+                            <label asp-for="intstrutor.Inssalary">Salary:</label>
+                            <input class="form-control" asp-for="intstrutor.Inssalary" min="1">
+                            <span asp-validation-for="intstrutor.Inssalary"></span>
+                        </div>
+                        <div class="form-group mt-4 col-md-6">
+                            <label asp-for="intstrutor.Insgender">Gender:</label>
+                            <select class="form-control" asp-for="intstrutor.Insgender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                            <span asp-validation-for="intstrutor.Insgender"></span>
+                        </div>
+
+                        <div class="form-group mt-4 col-md-6">
+                            <label asp-for="intstrutor.InsImg">Image:</label>
+                            <input type="file" class="form-control-file" asp-for="intstrutor.InsImg" name="Image">
+                            <span asp-validation-for="intstrutor.InsImg"></span>
+                        </div>
+               @*  <div class="form-group mt-4 col-md-6">
+                   <label asp-for="@tracks">Tracks:</label>
+                   <select multiple class="form-control" name="tracks">
+                        @foreach (var tr in tracks)
+                     {
+                      <option value="@tr.TId" selected="@Model.AllTracks.Any(t => t.TId == tr.TId)">@tr.Tname</option>
+                 }
+                  </select>
+                     <span asp-validation-for="@tracks"></span>
+                 </div>
+                                
+                        @foreach (var kvp in Model.CoursesByTrack)
+                        {
+                            <div class="form-group mt-4 col-md-6">
+                                <label asp-for="@kvp.Key">Courses for @kvp.Key.Tname:</label>
+                                <select name="@($"courses_{kvp.Key.TId}")" class="form-control" multiple>
+                                    @foreach (var course in kvp.Value)
+                                    {
+                                        <option value="@course.CrId" selected="@Model.AllCourses.Any(c => c.CrId == course.CrId)">
+                                            @course.Cname
+                                        </option>
+                                    }
+                                </select>
+                                <span asp-validation-for="@Model.AllCourses"></span>
+                            </div>
+                        }
+                        *@
+
+                        @foreach (var track in trackCourses)
+                        {
+                            <div class="form-group mt-4 col-md-6">
+                                <label>Courses for @track.Key.Tname:</label>
+                                <select name="@($"courses_{track.Key.TId}")" class="form-control" multiple>
+                                    @foreach (var course in track.Value.allCourses)
+                                    {
+                                        <option value="@course.CrId" selected="@track.Value.userChoices.Any(c => c.CrId == course.CrId)">
+                                            @course.Cname
+                                        </option>
+                                    }
+                                </select>
+                            </div>
+                        }
+                        
+
+                        <div class="form-group mt-4 col-md-12">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

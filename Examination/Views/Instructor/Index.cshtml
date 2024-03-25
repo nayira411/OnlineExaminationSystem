@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Instructor>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_mainLayout";
+}
+<link rel="stylesheet" href="/css/table.css" />
+<div class="headerSide  ">
+    <img src="~/Images/teach.svg" class="w-25" style=" margin-left: 124px;" />
+    <h4>instructors</h4>
+</div>
+
+<div class="teacherSide">
+    <div class="leftSideBar">
+        <h2>Instructors</h2>
+        <span> &nbsp;&nbsp; total : @Model.Count()</span>
+    </div>
+    <a asp-action="create" asp-controller="Instructor">
+        Add Instructor <i class="fa-solid fa-plus"> </i>
+    </a>
+</div>
+
+<table class="rwd-table">
+
+    <tbody>
+        <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>Gender</th>
+            <th>Salary</th>
+            <th>Action</th>
+        </tr>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="8">No Instructors exist</td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.InsId</td>
+                    <td>
+
+
+                        <img src="/Images/@item.InsImg" width="50px" class="instImge" />
+
+                    </td>
+                    <td>@item.Insname</td>
+                    <td>@item.Insemail</td>
+                    <td>@item.Inspassword</td>
+                    <td>@item.Insgender</td>
+                    <td>@item.Inssalary</td>
+                    <td class="lastTd">
+                        <a asp-action="showDetails" asp-controller="instructor" asp-route-id="@item.InsId"><i class="fa-solid fa-eye text-primary"></i></a> &nbsp;&nbsp;
+                        <a asp-action="Edit" asp-controller="instructor" asp-route-id="@item.InsId"><i class="fa-solid fa-pen-to-square text-secondary"></i></a> &nbsp;&nbsp;
+                        <a href="#" onclick="confirmDelete(@item.InsId)"><i class="fa-solid fa-trash-can text-danger"></i></a>
+
+                    </td>
+                </tr>
+            }
+        }
+
+
+
+    </tbody>
+</table>
+
+<script>
+    function confirmDelete(instructorId) {
+        if (confirm('Are you sure you want to delete this instructor?')) {
+            window.location.href = '/instructor/delete/' + instructorId;
+        }
+    }
+</script>
