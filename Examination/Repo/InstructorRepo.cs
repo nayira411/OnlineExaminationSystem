@@ -53,7 +53,7 @@ namespace Examination.Repo
         }
         public List<Track_Course> GetAllCoursesWithTracks()
         {
-            return db.TrackCourses.Include(tc => tc.Cr).ToList();
+            return db.Track_Courses.Include(tc => tc.Cr).ToList();
         }
 
 

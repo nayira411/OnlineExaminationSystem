@@ -6,23 +6,23 @@
 }
 
 <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-    <div style="width: 35%; height: 210px; background-color: #0b0d1b; color: white; border-radius: 20px; margin-right: 10px; display: flex; align-items: center; padding: 20px;">
+    <div style="width: 45%; height: 210px; background-color: #1e1e1e; color: white; border-radius: 20px; margin-right: 10px; display: flex; align-items: center; padding: 20px;">
         <img src="/Images/teacher2.svg" alt="Completed Courses" style="margin-right: 20px; width: 200px;">
         <div>
-            <h4>Completed Courses</h4>
+            <h4 style="font-family: Arial, sans-serif;">Completed Courses</h4>
             <h1 style="font-size: 40px; color: #FF204E; margin: 0;">@ViewBag.Count</h1>
         </div>
     </div>
-    <div style="width: 35%; height: 210px; background-color: #0b0d1b; color: white; border-radius: 20px; margin-left: 10px; display: flex; align-items: center; padding: 20px;">
+    <div style="width: 45%; height: 210px; background-color: #1e1e1e; color: white; border-radius: 20px; margin-left: 10px; display: flex; align-items: center; padding: 20px;">
         <img src="/Images/success.svg" alt="GPA" style="margin-right: 20px; width: 200px;">
         <div>
-            <h4>GPA</h4>
+            <h4 style="font-family: Arial, sans-serif;">GPA</h4>
             <h1 style="font-size: 40px; color: #FF204E; margin: 0;">@ViewBag.GPA%</h1>
         </div>
     </div>
 </div>
 <br />
-<div style="width: 800px; height: 400px;text-align:center" class="container">
+<div style="width: 100%; max-width: 800px; height: 400px; margin: 0 auto;">
     <canvas id="myChart"></canvas>
 </div>
 
@@ -38,17 +38,44 @@
                 data: @Html.Raw(Json.Serialize(Model.Data)),
                 backgroundColor: 'rgba(105, 67, 206, 0.5)',
                 borderColor: 'rgba(11, 13, 27, 1)',
-                borderWidth: 1,
+                borderWidth: 2,
+                pointBackgroundColor: 'rgba(105, 67, 206, 1)',
+                pointBorderColor: 'rgba(255, 255, 255, 1)',
+                pointBorderWidth: 2,
+                pointRadius: 5,
                 lineTension: 0.4
             }]
         },
         options: {
             scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
+                x: {
+                    grid: {
+                        display: false
                     }
-                }]
+                },
+                y: {
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.1)'
+                    },
+                    ticks: {
+                        beginAtZero: true,
+                        color: 'rgba(255, 255, 255, 0.8)',
+                        font: {
+                            family: 'Arial, sans-serif'
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        color: 'white',
+                        font: {
+                            family: 'Arial, sans-serif'
+                        }
+                    }
+                }
             }
         }
     });

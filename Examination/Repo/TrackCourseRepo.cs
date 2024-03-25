@@ -10,7 +10,7 @@ namespace Examination.Repo
         {
             using (var context = new ExamContext()) 
             {
-                var trackCourses = context.TrackCourses.Include(tc => tc.Cr).ToList();
+                var trackCourses = context.Track_Courses.Include(tc => tc.Cr).ToList();
                 var trackCoursesDictionary = new Dictionary<Track, List<Course>>();
 
                 foreach (var trackCourse in trackCourses)
