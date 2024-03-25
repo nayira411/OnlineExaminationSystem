@@ -41,6 +41,7 @@ namespace Examination.Controllers
 
 			Claim claim1;
 			Claim claim2;
+			Claim claim3;
 			ClaimsIdentity claimsIdentity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
 
 			switch (userType)
@@ -49,18 +50,21 @@ namespace Examination.Controllers
 					var student = (Student)user;
 					claim1 = new Claim(ClaimTypes.Email, student.Semail);
 					claim2 = new Claim(ClaimTypes.Name, student.Sname);
+					claim3 = new Claim(ClaimTypes.Sid, student.SId.ToString());
 					claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, "Student"));
 					break;
 				case UserType.Instructor:
 					var instructor = (Instructor)user;
 					claim1 = new Claim(ClaimTypes.Email, instructor.Insemail);
 					claim2 = new Claim(ClaimTypes.Name, instructor.Insname);
+					claim3 = new Claim(ClaimTypes.Sid, instructor.InsId.ToString());
 					claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, "Instructor"));
 					break;
 				case UserType.Admin:
 					var admin = (Admin)user;
 					claim1 = new Claim(ClaimTypes.Email, admin.Aemail);
 					claim2 = new Claim(ClaimTypes.Name, admin.Aname);
+					claim3 = new Claim(ClaimTypes.Sid, admin.AId.ToString());
 					claimsIdentity.AddClaim(new Claim(ClaimTypes.Role, "Admin"));
 					break;
 				default:
@@ -69,6 +73,7 @@ namespace Examination.Controllers
 
 			claimsIdentity.AddClaim(claim1);
 			claimsIdentity.AddClaim(claim2);
+			claimsIdentity.AddClaim(claim3);
 
 			ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 			await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, claimsPrincipal);

@@ -71,6 +71,39 @@ namespace Examination.Repo
 			double roundedSuccessPercentage = Math.Round(successPercentage, 1);
 			return roundedSuccessPercentage;
 		}
+		public int GetTrackIdOfStudent(int id)
+		{
+			var res = context.Students.FirstOrDefault(a => a.SId == id);
+			return res.TrackId;
+		}
+        public List<Student_Course> GetStudentCourses(int id)
+        {
+            var res = context.Student_Courses.Where(a => a.SId == id).ToList();
+            if (res.Count > 0)
+            {
+                return res;
+            }
+            else
+            {
+               
+                return new List<Student_Course>(); 
+            }
+        }
+
+        public List<Exam> HaveExam(int tid, List<int> crsIds)
+		{
+			List<Exam> res = new List<Exam>();
+			foreach (var cId in crsIds)
+			{
+				var stdExam = context.Exams.FirstOrDefault(a => a.TId == tid && a.CrId == cId);
+				if (stdExam != null && stdExam.ExamDate.Day > DateTime.Today.Day)
+				{
+					res.Add(stdExam);
+				}
+			}
+			return res;
+
+		}
 
 
 	}

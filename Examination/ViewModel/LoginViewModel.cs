@@ -2,7 +2,7 @@
 
 namespace Examination.ViewModel
 {
-    public class LoginViewModel
+    public partial class LoginViewModel
     {
         [Required]
         public string Email { get; set; }

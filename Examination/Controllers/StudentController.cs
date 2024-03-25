@@ -1,10 +1,12 @@
-﻿using Examination.Models;
+﻿using CRUD.CustomFilters;
+using Examination.Models;
 using Examination.Repo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing.Constraints;
 
 namespace Examination.Controllers
 {
+    [AuthFilter]
     public class StudentController : Controller
     {
         IStudentRepo Srepo;

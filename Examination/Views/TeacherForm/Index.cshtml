@@ -29,10 +29,11 @@
     }
     <div class="container">
         <div class="form-container">
-            <h1>Create New Exam</h1>
+
+            <h1 style="margin-top:-50px">Create New Exam</h1>
             <form method="post" asp-action="CreateExam" onsubmit="return validateSelection()">
                 @*here i put inst id static==========================================*@
-                <input type="text" value="2" hidden name="insId" />
+                <input type="text" value="@ViewBag.id" hidden name="insId" />
                 <div class="mb-3">
                     <label for="courseName" class="form-label">Course Name</label>
                     <select id="courseName" class="form-select" name="CourseName">

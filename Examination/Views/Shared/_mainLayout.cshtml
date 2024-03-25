@@ -1,84 +1,127 @@
 ﻿@{
-    ViewData["Title"] = "Home";
+	ViewData["Title"] = "Home";
 }
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DBProject</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="sidebars.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Lemon&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/mainLayoutCass.css" />
-    <!--Bootstrap-->
-    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
-    @RenderSection("Header", required: false);
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DBProject</title>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Custom styles for this template -->
+	<link href="sidebars.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+		  integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+		  crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Lemon&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/css/mainLayoutCass.css" />
+	<!--Bootstrap-->
+	<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+	@RenderSection("Header", required: false);
+	<style>
+
+	</style>
 
 </head>
 
 <body>
-    <div class="sidenav">
-        <div class="logo">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <h1>Exam</h1>
-        </div>
-        <p class="sharedColor">
-            <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-               aria-controls="collapseExample" class="sharedColor">
-                <i class="fa-solid fa-user-tie"></i>&ensp;&ensp;&ensp; Admin DashBoard
-            </a>
-        </p>
-        <div class="collapse text-center" id="collapseExample">
-            <div>
-                <a href="#">Teachers</a>
-                <a asp-area="" asp-controller="AStudent" asp-action="Display">Student</a>
-                <a  asp-area="" asp-controller="courses" asp-action="index">Courses</a>
-            </div>
-        </div>
-    <p class="sharedColor">
-        <a data-bs-toggle="collapse" href="#reportsCollapse" role="button" aria-expanded="false"
-           aria-controls="reportsCollapse" class="sharedColor">
-            <i class="fa fa-file" aria-hidden="true"></i>&ensp;&ensp;&ensp;Reports
-        </a>
-    </p>
-    <div class="collapse text-center" id="reportsCollapse">
-        <div>
-            <a href="#">Student Exam</a>
-                        <a href="http://DESKTOP-KKEBIIH/ReportServer/Pages/ReportViewer.aspx?%2fReport%2fGetExam">Exam</a>
-                        <a href="http://DESKTOP-KKEBIIH/ReportServer/Pages/ReportViewer.aspx?%2fReport%2fStudntGrade">Student Grades</a>
-                        <a href="http://DESKTOP-KKEBIIH/ReportServer/Pages/ReportViewer.aspx?%2fReport%2fTopicReport">Course Topic</a>
-            <a href="#">Department</a>
-            <a href="#">Instructor</a>
-        </div>
-    </div>
-    <div class="setting">
-        <div>
-            <a href="#services"><i class="fa-solid fa-gear"></i>&ensp;&ensp;&ensp;Settings</a>
-        </div>
-        <div>
-            <a href="#services"><i class="fa-solid fa-arrow-right-from-bracket"></i>&ensp;&ensp;&ensp;Log Out</a>
-        </div>
-    </div>
-</div>
-<div class="main">
-    @RenderBody()
-</div>
-    @RenderSection("script", required: false);
+	<div class="sidenav">
+		<div class="logo">
+			<i class="fa-solid fa-graduation-cap"></i>
+			<h1>Exam</h1>
+		</div>
 
-<!-- Bootstrap Bundle with Popper -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-<script src="~/lib/jquery/dist/jquery.min.js"></script>
-<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+		@if (User.IsInRole("Student"))
+		{
+			<div class="dashboard-links">
+				<a asp-area="" asp-controller="" asp-action="" class="dashboard-link">
+					<i class="fas fa-home"></i> Student Dashboard
+				</a>
+				<a asp-area="" asp-controller="AStudent" asp-action="GetStudetGrade" class="dashboard-link">
+					<i class="fas fa-book"></i> Your Courses
+				</a>
+				<a asp-area="" asp-controller="UpcommingExams" asp-action="Index" class="dashboard-link">
+					<i class="fas fa-clipboard-list"></i> Upcoming Exams
+				</a>
+			</div>
+			
+		}
+		@if (User.IsInRole("Instructor"))
+		{
+			<div class="dashboard-links">
+				<a asp-area="" asp-controller="TeacherForm" asp-action="TeacherHomePage" class="dashboard-link">
+					<i class="fas fa-home"></i> Instructor Dashboard
+				</a>
+				<a asp-area="" asp-controller="Courses" asp-action="Index" class="dashboard-link">
+					<i class="fas fa-plus"></i> Add Question
+				</a>
+				<a asp-area="" asp-controller="TeacherForm" asp-action="Index" class="dashboard-link">
+					<i class="fas fa-pencil-alt"></i> Create Exam
+				</a>
+				<a asp-area="" asp-controller="TeacherForm" asp-action="CreateExam" class="dashboard-link">
+					<i class="fas fa-chart-bar"></i> Report
+				</a>
+				<a asp-area="" asp-controller="TeacherForm" asp-action="ShowTeacherCourses" class="dashboard-link">
+					<i class="fas fa-book"></i> Your Courses
+				</a>
+			</div>
+		}
+		@if (User.IsInRole("Admin"))
+		{
+			<p class="sharedColor">
+				<a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+				aria-controls="collapseExample" class="sharedColor">
+					<i class="fa-solid fa-user-tie"></i>&ensp;&ensp;&ensp; Admin DashBoard
+				</a>
+			</p>
+			<div class="collapse text-center" id="collapseExample">
+				<div>
+					<a href="#">Teachers</a>
+					<a asp-area="" asp-controller="AStudent" asp-action="Display">Student</a>
+					<a asp-area="" asp-controller="courses" asp-action="index">Courses</a>
+				</div>
+			</div>
+			<p class="sharedColor">
+				<a data-bs-toggle="collapse" href="#reportsCollapse" role="button" aria-expanded="false"
+				aria-controls="reportsCollapse" class="sharedColor">
+					<i class="fa fa-file" aria-hidden="true"></i>&ensp;&ensp;&ensp;Reports
+				</a>
+			</p>
+			<div class="collapse text-center" id="reportsCollapse">
+				<div>
+					<a href="#">Student Exam</a>
+					<a href="http://DESKTOP-KKEBIIH/ReportServer/Pages/ReportViewer.aspx?%2fReport%2fGetExam">Exam</a>
+					<a href="http://DESKTOP-KKEBIIH/ReportServer/Pages/ReportViewer.aspx?%2fReport%2fStudntGrade">Student Grades</a>
+					<a href="http://DESKTOP-KKEBIIH/ReportServer/Pages/ReportViewer.aspx?%2fReport%2fTopicReport">Course Topic</a>
+					<a href="#">Department</a>
+					<a href="#">Instructor</a>
+				</div>
+			</div>
+		}
+		<div class="setting">
+			<div>
+				<a href="#services" ><i class="fa-solid fa-gear"></i>&ensp;&ensp;&ensp;Settings</a>
+			</div>
+			<div>
+				<a asp-area="" asp-controller="Account" asp-action="LogOut"><i class="fa-solid fa-arrow-right-from-bracket"></i>&ensp;&ensp;&ensp;Log Out</a>
+			</div>
+		</div>
+		
+	</div>
+	<div class="main">
+		@RenderBody()
+	</div>
+	@RenderSection("script", required: false);
+
+	<!-- Bootstrap Bundle with Popper -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 </body>
 </html>
