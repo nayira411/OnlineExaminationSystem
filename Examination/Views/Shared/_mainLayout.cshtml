@@ -1,4 +1,4 @@
-﻿@using System.Security.Claims
+@using System.Security.Claims
 @{
 	var user = Context.User;
 	var sid = user.FindFirst(ClaimTypes.Sid)?.Value;
