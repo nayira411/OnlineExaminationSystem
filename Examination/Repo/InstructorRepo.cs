@@ -16,8 +16,8 @@ namespace Examination.Repo
         public Instructor_Course RemoveExistingAssociationRecord(int insId, int courseId, int trackId);
         public void RemoveFromInstructorCourse(Instructor_Course existingEntity);
         public void AddInstructorCoursesAndTrack(int isdId, int courseId, int trackId);
-        public InstructorViewModel RetrieveAllRelatedDataAboutInstructor(int id);
-        public void UpdeteInstructorData(Instructor OldData, Instructor NewData, int courseId, int trackId);
+        public InstructorViewModel RetrieveAllRelatedDataAboutInstructor(int? id);
+        public void UpdeteInstructorData(Instructor OldData, Instructor NewData);
         Task UpdateImage(Instructor instructor, IFormFile Image);
         public bool DoesInstructorHaveCourses(int instructorId);
         public List<Course> GetInstructorCourses(int instructorId);
@@ -46,7 +46,6 @@ namespace Examination.Repo
             return db.Instructors.ToList();
         }
 
-        /*==============GetTracksWithCourses=================*/
         public List<Course> GetAllCourses()
         {
             return db.Courses.ToList();
@@ -97,65 +96,61 @@ namespace Examination.Repo
             db.Instructor_Courses.Add(instructorCourse);
             db.SaveChanges();
         }
-        public InstructorViewModel RetrieveAllRelatedDataAboutInstructor(int id)
+        public InstructorViewModel RetrieveAllRelatedDataAboutInstructor(int? id)
         {
-            // Fetch the instructor along with related entities
-            var model = db.Instructors
-                            .Include(ins => ins.Instructor_Courses)
-                                .ThenInclude(ic => ic.Cr) // Include the Course associated with the Instructor_Course
-                                    .ThenInclude(c => c.Track_Courses) // Include the Track associated with the Course
-                            .FirstOrDefault(i => i.InsId == id);
 
-            // Create a ViewModel object to hold all the retrieved data
-            InstructorViewModel allData = new InstructorViewModel();
-
-            if (model != null)
+            if (id != null && id != 0)
             {
-                // Populate instructor details
-                allData.intstrutor = new Instructor
+                var model = db.Instructors
+                      .Include(ins => ins.Instructor_Courses)
+                      .ThenInclude(ic => ic.Cr)
+                      .ThenInclude(c => c.Track_Courses) // Include the Track associated with the Course
+                      .FirstOrDefault(i => i.InsId == id);
+
+                InstructorViewModel allData = new InstructorViewModel();
+                if (model != null)
                 {
-                    InsId = model.InsId,
-                    Insname = model.Insname,
-                    Insemail = model.Insemail,
-                    Inspassword = model.Inspassword,
-                    Insgender = model.Insgender,
-                    Inssalary = model.Inssalary,
-                    InsImg = model.InsImg
-                };
+                    allData.intstrutor = new Instructor();
+                    allData.intstrutor.InsId = model.InsId;
+                    allData.intstrutor.Insname = model.Insname;
+                    allData.intstrutor.Insemail = model.Insemail;
+                    allData.intstrutor.Inspassword = model.Inspassword;
+                    allData.intstrutor.Insgender = model.Insgender;
+                    allData.intstrutor.Inssalary = model.Inssalary;
+                    allData.intstrutor.InsImg = model.InsImg;
+                }
+                else
+                {
+                    throw new InvalidOperationException("Instructor not found");
+                }
+
+                allData.AllCourses = model.Instructor_Courses.Select(ic => ic.Cr).ToList();
+                allData.AllTracks = model.Instructor_Courses.Where(ic => ic.TIdNavigation != null)
+                                                            .Select(ic => ic.TIdNavigation)
+                                                            .Distinct().ToList();
+                allData.CoursesByTrack = new Dictionary<Track, List<Course>>();
+                foreach (var track in allData.AllTracks)
+                {
+                    var coursesInTrack = model.Instructor_Courses
+                                               .Where(ic => ic.TId == track.TId)
+                                               .Select(ic => ic.Cr)
+                                               .ToList();
+
+                    allData.CoursesByTrack.Add(track, coursesInTrack);
+                }
+                return allData;
+
             }
-            else
-            {
-                // Throw an exception if the instructor is not found
-                throw new InvalidOperationException("Instructor not found");
-            }
+            throw new InvalidOperationException("invalid id ");
 
-            // Retrieve all courses associated with the instructor
-            allData.AllCourses = model.Instructor_Courses.Select(ic => ic.Cr).ToList();
 
-            // Retrieve all tracks associated with the instructor's courses
-            allData.AllTracks = model.Instructor_Courses.Where(ic => ic.TIdNavigation != null)
-                                                         .Select(ic => ic.TIdNavigation)
-                                                         .Distinct()
-                                                         .ToList();
 
-            // Group courses by track
-            allData.CoursesByTrack = new Dictionary<Track, List<Course>>();
-            foreach (var track in allData.AllTracks)
-            {
-                var coursesInTrack = model.Instructor_Courses
-                                           .Where(ic => ic.TId == track.TId)
-                                           .Select(ic => ic.Cr)
-                                           .ToList();
 
-                allData.CoursesByTrack.Add(track, coursesInTrack);
-            }
 
-            return allData;
         }
 
 
-
-        public void UpdeteInstructorData(Instructor OldData, Instructor NewData, int courseId, int trackId)
+        public void UpdeteInstructorData(Instructor OldData, Instructor NewData)
         {
 
             try
@@ -165,10 +160,7 @@ namespace Examination.Repo
                 OldData.Inspassword = NewData.Inspassword;
                 OldData.Insgender = NewData.Insgender;
                 OldData.Inssalary = NewData.Inssalary;
-               // OldData.InsImg = NewData.InsImg;
 
-                // Update instructor's courses and tracks associations if needed
-                // This part depends on your application logic for updating courses and tracks
 
                 db.SaveChanges();
             }
@@ -176,10 +168,10 @@ namespace Examination.Repo
             {
                 throw;
             }
-    
+
         }
 
-       public async Task UpdateImage(Instructor instructor,IFormFile Image)
+        public async Task UpdateImage(Instructor instructor, IFormFile Image)
         {
             // Save the image file
             string fileName = $"{instructor.InsId}.{Image.FileName.Split('.').Last()}";
@@ -188,9 +180,10 @@ namespace Examination.Repo
                 await Image.CopyToAsync(fileStream);
             }
             instructor.InsImg = fileName;
+            db.SaveChanges();
         }
-  
-    
+
+
 
         public bool DoesInstructorHaveCourses(int instructorId)
         {
@@ -198,9 +191,9 @@ namespace Examination.Repo
         }
         public List<Instructor> AlternativeInstructors(int id)
         {
-           return db.Instructors
-                   .Where(i => i.InsId != id)
-                   .ToList();
+            return db.Instructors
+                    .Where(i => i.InsId != id)
+                    .ToList();
         }
         public List<Course> GetInstructorCourses(int instructorId)
         {
@@ -248,7 +241,7 @@ namespace Examination.Repo
                 .Select(ic => new
                 {
                     course = ic.Cr,
-                    track = ic.TIdNavigation 
+                    track = ic.TIdNavigation
                 })
                 .AsEnumerable()
                 .Select(x => (x.course, x.track))
@@ -259,7 +252,7 @@ namespace Examination.Repo
         public bool IsEmailValid(string email)
         {
 
-           return db.Instructors.Any(a=>a.Insemail!= email);
+            return db.Instructors.Any(a => a.Insemail != email);
         }
 
         public void RemoveAllInstructorCoursesAndTrackByTrackId(int trackId)
@@ -271,6 +264,5 @@ namespace Examination.Repo
             db.Instructor_Courses.RemoveRange(associationsToRemove);
             db.SaveChanges();
         }
-
     }
 }

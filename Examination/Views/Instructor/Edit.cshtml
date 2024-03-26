@@ -1,8 +1,7 @@
-﻿@model InstructorViewModel
+﻿ @model InstructorViewModel
 @{
     ViewData["Title"] = "Edit";
-    // Assuming you have ViewBag.TrackCourses populated with mergedData
-    var trackCourses = ViewBag.TrackCourses as Dictionary<Track, (List<Course> userChoices, List<Course> allCourses)>;
+
 }
 
 <link rel="stylesheet" href="/css/AddInsForm.css" />
@@ -48,49 +47,23 @@
                             <input type="file" class="form-control-file" asp-for="intstrutor.InsImg" name="Image">
                             <span asp-validation-for="intstrutor.InsImg"></span>
                         </div>
-               @*  <div class="form-group mt-4 col-md-6">
-                   <label asp-for="@tracks">Tracks:</label>
-                   <select multiple class="form-control" name="tracks">
-                        @foreach (var tr in tracks)
-                     {
-                      <option value="@tr.TId" selected="@Model.AllTracks.Any(t => t.TId == tr.TId)">@tr.Tname</option>
-                 }
-                  </select>
-                     <span asp-validation-for="@tracks"></span>
-                 </div>
-                                
-                        @foreach (var kvp in Model.CoursesByTrack)
-                        {
-                            <div class="form-group mt-4 col-md-6">
-                                <label asp-for="@kvp.Key">Courses for @kvp.Key.Tname:</label>
-                                <select name="@($"courses_{kvp.Key.TId}")" class="form-control" multiple>
-                                    @foreach (var course in kvp.Value)
-                                    {
-                                        <option value="@course.CrId" selected="@Model.AllCourses.Any(c => c.CrId == course.CrId)">
-                                            @course.Cname
-                                        </option>
-                                    }
-                                </select>
-                                <span asp-validation-for="@Model.AllCourses"></span>
-                            </div>
-                        }
-                        *@
 
-                        @foreach (var track in trackCourses)
-                        {
-                            <div class="form-group mt-4 col-md-6">
-                                <label>Courses for @track.Key.Tname:</label>
-                                <select name="@($"courses_{track.Key.TId}")" class="form-control" multiple>
-                                    @foreach (var course in track.Value.allCourses)
-                                    {
-                                        <option value="@course.CrId" selected="@track.Value.userChoices.Any(c => c.CrId == course.CrId)">
-                                            @course.Cname
-                                        </option>
-                                    }
-                                </select>
-                            </div>
-                        }
-                        
+                        <div class="form-group mt-4 row">
+                            @foreach (var kvp in ViewBag.TrackCourses)
+                            {
+                                <div class="col-md-6">
+                                    <label class="control-label">Courses for @kvp.Key.Tname:</label>
+                                    <select name="selectedCoursesByTrack[@kvp.Key.TId][]" class="form-control" multiple>
+                                        @foreach (var course in kvp.Value)
+                                        {
+                                            <option value="@course.CrId">@course.Cname</option>
+                                        }
+                                    </select>
+                                </div>
+                            }
+
+                        </div>
+
 
                         <div class="form-group mt-4 col-md-12">
                             <button type="submit" class="btn btn-primary">Submit</button>

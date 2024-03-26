@@ -99,24 +99,73 @@ namespace Examination.Controllers
             InstructorViewModel model = insRepo.RetrieveAllRelatedDataAboutInstructor(id.Value);
             return View(model);
         }
-        public IActionResult Edit(int id)
+        [HttpGet]
+        public IActionResult Edit(int? id)
         {
-            InstructorViewModel model = insRepo.RetrieveAllRelatedDataAboutInstructor(id);
-            Dictionary<Track, List<Course>> userChoices = model.CoursesByTrack;
+            if (id != null)
+            {
+                InstructorViewModel model = insRepo.RetrieveAllRelatedDataAboutInstructor(id.Value);
+                Dictionary<Track, List<Course>> userChoices = model.CoursesByTrack;
+                Dictionary<Track, List<Course>> trackCourses = crsRepo.GetTrackCoursesDictionary();
+                ViewBag.TrackCourses = trackCourses;
+                return View(model);
+            }
+            return BadRequest();
 
-            Dictionary<Track, List<Course>> trackCourses = crsRepo.GetTrackCoursesDictionary();
-            Dictionary<Track, (List<Course> userChoices, List<Course> allCourses)> mergedData =
-                trackCourses.ToDictionary(
-                    kvp => kvp.Key,
-                    kvp => (
-                        userChoices.ContainsKey(kvp.Key) ? userChoices[kvp.Key] : new List<Course>(),
-                        kvp.Value
-                    )
-                );
+        }
 
-            ViewBag.TrackCourses = mergedData;
 
-            return View(model);
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, InstructorViewModel model, Dictionary<int, int[]> selectedCoursesByTrack, IFormFile Image)
+        {
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var instructorToUpdate = insRepo.GetInstructorById(id);
+                    model.intstrutor.InsId = id;
+
+                    if (instructorToUpdate == null)
+                    {
+                        return RedirectToAction("index");
+                    }
+                    insRepo.UpdeteInstructorData(instructorToUpdate, model.intstrutor);
+                    foreach (var kvp in selectedCoursesByTrack)
+                    {
+                        int trackId = kvp.Key;
+                        int[] selectedCourseIds = kvp.Value;
+
+                        foreach (var courseId in selectedCourseIds)
+                        {
+                            insRepo.RemoveExistingAssociationRecord(model.intstrutor.InsId, trackId, courseId);
+                        }
+
+                        foreach (var courseId in selectedCourseIds)
+                        {
+                            insRepo.AddInstructorCoursesAndTrack(model.intstrutor.InsId, courseId, trackId);
+                        }
+                    }
+
+                    if (Image != null && Image.Length > 0)
+                    {
+                        await insRepo.UpdateImage(instructorToUpdate, Image);
+                    }
+
+                    return RedirectToAction("index");
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.ErrorMessage = "Failed to update instructor: " + ex.Message;
+                    return View("Error");
+                }
+            }
+            else
+            {
+                Dictionary<Track, List<Course>> trackCourses = crsRepo.GetTrackCoursesDictionary();
+                ViewBag.TrackCourses = trackCourses;
+                return View(model.intstrutor);
+            }
         }
         public IActionResult Delete(int id)
         {
