@@ -107,7 +107,7 @@ namespace Examination.Repo
                     {
                         var studentAnswers = context.Student_Answers.FirstOrDefault(sA => sA.SId == sid && sA.EId == sexam.EId);
                         DateOnly today = DateOnly.FromDateTime(DateTime.Today);
-                        if (sexam?.ExamDate > today && studentAnswers != null)
+                        if (sexam?.ExamDate > today && studentAnswers == null)
                         {
                             res.Add(sexam);
                         }
