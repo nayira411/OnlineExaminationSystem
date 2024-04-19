@@ -1,6 +1,6 @@
-# Examify - Online Examination System 📝
+# Online Examination System 📝
 
-Welcome to Examify, your ultimate destination for hassle-free online exams! This platform is designed to offer a seamless examination experience for students, teachers, and administrators. With a user-friendly interface and robust features, Examify ensures efficient exam management and evaluation.
+Welcome to onlie exam system, your ultimate destination for hassle-free online exams! This platform is designed to offer a seamless examination experience for students, teachers, and administrators. With a user-friendly interface and robust features, system ensures efficient exam management and evaluation.
 ## Features
 
 - **Exam Creation:** Teachers can easily create exams with customizable settings such as duration, question types, and difficulty levels.
@@ -45,7 +45,7 @@ Welcome to Examify, your ultimate destination for hassle-free online exams! This
 -Monitor student progress and evaluate performance.
 -Grade subjective questions and provide feedback.
 ### Administrator
--Log in to Examify.
+-Log in to system.
 -Manage user accounts and roles.
 -Monitor system health and performance.
 -Provide technical support to users as needed.
